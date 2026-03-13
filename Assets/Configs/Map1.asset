@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962fab2567d2a674dbcf89177c70b9a7, type: 3}
+  m_Name: Map1
+  m_EditorClassIdentifier: Assembly-CSharp::MapConfig
+  MapName: First
+  PreviewPrefab: {fileID: 2915663463560374740, guid: f540a359daf567f44b9973594cdb4292, type: 3}
+  PreviewPosition: {x: -1.19, y: -0.71, z: 0}
+  BattlePrefab: {fileID: 2915663463560374740, guid: 0d2a81292554f3741af0d7fc8b649889, type: 3}
+  BattlePosition: {x: 0, y: 0, z: 0}

@@ -1,0 +1,32 @@
+.BattleButton {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color: rgb(255, 204, 102);
+    font-size: 27px;
+    width: 200px;
+    height: 44px;
+    -unity-text-align: middle-center;
+    top: 0;
+    position: absolute;
+    transform-origin: center;
+    translate: 74px 0;
+}
+
+.BattleButton:hover {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color: rgb(255, 204, 102);
+    font-size: 27px;
+    width: 200px;
+    height: 44px;
+    -unity-text-align: middle-center;
+    top: 0;
+    position: absolute;
+    transform-origin: center;
+    translate: 74px 0;
+    scale: 1.1 1.1 1.1;
+}
