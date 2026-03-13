@@ -17,7 +17,6 @@ public class WeaponConfigEditor : Editor
     {
         serializedObject.Update();
         
-        // Рисуем все поля, кроме _attackConfig
         DrawPropertiesExcluding(serializedObject, "_attackConfig");
         
         EditorGUILayout.Space(10);
@@ -25,10 +24,8 @@ public class WeaponConfigEditor : Editor
         
         EditorGUI.BeginChangeCheck();
         
-        // Поле для выбора ScriptableObject
         EditorGUILayout.PropertyField(_attackConfigProp, new GUIContent("Shoot Config"));
         
-        // Проверяем, что выбранный объект реализует IShootConfig
         if (_attackConfigProp.objectReferenceValue != null && 
             !(_attackConfigProp.objectReferenceValue is IShootConfig))
         {
@@ -43,7 +40,6 @@ public class WeaponConfigEditor : Editor
             serializedObject.ApplyModifiedProperties();
         }
         
-        // Показываем поля выбранного конфига
         if (_attackConfigProp.objectReferenceValue != null)
         {
             EditorGUILayout.Space(10);
