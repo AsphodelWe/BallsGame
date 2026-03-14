@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4237ced6435cac94aa2aa116bdca9c8b
+guid: 8014256c5388b9d4f8a6e549c34da2dd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1421550930487963169
-    second: Ak47_0
+      213: -8401589990244493734
+    second: Glock_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ak47_0
+      name: Glock_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1872
-        height: 539
+        x: 65
+        y: 43
+        width: 180
+        height: 112
       alignment: 9
-      pivot: {x: 0.41442153, y: 0.6394376}
+      pivot: {x: 0.24916336, y: 0.4748915}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 12e6cd12a0d5ab310800000000000000
-      internalID: 1421550930487963169
+      spriteID: a56dffada6e876b80800000000000000
+      internalID: -8401589990244493734
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b38d9a5fffaa10c4db4bc54530e22153
+    spriteID: 4b21759e781ea39469f9ebfe9e01ddef
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ak47_0: 1421550930487963169
+      Glock_0: -8401589990244493734
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

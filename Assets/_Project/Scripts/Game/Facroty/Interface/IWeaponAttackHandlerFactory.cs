@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IWeaponAttackHandlerFactory
 {
-    IWeaponAttackHandler CreateHandler(IShootConfig config);
+    IWeaponAttackHandler CreateHandler(IShootConfig config, ObjectPool<Bullet> bulletPool);
 }

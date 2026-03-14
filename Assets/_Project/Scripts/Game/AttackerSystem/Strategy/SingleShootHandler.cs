@@ -1,27 +1,23 @@
 using System.Threading;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class AutoWeaponAttackHandler : IWeaponAttackHandler
+public class SingleShootHandler : IWeaponAttackHandler
 {
-    private AutoWeaponConfig _config;
-    private int _currentAmmo;
+    private SingleShootConfig _config;
     private ObjectPool<Bullet> _bulletPool;
     private CancellationTokenSource _cts;
-    private bool _isReloading;
     private bool _isShooting;
-    public AutoWeaponAttackHandler(AutoWeaponConfig config, ObjectPool<Bullet> bulletPool)
+    public SingleShootHandler(SingleShootConfig config, ObjectPool<Bullet> bulletPool)
     {
         _config = config;
         _bulletPool = bulletPool;
-        _currentAmmo = config.MaxAmmo;
         _cts = new CancellationTokenSource();
     }
 
     public void Attack(Weapon weapon)
     {
-        if (_isReloading || _isShooting) return;
+        if (_isShooting) return;
 
         _isShooting = true;
         ShootLoop(weapon, _cts.Token).Forget();
@@ -46,7 +42,6 @@ public class AutoWeaponAttackHandler : IWeaponAttackHandler
     private async UniTask Shoot(Weapon weapon, CancellationToken token)
     {
         CreateBullet(weapon);
-        _currentAmmo--;
 
         await UniTask.Delay((int)(_config.FireRate * 1000), cancellationToken: token);
     }
@@ -57,11 +52,6 @@ public class AutoWeaponAttackHandler : IWeaponAttackHandler
         {
             while (!token.IsCancellationRequested)
             {
-                if (_currentAmmo <= 0)
-                {
-                    await Reload(token);
-                    continue;
-                }
                 await Shoot(weapon, token);
             }
         }
@@ -70,15 +60,6 @@ public class AutoWeaponAttackHandler : IWeaponAttackHandler
             _isShooting = false;
         }
 
-    }
-
-    private async UniTask Reload(CancellationToken token)
-    {
-        _isReloading = true;
-        await UniTask.Delay((int)(_config.FireRateMagazine * 1000), cancellationToken: token);
-
-        _currentAmmo = _config.MaxAmmo;
-        _isReloading = false;
     }
 
     public void Stop()
@@ -92,6 +73,5 @@ public class AutoWeaponAttackHandler : IWeaponAttackHandler
     {
         Stop();
     }
-
 
 }

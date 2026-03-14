@@ -30,6 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6123144104390729425}
+  - {fileID: 6051260981555437550}
   - {fileID: 109165672972388718}
   - {fileID: 477232918618498443}
   m_Father: {fileID: 2560201854057479143}
@@ -189,7 +190,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &6537410652626697533
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -238,10 +239,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf3c842bb681b248b3d81c4d5a7f817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallPresent
-  _attackerConfig: {fileID: 11400000, guid: b0b0ed1ae3117844880cea207a3130f3, type: 2}
+  _attackerConfig: {fileID: 11400000, guid: 18a737d15c675414bbceb49ac671efcd, type: 2}
   _ballPhysics: {fileID: 4129831950286947629}
   _ballView: {fileID: 3351034329219152781}
-  _attackerSlot: {fileID: 6123144104390729425}
+  _attackerSlot: {fileID: 6051260981555437550}
   _ballHealth: {fileID: 1408864646514305768}
 --- !u!114 &4129831950286947629
 MonoBehaviour:
@@ -311,6 +312,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.67, y: -0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5373620023326918673}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7638120865658705489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6051260981555437550}
+  m_Layer: 8
+  m_Name: Slot_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6051260981555437550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7638120865658705489}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.12, y: -0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
