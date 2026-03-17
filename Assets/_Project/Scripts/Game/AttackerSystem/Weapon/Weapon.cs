@@ -8,6 +8,7 @@ public class Weapon : Attacker
     public IWeaponAttackHandler AttackHandler { get; set; }
     public override ITargetStrategy TargetStrategy { get; set; }
     public ObjectPool<Bullet> BulletPool { get; private set; }
+    public ObjectPool<ShootExplosion> ShootEffectPool { get; private set; }
 
     private void Update()
     {
@@ -18,6 +19,11 @@ public class Weapon : Attacker
     public void SetBulletPull(ObjectPool<Bullet> bulletPool)
     {
         BulletPool = bulletPool;
+    }
+
+    public void SetShotEffectPull(ObjectPool<ShootExplosion> shootEffectPool)
+    {
+        ShootEffectPool = shootEffectPool;
     }
 
     private void OnDestroy()

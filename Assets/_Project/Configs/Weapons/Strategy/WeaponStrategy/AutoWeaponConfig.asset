@@ -16,3 +16,4 @@ MonoBehaviour:
   BulletConfig: {fileID: 11400000, guid: 861bf8517ad6e2d459a822b7d48fa0ee, type: 2}
   MaxAmmo: 30
   FireRateMagazine: 5
+  _prefabShootEffect: {fileID: 4674043691350975746, guid: 9894454b1cf82e14f8c8580a6a4d8e35, type: 3}

@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 4129831950286947629}
   - component: {fileID: 3351034329219152781}
   - component: {fileID: 1408864646514305768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: USA 1_Battle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

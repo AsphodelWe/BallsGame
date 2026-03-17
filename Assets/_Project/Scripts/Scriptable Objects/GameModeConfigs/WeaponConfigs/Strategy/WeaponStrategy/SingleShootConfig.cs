@@ -7,6 +7,11 @@ public class SingleShootConfig : ScriptableObject, IShootConfig
     public float FireRate;
     public BulletConfig BulletConfig;
 
+    [Header("🎨Visual")]
+    public GameObject _shootEffectPrefab;
+
+    public GameObject ShootEffectPrefab => _shootEffectPrefab;
+
     GameObject IShootConfig.BulletPrefab => BulletConfig.Prefab;
     float IShootConfig.BulletSpeed => BulletConfig.Speed;
 }

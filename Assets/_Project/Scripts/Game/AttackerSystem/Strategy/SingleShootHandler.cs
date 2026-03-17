@@ -7,13 +7,15 @@ public class SingleShootHandler : IWeaponAttackHandler, IDisposable
 {
     private SingleShootConfig _config;
     private ObjectPool<Bullet> _bulletPool;
+    private ObjectPool<ShootExplosion> _shotEffectPool;
     private CancellationTokenSource _cts;
     private CancellationTokenSource _linkedCts;
     private bool _isShooting;
-    public SingleShootHandler(SingleShootConfig config, ObjectPool<Bullet> bulletPool)
+    public SingleShootHandler(SingleShootConfig config, ObjectPool<Bullet> bulletPool, ObjectPool<ShootExplosion> effectPrefab)
     {
         _config = config;
         _bulletPool = bulletPool;
+        _shotEffectPool = effectPrefab;
         _cts = new CancellationTokenSource();
     }
 
@@ -44,9 +46,18 @@ public class SingleShootHandler : IWeaponAttackHandler, IDisposable
         );
     }
 
+    private void CreateShootEffect(Weapon weapon)
+    {
+        var effect = _shotEffectPool.Get();
+
+        effect.transform.position = weapon.FirePoint.position;
+        effect.transform.rotation = weapon.FirePoint.rotation;
+    }
+
     private async UniTask Shoot(Weapon weapon, CancellationToken token)
     {
         CreateBullet(weapon);
+        CreateShootEffect(weapon);
 
         await UniTask.Delay((int)(_config.FireRate * 1000), cancellationToken: token);
     }

@@ -24,7 +24,7 @@ public class ObjectPool<T> where T : MonoBehaviour, IPoolable<T>
 
     private T CreateItem()
     {
-        T item = Object.Instantiate(_prefab);
+        T item = Object.Instantiate(_prefab, _parent);
         return item;
     }
 

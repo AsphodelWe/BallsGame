@@ -1,5 +1,6 @@
 using Reflex.Attributes;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class WeaponFactory : AttackerFactory
 {
@@ -23,20 +24,21 @@ public class WeaponFactory : AttackerFactory
         var weapon = Object.Instantiate(weaponConfig.Prefab, slot).GetComponent<Weapon>();
         weapon.transform.ApplyCurrentScaleToWorld();
 
-        var bulletPool = CreatePull(shootConfig, weapon, magazineConfig);
+        var bulletPool = CreateBulletPull(shootConfig, weapon, magazineConfig);
+        var effectPool = CreateEffectPull(shootConfig, weapon);
 
-        weapon.AttackHandler = _handlerFactory.CreateHandler(shootConfig, bulletPool);
+        weapon.AttackHandler = _handlerFactory.CreateHandler(shootConfig, bulletPool, effectPool);
         SetupAttacker(weapon, config, side, target);
 
         return weapon;
     }
 
-    private ObjectPool<Bullet> CreatePull(IShootConfig shootConfig, Weapon weapon, IMagazineWeapon magazineConfig = null)
+    private ObjectPool<Bullet> CreateBulletPull(IShootConfig shootConfig, Weapon weapon, IMagazineWeapon magazineConfig = null)
     {
         var (capacity, maxSize) = GetPoolSizes(magazineConfig);
         var bulletPool = new ObjectPool<Bullet>(
             shootConfig.BulletPrefab.GetComponent<Bullet>(),
-            weapon.transform,
+            null,
             capacity,
             maxSize
         );
@@ -45,11 +47,28 @@ public class WeaponFactory : AttackerFactory
 
         return bulletPool;
     }
+
+    private ObjectPool<ShootExplosion> CreateEffectPull(IShootConfig shootConfig, Weapon weapon)
+    {
+
+        Transform parent= shootConfig is SingleShootConfig ? weapon.transform : null;
+        var effectPool = new ObjectPool<ShootExplosion>
+            (shootConfig.ShootEffectPrefab.GetComponent<ShootExplosion>(),
+            parent,
+            DEFAULT_POOL_CAPACITY,
+            DEFAULT_POOL_MAX_SIZE);
+
+        weapon.SetShotEffectPull(effectPool);
+
+        return effectPool;
+    }
+
+
     private (int capacity, int maxSize) GetPoolSizes(IMagazineWeapon magazineConfig)
     {
         if (magazineConfig == null)
             return (DEFAULT_POOL_CAPACITY, DEFAULT_POOL_MAX_SIZE);
-            
+
 
         int maxAmmo = magazineConfig.MaxAmmo;
         return (maxAmmo, (int)(maxAmmo * POOL_BUFFER_FACTOR));

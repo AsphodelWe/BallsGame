@@ -8,15 +8,17 @@ public class AutoWeaponAttackHandler : IWeaponAttackHandler, IDisposable
 {
     private AutoWeaponConfig _config;
     private ObjectPool<Bullet> _bulletPool;
+    private ObjectPool<ShootExplosion> _shotEffectPool;
     private CancellationTokenSource _cts;
     private CancellationTokenSource _linkedCts;
     private int _currentAmmo;
     private bool _isReloading;
     private bool _isShooting;
-    public AutoWeaponAttackHandler(AutoWeaponConfig config, ObjectPool<Bullet> bulletPool)
+    public AutoWeaponAttackHandler(AutoWeaponConfig config, ObjectPool<Bullet> bulletPool, ObjectPool<ShootExplosion> effectPrefab)
     {
         _config = config;
         _bulletPool = bulletPool;
+        _shotEffectPool = effectPrefab;
         _currentAmmo = config.MaxAmmo;
         _cts = new CancellationTokenSource();
     }
@@ -46,9 +48,18 @@ public class AutoWeaponAttackHandler : IWeaponAttackHandler, IDisposable
         );
     }
 
+    private void CreateShootEffect(Weapon weapon)
+    {
+        var effect = _shotEffectPool.Get();
+
+        effect.transform.position = weapon.FirePoint.position;
+        effect.transform.rotation = weapon.FirePoint.rotation;
+    }
+
     private async UniTask Shoot(Weapon weapon, CancellationToken token)
     {
         CreateBullet(weapon);
+        CreateShootEffect(weapon);
         _currentAmmo--;
 
         await UniTask.Delay((int)(_config.FireRate * 1000), cancellationToken: token);
