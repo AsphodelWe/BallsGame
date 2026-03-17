@@ -29,10 +29,6 @@ public class AppStateMachine : MonoBehaviour
         .AddTo(this);
     }
 
-
-    
-
-
     private void SwitchState(AppMode mode)
     {
         _currentState?.Exit();

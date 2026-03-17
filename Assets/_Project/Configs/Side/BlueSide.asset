@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: BlueSide
   m_EditorClassIdentifier: Assembly-CSharp::SideConfig
   SideName: Blue
-  Countries:
-  - {fileID: 11400000, guid: dc315d9a43e1fbc40b3f0184611ffc75, type: 2}
   EnemySide: {fileID: 11400000, guid: d04f65e42bffd104084e826d57313330, type: 2}
+  Flag: {fileID: 2755318649702372677, guid: 0f4031342a07ac443b7fcdd507b7b1ce, type: 3}

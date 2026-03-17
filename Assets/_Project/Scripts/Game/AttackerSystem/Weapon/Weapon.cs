@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Weapon : Attacker
@@ -17,5 +18,10 @@ public class Weapon : Attacker
     public void SetBulletPull(ObjectPool<Bullet> bulletPool)
     {
         BulletPool = bulletPool;
+    }
+
+    private void OnDestroy()
+    {
+        (AttackHandler as IDisposable)?.Dispose();
     }
 }

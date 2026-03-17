@@ -1,9 +1,11 @@
+using System;
 using Reflex.Attributes;
 using Reflex.Core;
 using UnityEngine;
 
-public class BallPresent : MonoBehaviour
+public class BallPresent : MonoBehaviour, IDamagable
 {
+    [Inject] private BallRegistry _ballRegistry;
     [Inject] IMasterFactory _masterFactory;
     [SerializeField] private AttackerConfig _attackerConfig;
     [Header("Физика")]
@@ -24,9 +26,10 @@ public class BallPresent : MonoBehaviour
     {
         _ballData = ballData;
 
-        _ballPhysics.Initialize(_ballData._physicsConfig);
+        _ballPhysics.Initialize(_ballData.PhysicsConfig);
         _ballHealth.Initialize(_ballData.MaxHealth);
-        _ballView.Initialize();
+        _ballHealth.OnDied += Die;
+        _ballView.Initialize(ballData.Flag);
         EquipAttacker(_attackerConfig);
 
     }
@@ -35,6 +38,19 @@ public class BallPresent : MonoBehaviour
         _master = _masterFactory.CreateMaster(config, _ballData.Side, _attackerSlot);
     }
 
-    public SideConfig GetSide => _ballData.Side;
+    public void TakeDamage(int damage)
+    {
+        _ballHealth.GetDamage(damage);
+    }
 
+    public void Die()
+    {
+        _ballHealth.OnDied -= Die;
+        _ballRegistry.UnRegister(this);
+        Destroy(gameObject);
+    }
+
+    public SideConfig GetSide => _ballData.Side;
+    public BallHealth Health => _ballHealth;
+    public Sprite GetSprite => _ballView.GetFlag;
 }

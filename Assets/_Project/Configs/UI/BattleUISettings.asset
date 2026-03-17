@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d73e20a50c3c44d8fff0b430a9368d, type: 3}
-  m_Name: StatsUSA
-  m_EditorClassIdentifier: Assembly-CSharp::CountryGameplayConfig
-  _maxHealth: 1000
-  _damage: 3
-  _cooldownWeapon: 2
-  _baseSpeed: 6
+  m_Script: {fileID: 11500000, guid: f596cbee467a9d74d8aebf980b97fa2e, type: 3}
+  m_Name: BattleUISettings
+  m_EditorClassIdentifier: Assembly-CSharp::BattleUISettings
+  BaseBarWidth: 200
+  MediumBarWidth: 300
+  BigBarWidth: 500

@@ -13,6 +13,7 @@ public class BattleSceneInstaller : MonoBehaviour, IInstaller
         builder.RegisterType(typeof(WeaponAttackHandlerFactory), new Type[] { typeof(IWeaponAttackHandlerFactory) }, Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
         builder.RegisterType(typeof(TargetStrategyFactory), new Type[] { typeof(ITargetStrategyFactory) }, Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
 
+        builder.RegisterType(typeof(UiStrategyFactory), Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
         builder.RegisterType(typeof(BallFactory), Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
         builder.RegisterType(typeof(BallRegistry), Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
         

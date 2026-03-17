@@ -46,10 +46,10 @@ public class Bullet : MonoBehaviour, IPoolable<Bullet>
 
     private bool TryHitBall(Collider2D other)
     {
-        if (!other.TryGetComponent<BallPresent>(out var ball)) return false;
+        if (!other.TryGetComponent<IDamagable>(out var ball)) return false;
         if (ball.GetSide == _side) return false;
 
-        //нанести урон
+        ball.TakeDamage(_damage);
         ReturnToPool();
         return true;
     }

@@ -1,14 +1,16 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class AutoWeaponAttackHandler : IWeaponAttackHandler
+public class AutoWeaponAttackHandler : IWeaponAttackHandler, IDisposable
 {
     private AutoWeaponConfig _config;
-    private int _currentAmmo;
     private ObjectPool<Bullet> _bulletPool;
     private CancellationTokenSource _cts;
+    private CancellationTokenSource _linkedCts;
+    private int _currentAmmo;
     private bool _isReloading;
     private bool _isShooting;
     public AutoWeaponAttackHandler(AutoWeaponConfig config, ObjectPool<Bullet> bulletPool)
@@ -24,7 +26,9 @@ public class AutoWeaponAttackHandler : IWeaponAttackHandler
         if (_isReloading || _isShooting) return;
 
         _isShooting = true;
-        ShootLoop(weapon, _cts.Token).Forget();
+        _linkedCts = CancellationTokenSource.CreateLinkedTokenSource(_cts.Token, weapon.destroyCancellationToken);
+
+        ShootLoop(weapon, _linkedCts.Token).Forget();
     }
 
     private void CreateBullet(Weapon weapon)
@@ -40,7 +44,6 @@ public class AutoWeaponAttackHandler : IWeaponAttackHandler
             direction: weapon.FirePoint.right,
             side: weapon.Side
         );
-        bullet.transform.position = weapon.FirePoint.position;
     }
 
     private async UniTask Shoot(Weapon weapon, CancellationToken token)
@@ -81,17 +84,14 @@ public class AutoWeaponAttackHandler : IWeaponAttackHandler
         _isReloading = false;
     }
 
-    public void Stop()
+    public void Dispose()
     {
+        _linkedCts?.Cancel();
+        _linkedCts?.Dispose();
+        _linkedCts = null;
+
         _cts?.Cancel();
         _cts?.Dispose();
-        _cts = new CancellationTokenSource();
+        _cts = null;
     }
-
-    private void OnDisable()
-    {
-        Stop();
-    }
-
-
 }

@@ -18,3 +18,4 @@ MonoBehaviour:
   Side: {fileID: 11400000, guid: d04f65e42bffd104084e826d57313330, type: 2}
   CountryGameplayConfig: {fileID: 11400000, guid: 811e582704b5f1d4ebf9e50ff81a96be, type: 2}
   PhysicsConfig: {fileID: 11400000, guid: 1d49e37e8e8da264792e3ea8058029e5, type: 2}
+  CountryFlag: {fileID: -7992286938110287893, guid: 11a1715a04bd8384a8cb2518cb9200ef, type: 3}

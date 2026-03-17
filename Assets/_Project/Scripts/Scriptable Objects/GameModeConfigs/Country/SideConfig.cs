@@ -6,4 +6,5 @@ public class SideConfig : ScriptableObject
 {
     public string SideName;
     public SideConfig EnemySide;
+    public Sprite Flag;
 }

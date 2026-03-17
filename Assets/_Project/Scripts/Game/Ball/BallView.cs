@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class BallView : MonoBehaviour
 {
-    public void Initialize()
+    private Sprite _flag;
+    public void Initialize(Sprite flag)
     {
-        
+        _flag = flag;
     }
+    public Sprite GetFlag => _flag;
 }

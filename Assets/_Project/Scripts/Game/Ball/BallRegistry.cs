@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 public class BallRegistry
@@ -18,8 +19,8 @@ public class BallRegistry
         if (!_ballBySide.ContainsKey(side))
             _ballBySide[side] = new List<BallPresent>();
 
-
         _ballBySide[ball.GetSide].Add(ball);
+
         OnEnemyAdded?.Invoke(ball);
     }
 
@@ -39,4 +40,6 @@ public class BallRegistry
     {
         return _listBall.FirstOrDefault(b => b.GetSide != mySide);
     }
+
+    public IReadOnlyList<BallPresent> GetAllBalls() => _listBall;
 }

@@ -1,8 +1,9 @@
 using UnityEngine;
 using R3;
 using Reflex.Attributes;
+using System;
 
-public class MapSelectionState : BaseState
+public class MapSelectionState : BaseState, IDisposable
 {
     [Inject] private IMapUI _ui;
     [Inject] private IMapView _view;

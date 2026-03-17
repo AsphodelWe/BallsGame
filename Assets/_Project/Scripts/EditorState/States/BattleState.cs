@@ -12,8 +12,9 @@ public class BattleState : BaseState
     [Inject] private Container _battleContainer;
     private BallFactory _ballFactory;
     private CancellationTokenSource _cts;
+
     private const string _battleSceneName = "BattleScene";
-    private readonly float ZOOM = 3.5f;
+    private readonly float ZOOM = 4f;
 
     public override void Enter()
     {

@@ -7,8 +7,13 @@ public class CountryConfig : ScriptableObject
     public GameObject BallPrefabPrew;
     public GameObject BallPrefabBattle;
 
+
+
     [Header("Configs")]
-    public SideConfig Side; 
+    public SideConfig Side;
     public CountryGameplayConfig CountryGameplayConfig;
     public BallPhysicsConfig PhysicsConfig;
+
+    [Header("Visual")]
+    public Sprite CountryFlag;
 }

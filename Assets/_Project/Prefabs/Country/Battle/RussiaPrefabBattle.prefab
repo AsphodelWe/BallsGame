@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60bd2ebf2b392bb4c8178181225f0d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallView
+  _flag: {fileID: 8697251012617859226, guid: 3b3f88921fb997d4c89fa4d99dbc5392, type: 3}
 --- !u!114 &4582590251482409044
 MonoBehaviour:
   m_ObjectHideFlags: 0

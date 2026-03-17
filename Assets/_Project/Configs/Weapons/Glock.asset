@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Glock
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   Prefab: {fileID: 126546052518659635, guid: 904678bccab34b8438ad87c3d91605dd, type: 3}
-  Damage: 10
+  Damage: 2
   TargetStrategyConfig: {fileID: 11400000, guid: 3fe667365db772a4ca0c2153337d9e3c, type: 2}
   _modules:
   - {fileID: 11400000, guid: 20c74aff0b6350142bd1dd7201bdc068, type: 2}

@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Red
   m_EditorClassIdentifier: Assembly-CSharp::SideConfig
   SideName: Red
-  Countries:
-  - {fileID: 11400000, guid: 76eeb1c8b462d1041acf859d7cad066e, type: 2}
   EnemySide: {fileID: 11400000, guid: e2b465edb15b5db45a1604f5c27b01d2, type: 2}
+  Flag: {fileID: 2755318649702372677, guid: 0f4031342a07ac443b7fcdd507b7b1ce, type: 3}

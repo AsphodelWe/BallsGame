@@ -14,7 +14,8 @@ public class TrackTargetStrategy : ITargetStrategy
         _ballRegistry = ballRegistry;
         _side = side;
         _smoothTime = smoothTime;
-
+        
+        Debug.Log(ballRegistry);
         _ballRegistry.OnEnemyRemoved += OnEnemyRemoved;
         _ballRegistry.OnEnemyAdded += OnEnemySpawned;
 
@@ -41,7 +42,15 @@ public class TrackTargetStrategy : ITargetStrategy
     {
         if (enemy == _currentTarget)
         {
-            _currentTarget = _ballRegistry.FindAnyEnemy(_side);
+            var newTarget = _ballRegistry.FindAnyEnemy(_side);
+            if (newTarget != null)
+            {
+                _currentTarget = newTarget;
+            }
+            else
+            {
+                _currentTarget = null;
+            }
         }
     }
 
