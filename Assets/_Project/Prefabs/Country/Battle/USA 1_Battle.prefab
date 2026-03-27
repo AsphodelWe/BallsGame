@@ -189,7 +189,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &6537410652626697533
 CircleCollider2D:
@@ -201,7 +201,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ade9010a0d03bc447a60b8bc2cf7265c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf3c842bb681b248b3d81c4d5a7f817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallPresent
-  _attackerConfig: {fileID: 11400000, guid: 18a737d15c675414bbceb49ac671efcd, type: 2}
+  _attackerConfig: {fileID: 11400000, guid: 59059f2f5926e4245a5886c969ae811d, type: 2}
   _ballPhysics: {fileID: 4129831950286947629}
   _ballView: {fileID: 3351034329219152781}
   _attackerSlot: {fileID: 6051260981555437550}
@@ -274,6 +274,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60bd2ebf2b392bb4c8178181225f0d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallView
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _ballLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _isNumberDamage: 1
+  _damageNumberPrefab: {fileID: 1228050852407372886, guid: 0a4a583e9886f4e4fb7b79bf4b0cf972, type: 3}
 --- !u!114 &1408864646514305768
 MonoBehaviour:
   m_ObjectHideFlags: 0

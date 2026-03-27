@@ -18,6 +18,8 @@ public class SceneInstaller : MonoBehaviour, IInstaller
         builder.RegisterType(typeof(MapSelectionState), Lifetime.Transient, Reflex.Enums.Resolution.Lazy);
         builder.RegisterType(typeof(EditorState), Lifetime.Transient, Reflex.Enums.Resolution.Lazy);
         builder.RegisterType(typeof(BattleState), Lifetime.Transient, Reflex.Enums.Resolution.Lazy);
+        builder.RegisterType(typeof(MapScaler), Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
+        builder.RegisterType(typeof(GhostFacroty), Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
         builder.RegisterType(typeof(EventBus), new Type[] { typeof(IEventBus) }, Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
 
         builder.RegisterValue(_mapRegistry);

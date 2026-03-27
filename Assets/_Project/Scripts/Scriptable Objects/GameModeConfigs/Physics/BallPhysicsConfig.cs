@@ -11,12 +11,30 @@ public class BallPhysicsConfig : ScriptableObject
 
     public float SpeedMultiplier = 1f;
     public float BoostForce = 3f;
-    public float BounceImpulse = 5f;
+    public float BounceImpulse = 3f;
 
     [Range(0f, 10f)] public float MinSpeed = 1f;
 
     public float WallBoostMultiplier = 0.3f;
     public float BallBoostMultiplier = 0.2f;
 
-    [Range(0.5f, 1.5f)]public float RandomWallKickForce = 1f;
+    [Range(0.5f, 1.5f)] public float RandomWallKickForce = 1f;
+
+    public float HitForce = 1f;
+
+    [Header("Scale Curves")]
+    public AnimationCurve ForceCurve = new AnimationCurve(
+        new Keyframe(1f, 1f),
+        new Keyframe(10f, 5f)
+    );
+
+    public AnimationCurve SpeedFactorCurve = new AnimationCurve(
+    new Keyframe(1f, 1f),
+    new Keyframe(10f, 10f)
+);
+
+    public AnimationCurve DecayFactorCurve = new AnimationCurve(
+        new Keyframe(1f, 1f),
+        new Keyframe(10f, 0.2f)
+    );
 }

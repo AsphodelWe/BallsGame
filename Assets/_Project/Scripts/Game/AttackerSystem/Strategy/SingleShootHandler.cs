@@ -44,6 +44,8 @@ public class SingleShootHandler : IWeaponAttackHandler, IDisposable
             direction: weapon.FirePoint.right,
             side: weapon.Side
         );
+
+        weapon.TriggerRecoil(-weapon.FirePoint.right, _config.RecoilForce);
     }
 
     private void CreateShootEffect(Weapon weapon)

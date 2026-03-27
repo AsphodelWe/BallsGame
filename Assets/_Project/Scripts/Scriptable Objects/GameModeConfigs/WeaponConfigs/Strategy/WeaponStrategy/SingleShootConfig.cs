@@ -12,6 +12,9 @@ public class SingleShootConfig : ScriptableObject, IShootConfig
 
     public GameObject ShootEffectPrefab => _shootEffectPrefab;
 
+    public float RecoilForce = 5f;
+
     GameObject IShootConfig.BulletPrefab => BulletConfig.Prefab;
     float IShootConfig.BulletSpeed => BulletConfig.Speed;
+    float IShootConfig.RecoilForce => RecoilForce;
 }

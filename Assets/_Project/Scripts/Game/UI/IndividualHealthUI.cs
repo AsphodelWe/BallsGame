@@ -16,7 +16,7 @@ public class IndividualHealthUI : IUiStrategy
 
     public void Initialize(VisualTreeAsset healthBarTemplate, BattleUISettings UIsettings, UIDocument uiDoc)
     {
-        ;
+        
         _healthBarTemplate = healthBarTemplate;
         _UIsettings = UIsettings;
         _root = uiDoc.rootVisualElement;

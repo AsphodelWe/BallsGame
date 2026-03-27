@@ -17,3 +17,4 @@ MonoBehaviour:
   MaxAmmo: 30
   FireRateMagazine: 5
   _prefabShootEffect: {fileID: 4674043691350975746, guid: 9894454b1cf82e14f8c8580a6a4d8e35, type: 3}
+  RecoilForce: 1

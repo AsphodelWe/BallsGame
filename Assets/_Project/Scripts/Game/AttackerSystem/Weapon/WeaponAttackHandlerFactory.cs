@@ -9,6 +9,7 @@ public class WeaponAttackHandlerFactory : IWeaponAttackHandlerFactory
         {
             AutoWeaponConfig auto => new AutoWeaponAttackHandler(auto, bulletPool, effectPrefab),
             SingleShootConfig single => new SingleShootHandler(single, bulletPool, effectPrefab),
+            ShotgunConfig shotgun => new ShotgunHandler(shotgun, bulletPool, effectPrefab),
 /*             BurstShootConfig burst => new BurstShootHandler(burst),
             SingleShootConfig single => new SingleShootHandler(single), */
             _ => throw new ArgumentException($"Unknown config type: {config.GetType()}")

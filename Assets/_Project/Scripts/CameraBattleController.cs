@@ -10,7 +10,6 @@ public class CameraBattleController : MonoBehaviour
     [SerializeField] private float _maxZoom = 10f;
     [SerializeField] private float _timeChangeCam = 0.1f;
     private Camera _cam;
-
     private float _currentZoom;
     private CompositeDisposable _disposables = new();
 

@@ -15,34 +15,36 @@ public class BuildController
 {
     [Inject] private IEventBus _eventBus;
     [Inject] private IUnitPlacementView _unitPlacementView;
+    [Inject] private IUnitPlacementUI _unitPlacementUI;
+    [Inject] private GhostFacroty _ghostFactory;
     private Ghost _ghost;
     private Collider2D _mapBounds;
     private CompositeDisposable _disposables = new();
     public event Action<Ghost> OnGhostPlaced;
-
-    public void StartStream()
+    public event Action<Ghost> OnGhostDeleted;
+    public void Initialize()
     {
+        _unitPlacementUI.OnSelectCountry += (country) => CreateGhost(country);
+
         GetMapCollider();
-        SetupCountrySelection();
         SetupBuildingPlacement();
         SetupGhostMovement();
+        SetupDeleteGhost();
+
     }
 
-    private void SetupCountrySelection()
+    private void SetupDeleteGhost()
     {
+        _unitPlacementView.GetMouseClickStreamRight()
+        .Subscribe(ghost =>
+        {
+            OnGhostDeleted.Invoke(ghost);
+            ghost.Destroy();
+        });
 
-        _unitPlacementView.GetMouseClickStream()
-            .Where(worldPos => _unitPlacementView.IsOverSprite(worldPos, PlaceLayer.BallLayer))
-            .Select(worldPos => _unitPlacementView.GetCountryFromPosition(worldPos))
-            .Where(country => country != null)
-            .Subscribe(country => CreateGhost(country))
-
-            .AddTo(_disposables);
     }
-
     private void SetupBuildingPlacement()
     {
-
         _unitPlacementView.GetMouseClickStream()
        .Where(_ => _ghost != null)
        .Where(pos => IsWithinMap(pos))
@@ -62,13 +64,14 @@ public class BuildController
             .AddTo(_disposables);
     }
 
+
     private void CreateGhost(CountryConfig country)
     {
         _ghost?.Destroy();
-        _ghost = new Ghost(country, 0.5f);
+        _ghost = _ghostFactory.Create(country, 0.5f);
     }
 
-    private bool IsWithinMap(Vector3 position)
+    public bool IsWithinMap(Vector3 position)
     {
         if (_mapBounds == null) return false;
 

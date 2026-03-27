@@ -34,7 +34,6 @@ public class EditorState : BaseState
     private void SwitchToPlacementStage()
     {
         _battleData.SetSelectedMap(_mapRegistry.SelectedMap);
-
         HideMapElements();
 
         _currentSubState.Exit();

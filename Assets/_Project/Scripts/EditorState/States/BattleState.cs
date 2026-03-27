@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using Reflex.Extensions;
 using System.Threading;
 using System;
+using Reflex.Injectors;
 public class BattleState : BaseState
 {
     [Inject] private BattleData _battleData;
@@ -32,18 +33,25 @@ public class BattleState : BaseState
             SpawnMap();
             CreateFabric();
         }
-        catch(OperationCanceledException)
+        catch (OperationCanceledException)
         {
             Debug.Log("Загрузка битвы отменена");
         }
     }
 
-    private void SpawnMap() => UnityEngine.Object.Instantiate(_battleData.SelectedMap.BattlePrefab);
+    private void SpawnMap()
+    {
+        GameObject map = UnityEngine.Object.Instantiate(_battleData.SelectedMap.BattlePrefab);
+        float scale = _battleData.MapScale;
+        map.transform.localScale = new Vector3(scale, scale, scale);
+        GameObjectInjector.InjectRecursive(map, _battleContainer);
+    }
 
     private void SetZoom()
     {
         var _camera = _battleContainer.Resolve<CameraBattleController>();
-        _camera.SetCameraZoom(ZOOM);
+        float mapScale = _battleData.MapScale;
+        _camera.SetCameraZoom(_battleData.MapScale * ZOOM);
     }
 
     private void CreateFabric()

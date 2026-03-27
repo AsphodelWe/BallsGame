@@ -49,7 +49,9 @@ public class Bullet : MonoBehaviour, IPoolable<Bullet>
         if (!other.TryGetComponent<IDamagable>(out var ball)) return false;
         if (ball.GetSide == _side) return false;
 
-        ball.TakeDamage(_damage);
+        Vector2 hitDirection = (other.transform.position - transform.position).normalized;
+        
+        ball.TakeDamage(_damage, hitDirection);
         ReturnToPool();
         return true;
     }

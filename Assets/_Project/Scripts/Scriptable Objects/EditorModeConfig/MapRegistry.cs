@@ -9,6 +9,7 @@ public class MapRegistry : ScriptableObject
     public MapConfig[] AllMaps => _maps;
     public MapConfig GetMap(int index) => _maps[index];
     public MapConfig SelectedMap => _maps[_selectedIndex];
+    public GameObject PlayableMap { get; set; }
     public void SelectMap(int index)
     {
         if (index >= 0 && index < _maps.Length)

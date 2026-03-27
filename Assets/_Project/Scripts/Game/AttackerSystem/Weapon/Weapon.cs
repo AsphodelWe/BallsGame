@@ -10,6 +10,8 @@ public class Weapon : Attacker
     public ObjectPool<Bullet> BulletPool { get; private set; }
     public ObjectPool<ShootExplosion> ShootEffectPool { get; private set; }
 
+    public event Action<Vector2, float> OnRecoil;
+
     private void Update()
     {
         TargetStrategy?.UpdateTarget(this);
@@ -29,5 +31,10 @@ public class Weapon : Attacker
     private void OnDestroy()
     {
         (AttackHandler as IDisposable)?.Dispose();
+    }
+
+    public void TriggerRecoil(Vector2 direction, float force)
+    {
+        OnRecoil?.Invoke(direction, force);
     }
 }

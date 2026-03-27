@@ -8,7 +8,6 @@ public class MapConfig : ScriptableObject
     public GameObject PreviewPrefab;
     [Header("Battle")]
     public GameObject BattlePrefab;
-    
     public GameObject SpawnPreview()
     {
         return Instantiate(PreviewPrefab, Vector2.zero, Quaternion.identity);

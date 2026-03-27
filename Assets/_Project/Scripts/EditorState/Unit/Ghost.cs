@@ -1,38 +1,37 @@
 using UnityEngine;
-public class Ghost
+public class Ghost : MonoBehaviour
 {
-    private GameObject _gameObject;
     private SpriteRenderer _spriteRenderer;
     private CountryConfig _country;
     private Vector3 _fixedPosition;
     public CountryConfig Country => _country;
     public Vector3 Position => _fixedPosition;
-    public Ghost(CountryConfig country, float alpha)
+
+    public void Initialize(CountryConfig country, float alpha)
     {
-        _gameObject = Object.Instantiate(country.BallPrefabPrew);
-        _spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
         _country = country;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         SetAlphaColor(alpha);
     }
 
     public void SetPosition(Vector3 position)
     {
-        _gameObject.transform.position = position;
+        gameObject.transform.position = position;
     }
 
-    public void Hide()
+    public void SetInactive()
     {
-        _gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
-    
-    public void Show()
+
+    public void SetActive()
     {
-        _gameObject.SetActive(true);
+        gameObject.SetActive(true);
     }
-    
+
     public void Destroy()
     {
-        Object.Destroy(_gameObject);
+        Destroy(gameObject);
     }
 
     private void SetAlphaColor(float alpha)
@@ -49,6 +48,6 @@ public class Ghost
 
     public void Place()
     {
-        _fixedPosition = _gameObject.transform.position;
+        _fixedPosition = gameObject.transform.position;
     }
 }

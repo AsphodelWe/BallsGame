@@ -29,23 +29,6 @@ public class UnitPlacementView : MonoBehaviour, IUnitPlacementView
         return worldPos;
     }
 
-    public bool IsOverSprite(Vector3 worldPos, PlaceLayer placeLayer)
-    {
-        Collider2D hit = Physics2D.OverlapPoint(worldPos, GetLayerToIndex(placeLayer));
-        return hit != null;
-    }
-
-    private LayerMask GetLayerToIndex(PlaceLayer placeLayer)
-    {
-        LayerMask mask = placeLayer switch
-        {
-            PlaceLayer.BallLayer => _ballLayer,
-            PlaceLayer.GroundLayer => _groundLayer,
-            _ => throw new ArgumentException()
-        };
-        return mask;
-    }
-
     public Observable<Vector3> GetMouseWorldPositionStream()
     {
         return Observable.EveryUpdate()
@@ -57,6 +40,23 @@ public class UnitPlacementView : MonoBehaviour, IUnitPlacementView
     {
         return GetMouseWorldPositionStream()
             .Where(_ => Mouse.current.leftButton.wasPressedThisFrame);
+    }
+
+    public Observable<Ghost> GetMouseClickStreamRight()
+    {
+        return Observable.EveryUpdate()
+            .Where(_ => Mouse.current != null && Mouse.current.rightButton.wasPressedThisFrame)
+            .Select(_ => GetWorldPosition())
+            .Select(pos => GetGhostAtPosition(pos))
+            .Where(ghost => ghost != null);
+            
+    }
+
+    private Ghost GetGhostAtPosition(Vector3 worldPos)
+    {
+        Collider2D hit = Physics2D.OverlapPoint(worldPos, _ballLayer);
+        Debug.Log(hit);
+        return hit?.GetComponent<Ghost>();
     }
 
     public void Show()

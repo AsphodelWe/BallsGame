@@ -46,6 +46,10 @@ public class AutoWeaponAttackHandler : IWeaponAttackHandler, IDisposable
             direction: weapon.FirePoint.right,
             side: weapon.Side
         );
+
+        Vector2 recoilDirection = -weapon.FirePoint.right;
+        float recoilForce = _config.RecoilForce;
+        weapon.TriggerRecoil(recoilDirection, recoilForce);
     }
 
     private void CreateShootEffect(Weapon weapon)
