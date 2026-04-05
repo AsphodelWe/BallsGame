@@ -20,7 +20,6 @@ public class BallPresent : MonoBehaviour, IDamagable
     [Header("Здоровье")]
     [SerializeField] private BallHealth _ballHealth;
     private BallData _ballData;
-
     private Master _master;
     public void Inizialize(BallData ballData)
     {
@@ -60,6 +59,12 @@ public class BallPresent : MonoBehaviour, IDamagable
     public SideConfig GetSide => _ballData.Side;
     public BallHealth Health => _ballHealth;
     public Sprite GetSprite => _ballView.GetFlag;
+    public event Action OnDestroyed;
+
+    void OnDestroy()
+    {
+        OnDestroyed?.Invoke();
+    }
 
 
 }

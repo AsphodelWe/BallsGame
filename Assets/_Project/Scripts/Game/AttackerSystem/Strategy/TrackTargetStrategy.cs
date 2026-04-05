@@ -14,8 +14,7 @@ public class TrackTargetStrategy : ITargetStrategy
         _ballRegistry = ballRegistry;
         _side = side;
         _smoothTime = smoothTime;
-        
-        Debug.Log(ballRegistry);
+
         _ballRegistry.OnEnemyRemoved += OnEnemyRemoved;
         _ballRegistry.OnEnemyAdded += OnEnemySpawned;
 
@@ -60,5 +59,11 @@ public class TrackTargetStrategy : ITargetStrategy
         {
             _currentTarget = enemy;
         }
+    }
+
+    public void Dispose()
+    {
+        _ballRegistry.OnEnemyRemoved -= OnEnemyRemoved;
+        _ballRegistry.OnEnemyAdded -= OnEnemySpawned;
     }
 }

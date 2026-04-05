@@ -1,3 +1,4 @@
+using System;
 using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -10,6 +11,7 @@ public class UIStrategyController : MonoBehaviour
     [SerializeField] private BattleUISettings _uIsettings;
     private IUiStrategy _currentStrategy;
     private UIDocument _uiDoc;
+    private VisualElement _barsContainer;
 
     private void Start()
     {
@@ -20,6 +22,9 @@ public class UIStrategyController : MonoBehaviour
         }
 
         _uiDoc = GetComponent<UIDocument>();
+
+        var root = _uiDoc.rootVisualElement;
+        _barsContainer = root.Q<VisualElement>("HealthBarsContainer");
 
         ApplyStrategy();
     }
@@ -39,6 +44,19 @@ public class UIStrategyController : MonoBehaviour
             foreach (var side in team.TeamSides)
                 team.SetTeamHealth(side);
         }
+    }
+
+    public void ResetUI()
+    {
+        _barsContainer.Clear();
+
+        if (_currentStrategy is IndividualHealthUI individual)
+            individual.Clear();
+        else if (_currentStrategy is TeamHealthUI team)
+            team.Clear();
+
+        ApplyStrategy();
+        _currentStrategy.UpdateBarsAlignment();
     }
 }
 

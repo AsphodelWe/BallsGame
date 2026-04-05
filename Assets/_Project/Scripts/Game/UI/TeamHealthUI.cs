@@ -138,4 +138,9 @@ public class TeamHealthUI : IUiStrategy
             UpdateBarsAlignment();
         });
     }
+
+    public void Clear()
+    {
+        _teams.Clear();
+    }
 }

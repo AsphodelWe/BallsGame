@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class BattleSceneInstaller : MonoBehaviour, IInstaller
 {
-    [SerializeField] private CameraBattleController _camera;
+    [SerializeField] private BattleUI _battleUI;
+    [SerializeField] private InputHandlerBattle _inputHandlerBattle;
+    [SerializeField] private UIStrategyController _uiController;
     public void InstallBindings(ContainerBuilder builder)
     {
         builder.RegisterType(typeof(MasterFactory), new Type[] { typeof(IMasterFactory) }, Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
@@ -16,8 +18,9 @@ public class BattleSceneInstaller : MonoBehaviour, IInstaller
         builder.RegisterType(typeof(UiStrategyFactory), Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
         builder.RegisterType(typeof(BallFactory), Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
         builder.RegisterType(typeof(BallRegistry), Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
-        
-        builder.RegisterValue(_camera);
 
+        builder.RegisterValue(_battleUI);
+        builder.RegisterValue(_inputHandlerBattle);
+        builder.RegisterValue(_uiController);
     }
 }

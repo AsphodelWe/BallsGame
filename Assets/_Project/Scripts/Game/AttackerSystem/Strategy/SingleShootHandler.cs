@@ -46,6 +46,7 @@ public class SingleShootHandler : IWeaponAttackHandler, IDisposable
         );
 
         weapon.TriggerRecoil(-weapon.FirePoint.right, _config.RecoilForce);
+        PlayShootSound(weapon.FirePoint.position);
     }
 
     private void CreateShootEffect(Weapon weapon)
@@ -64,10 +65,18 @@ public class SingleShootHandler : IWeaponAttackHandler, IDisposable
         await UniTask.Delay((int)(_config.FireRate * 1000), cancellationToken: token);
     }
 
+    private void PlayShootSound(Vector3 position)
+    {
+        if (_config.ShootSound == null) return;
+        AudioSource.PlayClipAtPoint(_config.ShootSound, position, _config.ShootVolume);
+    }
     private async UniTaskVoid ShootLoop(Weapon weapon, CancellationToken token)
     {
         try
         {
+            float firstDelay = UnityEngine.Random.Range(0f, _config.FireRate);
+            await UniTask.Delay((int)(firstDelay * 1000), cancellationToken: token);
+
             while (!token.IsCancellationRequested)
             {
                 await Shoot(weapon, token);

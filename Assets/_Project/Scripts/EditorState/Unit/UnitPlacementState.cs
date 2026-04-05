@@ -15,39 +15,16 @@ public class UnitPlacementState : BaseState
     [Inject] private Container _container;
     [Inject] private BattleData _battleData;
     [Inject] private MapScaler _mapScaler;
+    [Inject] private CameraController _cameraController;
 
     public override void Enter()
     {
         _view.Show();
         _mapScaler.Initialize();
 
-        _buildController = _container.Resolve<BuildController>();
-
-        _buildController.OnGhostPlaced += (ghost) =>
-        {
-            _battleData.AddGhost(ghost);
-            UpdateGhosts();
-        };
-
-        _buildController.OnGhostDeleted += (ghost) =>
-        {
-            _battleData.RemoveGhost(ghost);
-            UpdateGhosts();
-        };
-
-        _ui.OnScaleChanged += async (value) =>
-        {
-            _mapScaler.ChangeScale(value);
-            
-            await UniTask.WaitForFixedUpdate();
-            UpdateGhosts();
-        };
-
-        _ui.OnClearGhosts += DeleteAllGhost;
-
-        _buildController.Initialize();
-
-        _ui.OnRotateToggleChanged += (rotate) => _battleData.SetRotateMap(rotate);
+        SetCam();
+        SetBuildController();
+        SetUI();
     }
 
     public override void Exit()
@@ -83,6 +60,38 @@ public class UnitPlacementState : BaseState
         }
         _battleData.RemoveAllGhost();
         UpdateBattleButton(false);
+    }
+
+    private void SetCam()
+    {
+        _cameraController.SetMapScaler(_mapScaler);
+        _cameraController.SetEditorPosition();
+    }
+
+    private void SetBuildController()
+    {
+        _buildController = _container.Resolve<BuildController>();
+        
+        _buildController.OnGhostPlaced += (ghost) =>
+        {
+            _battleData.AddGhost(ghost);
+            UpdateGhosts();
+        };
+
+        _buildController.OnGhostDeleted += (ghost) =>
+        {
+            _battleData.RemoveGhost(ghost);
+            UpdateGhosts();
+        };
+
+        _buildController.Initialize();
+    }
+
+    private void SetUI()
+    {
+        _ui.OnScaleChanged += async (value) =>{_mapScaler.ChangeScale(value); await UniTask.WaitForFixedUpdate();UpdateGhosts();};
+        _ui.OnClearGhosts += DeleteAllGhost;
+        _ui.OnRotateToggleChanged += (rotate) => _battleData.SetRotateMap(rotate);
     }
 
 }

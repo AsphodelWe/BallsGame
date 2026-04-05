@@ -11,6 +11,7 @@ public class TargetStrategyFactory : ITargetStrategyFactory
         {
             TrackTargetConfig track => new TrackTargetStrategy(_ballRegistry, side, track.SmoothTime),
             NoTargetConfig noTarget => new NoTargetStrategy(),
+            TrackTargetWithMarkConfig trackWithMart => new TrackTargetWithMarkStrategy(_ballRegistry, side, trackWithMart.SmoothTime, trackWithMart.Mark),
             _ => throw new ArgumentException($"Unknown config: {config.GetType()}")
         };
     }

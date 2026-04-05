@@ -49,7 +49,9 @@ public class AutoWeaponAttackHandler : IWeaponAttackHandler, IDisposable
 
         Vector2 recoilDirection = -weapon.FirePoint.right;
         float recoilForce = _config.RecoilForce;
+
         weapon.TriggerRecoil(recoilDirection, recoilForce);
+        PlayShootSound(weapon.FirePoint.position);
     }
 
     private void CreateShootEffect(Weapon weapon)
@@ -69,10 +71,19 @@ public class AutoWeaponAttackHandler : IWeaponAttackHandler, IDisposable
         await UniTask.Delay((int)(_config.FireRate * 1000), cancellationToken: token);
     }
 
+    private void PlayShootSound(Vector3 position)
+    {
+        if (_config.ShootSound == null) return;
+        AudioSource.PlayClipAtPoint(_config.ShootSound, position, _config.ShootVolume);
+    }
+
     private async UniTaskVoid ShootLoop(Weapon weapon, CancellationToken token)
     {
         try
         {
+            float firstDelay = UnityEngine.Random.Range(0f, _config.FireRateMagazine);
+            await UniTask.Delay((int)(firstDelay * 1000), cancellationToken: token);
+
             while (!token.IsCancellationRequested)
             {
                 if (_currentAmmo <= 0)

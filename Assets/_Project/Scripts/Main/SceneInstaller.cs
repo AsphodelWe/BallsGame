@@ -30,5 +30,6 @@ public class SceneInstaller : MonoBehaviour, IInstaller
         builder.RegisterValue(_unitUI, new Type[] { typeof(IUnitPlacementUI) });
         builder.RegisterValue(_unitPlaceView, new Type[] { typeof(IUnitPlacementView) });
 
+
     }
 }

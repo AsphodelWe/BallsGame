@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using R3;
 using System;
+using Reflex.Attributes;
+using Reflex.Extensions;
 
 public class UnitPlacementView : MonoBehaviour, IUnitPlacementView
 {
@@ -10,6 +12,17 @@ public class UnitPlacementView : MonoBehaviour, IUnitPlacementView
 
     [Header("Visual")]
     [SerializeField] private GameObject _visualContainer;
+
+    [Inject] private CameraController _cameraController;
+    private Camera _mainCamera;
+
+    void Start()
+    {
+        if (_cameraController != null)
+        {
+            _mainCamera = _cameraController.GetComponent<Camera>();
+        }
+    }
 
     public CountryConfig GetCountryFromPosition(Vector3 worldPos)
     {
@@ -21,10 +34,16 @@ public class UnitPlacementView : MonoBehaviour, IUnitPlacementView
         }
         return null;
     }
-    public static Vector3 GetWorldPosition()
+    public Vector3 GetWorldPosition()
     {
+        var cam = _mainCamera;
+        if (cam == null)
+        {
+            return Vector3.zero;
+        }
+
         Vector3 screenPos = Mouse.current.position.ReadValue();
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+        Vector3 worldPos = cam.ScreenToWorldPoint(screenPos);
         worldPos.z = 0;
         return worldPos;
     }
@@ -49,7 +68,7 @@ public class UnitPlacementView : MonoBehaviour, IUnitPlacementView
             .Select(_ => GetWorldPosition())
             .Select(pos => GetGhostAtPosition(pos))
             .Where(ghost => ghost != null);
-            
+
     }
 
     private Ghost GetGhostAtPosition(Vector3 worldPos)

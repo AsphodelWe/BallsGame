@@ -29,6 +29,7 @@ public class DamageNumber : MonoBehaviour, IPoolable<DamageNumber>
 
         Color startColor = _text.color;
         Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0);
+
         seq.Join(DOTween.To(() => _text.color, x => _text.color = x, endColor, 1f));
 
         seq.Join(_text.transform.DOScale(1.5f, 1f));
@@ -58,5 +59,10 @@ public class DamageNumber : MonoBehaviour, IPoolable<DamageNumber>
     public void OnAnimationEnd()
     {
         OnDespawnRequested?.Invoke(this);
+    }
+
+    void OnDestroy()
+    {
+        _moveTween?.Kill();
     }
 }

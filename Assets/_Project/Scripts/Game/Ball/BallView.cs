@@ -6,17 +6,13 @@ public class BallView : MonoBehaviour
 {
     [SerializeField] private LayerMask _wallLayer;
     [SerializeField] private LayerMask _ballLayer;
-
-    [SerializeField] private bool _isNumberDamage;
-
     [SerializeField] private DamageNumber _damageNumberPrefab;
+    [SerializeField] private bool _isNumberDamage;
     private ObjectPool<DamageNumber> _damageNumberPool;
-
-
-
     private Sprite _flag;
     private SpriteRenderer _spriteRenderer;
     private Tween _shakeBall;
+    private Tween _changeColor;
     public void Initialize(Sprite flag)
     {
         if (_isNumberDamage) CreateNumberPool();
@@ -29,13 +25,22 @@ public class BallView : MonoBehaviour
 
     public void PlayHitEffect(float duration = 0.1f)
     {
-        _spriteRenderer.DOColor(Color.red, duration / 2)
-            .OnComplete(() => _spriteRenderer.DOColor(Color.white, duration / 2));
+        if (_spriteRenderer == null) return;
 
-    }
-    private bool IsInLayerMask(GameObject obj, LayerMask mask)
-    {
-        return (mask.value & (1 << obj.layer)) != 0;
+        _changeColor?.Kill();
+
+        try
+        {
+            _changeColor = _spriteRenderer.DOColor(Color.red, duration / 2)
+                .OnComplete(() =>
+                {
+                    if (_spriteRenderer != null)
+                        _spriteRenderer.DOColor(Color.white, duration / 2);
+                });
+        }
+        catch (MissingReferenceException)
+        { }
+
     }
 
     private void CreateNumberPool()
@@ -55,7 +60,17 @@ public class BallView : MonoBehaviour
 
         Vector3 offset = new Vector3(0, 0.3f, 0);
 
-        number.Initialize(damage, gameObject.transform ,offset);
+        number.Initialize(damage, gameObject.transform, offset);
     }
 
+    void OnDestroy()
+    {
+        _shakeBall?.Kill();
+        _changeColor?.Kill();
+
+        if (Application.isPlaying && gameObject.scene.isLoaded)
+        {
+            _damageNumberPool?.Clear();
+        }
+    }
 }

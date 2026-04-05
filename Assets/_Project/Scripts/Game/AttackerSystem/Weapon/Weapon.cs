@@ -9,7 +9,6 @@ public class Weapon : Attacker
     public override ITargetStrategy TargetStrategy { get; set; }
     public ObjectPool<Bullet> BulletPool { get; private set; }
     public ObjectPool<ShootExplosion> ShootEffectPool { get; private set; }
-
     public event Action<Vector2, float> OnRecoil;
 
     private void Update()
@@ -31,6 +30,13 @@ public class Weapon : Attacker
     private void OnDestroy()
     {
         (AttackHandler as IDisposable)?.Dispose();
+        (TargetStrategy as IDisposable)?.Dispose();
+
+        if (Application.isPlaying && gameObject.scene.isLoaded)
+        {
+            BulletPool?.Clear();
+            ShootEffectPool?.Clear();
+        }
     }
 
     public void TriggerRecoil(Vector2 direction, float force)

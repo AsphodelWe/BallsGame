@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf3c842bb681b248b3d81c4d5a7f817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallPresent
-  _attackerConfig: {fileID: 11400000, guid: 59059f2f5926e4245a5886c969ae811d, type: 2}
+  _attackerConfig: {fileID: 11400000, guid: 33d59aeb5aa30e94585fec805476ebc7, type: 2}
   _ballPhysics: {fileID: 4129831950286947629}
   _ballView: {fileID: 3351034329219152781}
   _attackerSlot: {fileID: 6051260981555437550}
@@ -280,8 +280,8 @@ MonoBehaviour:
   _ballLayer:
     serializedVersion: 2
     m_Bits: 0
-  _isNumberDamage: 1
   _damageNumberPrefab: {fileID: 1228050852407372886, guid: 0a4a583e9886f4e4fb7b79bf4b0cf972, type: 3}
+  _isNumberDamage: 1
 --- !u!114 &1408864646514305768
 MonoBehaviour:
   m_ObjectHideFlags: 0

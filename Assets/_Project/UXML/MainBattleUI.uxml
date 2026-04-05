@@ -1,3 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement name="HealthBarsContainer" style="flex-grow: initial; position: absolute; top: 5%; bottom: auto; left: auto; right: auto; flex-direction: row; justify-content: space-between; align-items: flex-start; align-self: center; flex-shrink: initial; width: 900px; height: auto; align-content: auto; flex-wrap: nowrap;"/>
+    <ui:VisualElement name="StartButtonContainer" style="flex-grow: 1; justify-content: flex-end;">
+        <ui:Button text="Button" name="StartButton" style="justify-content: flex-start; align-self: auto; align-content: flex-start;"/>
+    </ui:VisualElement>
 </ui:UXML>

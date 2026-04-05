@@ -14,7 +14,7 @@ public class BallFactory
         GameObject ball = Object.Instantiate(country.BallPrefabBattle, position, quaternion.identity);
 
         GameObjectInjector.InjectRecursive(ball, _container);
-        
+
         if (ball.TryGetComponent<BallPresent>(out var presenter))
         {
             var data = new BallData(country);
@@ -28,5 +28,20 @@ public class BallFactory
         }
 
         return presenter;
+    }
+
+    public void DestroyAll()
+    {
+        var balls = _ballRegistry.GetAllBalls();
+
+        foreach (var ball in balls)
+        {
+            if (ball != null && ball.gameObject != null)
+            {
+                Object.Destroy(ball.gameObject);
+            }
+        }
+
+        _ballRegistry.Clear();
     }
 }

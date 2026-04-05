@@ -30,6 +30,5 @@ public class BallHealth : MonoBehaviour
     }
 
     public int GetMaxHealth { get => _maxHealth; }
-
     public int GetCurrentHealth { get => _currentHealth; }
 }

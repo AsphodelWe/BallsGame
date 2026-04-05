@@ -10,8 +10,8 @@ public class WeaponAttackHandlerFactory : IWeaponAttackHandlerFactory
             AutoWeaponConfig auto => new AutoWeaponAttackHandler(auto, bulletPool, effectPrefab),
             SingleShootConfig single => new SingleShootHandler(single, bulletPool, effectPrefab),
             ShotgunConfig shotgun => new ShotgunHandler(shotgun, bulletPool, effectPrefab),
-/*             BurstShootConfig burst => new BurstShootHandler(burst),
-            SingleShootConfig single => new SingleShootHandler(single), */
+            SniperShootConfig sniper => new SniperShootHandler(sniper, bulletPool, effectPrefab),
+            BurstWeaponConfig burst => new BurstWeaponAttackHandler(burst, bulletPool, effectPrefab),
             _ => throw new ArgumentException($"Unknown config type: {config.GetType()}")
         };
     }

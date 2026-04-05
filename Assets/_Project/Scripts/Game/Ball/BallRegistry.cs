@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using UnityEngine;
 
 public class BallRegistry
 {
@@ -38,8 +39,16 @@ public class BallRegistry
 
     public BallPresent FindAnyEnemy(SideConfig mySide)
     {
-        return _listBall.FirstOrDefault(b => b.GetSide != mySide);
+        var enemies = _listBall.Where(b => b.GetSide != mySide).ToList();
+        if (enemies.Count == 0) return null;
+        return enemies[UnityEngine.Random.Range(0, enemies.Count)];
     }
 
     public IReadOnlyList<BallPresent> GetAllBalls() => _listBall;
+
+    public void Clear()
+    {
+        _listBall.Clear();
+        _ballBySide.Clear();
+    }
 }

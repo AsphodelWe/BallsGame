@@ -15,6 +15,8 @@ MonoBehaviour:
   FireRate: 3
   BulletConfig: {fileID: 11400000, guid: b7ae5b2e98a320e47aa90ac604378605, type: 2}
   _shootEffectPrefab: {fileID: 4674043691350975746, guid: f9ce2bbf5a2a36f48b0d8762eaacd18a, type: 3}
-  RecoilForce: 2
+  RecoilForce: 5
   BulletCount: 5
   SpreadAngle: 360
+  ShootSound: {fileID: 8300000, guid: bf11a7279b2f4844bb8cf696b5712d8c, type: 3}
+  ShootVolume: 0.5

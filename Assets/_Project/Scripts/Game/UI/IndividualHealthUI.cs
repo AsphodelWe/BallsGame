@@ -16,7 +16,7 @@ public class IndividualHealthUI : IUiStrategy
 
     public void Initialize(VisualTreeAsset healthBarTemplate, BattleUISettings UIsettings, UIDocument uiDoc)
     {
-        
+
         _healthBarTemplate = healthBarTemplate;
         _UIsettings = UIsettings;
         _root = uiDoc.rootVisualElement;
@@ -73,7 +73,11 @@ public class IndividualHealthUI : IUiStrategy
             var container = bar.Q<VisualElement>("HealthContainer");
             var flag = bar.Q<Image>("CountryFlag");
 
-            flag.sprite = ball.GetSprite;
+            if (flag != null)
+                flag.sprite = ball.GetSprite;
+            else
+                Debug.LogError("CountryFlag not found!");
+
             container.style.width = targetWidth;
         }
     }
@@ -92,5 +96,14 @@ public class IndividualHealthUI : IUiStrategy
        });
     }
 
+    public void Clear()
+    {
+        foreach (var bar in _activeBars.Values)
+        {
+            if (bar != null)
+                bar.RemoveFromHierarchy();
+        }
+        _activeBars.Clear();
+    }
 
 }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acee4bf57a877464db041e2244e116a9, type: 3}
+  m_Name: ShotGunClassic
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
+  Prefab: {fileID: 126546052518659635, guid: 5c8c8627d3d81bb4cb9adb6d9dfdf33e, type: 3}
+  Damage: 4
+  TargetStrategyConfig: {fileID: 11400000, guid: 3fe667365db772a4ca0c2153337d9e3c, type: 2}
+  _modules:
+  - {fileID: 11400000, guid: 2946eeb29020bf64d8c3fbc3b049f658, type: 2}

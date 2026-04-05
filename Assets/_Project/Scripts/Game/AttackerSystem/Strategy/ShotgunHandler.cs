@@ -3,7 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class ShotgunHandler: IWeaponAttackHandler, IDisposable
+public class ShotgunHandler : IWeaponAttackHandler, IDisposable
 {
     private ShotgunConfig _config;
     private ObjectPool<Bullet> _bulletPool;
@@ -49,6 +49,7 @@ public class ShotgunHandler: IWeaponAttackHandler, IDisposable
         );
 
         weapon.TriggerRecoil(-weapon.FirePoint.right, _config.RecoilForce);
+        PlayShootSound(weapon.FirePoint.position);
     }
 
     private void CreateShootEffect(Weapon weapon)
@@ -59,6 +60,11 @@ public class ShotgunHandler: IWeaponAttackHandler, IDisposable
         effect.transform.rotation = weapon.FirePoint.rotation;
     }
 
+    private void PlayShootSound(Vector3 position)
+    {
+        if (_config.ShootSound == null) return;
+        AudioSource.PlayClipAtPoint(_config.ShootSound, position, _config.ShootVolume);
+    }
     private async UniTask Shoot(Weapon weapon, CancellationToken token)
     {
 
@@ -76,6 +82,9 @@ public class ShotgunHandler: IWeaponAttackHandler, IDisposable
     {
         try
         {
+            float firstDelay = UnityEngine.Random.Range(0f, _config.FireRate);
+            await UniTask.Delay((int)(firstDelay * 1000), cancellationToken: token);
+
             while (!token.IsCancellationRequested)
             {
                 await Shoot(weapon, token);

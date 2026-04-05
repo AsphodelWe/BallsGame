@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
 public class ObjectPool<T> where T : MonoBehaviour, IPoolable<T>
 {
     private readonly IObjectPool<T> _pool;
+    private List<T> _activeItems = new List<T>();
     private readonly T _prefab;
     private readonly Transform _parent;
     public ObjectPool(T prefab, Transform parent = null, int defaultCapacity = 20, int maxSize = 30)
@@ -41,9 +43,29 @@ public class ObjectPool<T> where T : MonoBehaviour, IPoolable<T>
     }
     private void OnReleaseItem(T item) => item.OnDespawn();
     private void OnDestroyItem(T item) => Object.Destroy(item.gameObject);
-    public T Get() => _pool.Get();
+    public T Get()
+    {
+        var item = _pool.Get();
+        _activeItems.Add(item);
+        return item;
+    }
     public void Release(T item)
     {
+        _activeItems.Remove(item);
         _pool.Release(item);
+    }
+    public void Clear()
+    {
+        if (_activeItems != null)
+        {
+            foreach (var item in _activeItems)
+            {
+                if (item != null && item.gameObject != null)
+                    Object.Destroy(item.gameObject);
+            }
+            _activeItems.Clear();
+        }
+
+        _pool?.Clear();
     }
 }

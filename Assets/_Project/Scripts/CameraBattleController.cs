@@ -15,6 +15,7 @@ public class CameraBattleController : MonoBehaviour
 
     void Start()
     {
+        Debug.Log($"[CameraBattleController] Start на {gameObject.name}", gameObject);
         Observable.EveryUpdate()
             .Select(_ => Mouse.current.scroll.ReadValue().y)
             .Where(delta => delta != 0)
@@ -34,6 +35,12 @@ public class CameraBattleController : MonoBehaviour
         if (_cam == null)
             _cam = GetComponent<Camera>();
 
+        Debug.Log($"[CameraBattleController] SetCameraZoom на {gameObject.name}, orthographicSize: {orthographicSize}", gameObject);
         _cam.orthographicSize = orthographicSize;
+    }
+
+    void OnDestroy()
+    {
+        Debug.Log($"[CameraBattleController] OnDestroy на {gameObject.name}", gameObject);
     }
 }

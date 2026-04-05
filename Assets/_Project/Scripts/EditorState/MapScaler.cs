@@ -14,7 +14,6 @@ public class MapScaler
         {
             _scale = _mapRegistry.PlayableMap.transform.localScale.x;
             _mapScaleProvider.BaseScale = _scale;
-            Debug.Log(_mapScaleProvider.BaseScale);
             _mapScaleProvider.CurrentScale = _scale;
             OnScaleChanged?.Invoke(_scale);
         }

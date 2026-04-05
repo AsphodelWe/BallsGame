@@ -3,6 +3,11 @@ using UnityEngine;
 public class NoTargetStrategy : ITargetStrategy
 {
     public BallPresent CurrentTarget => null;
+
+    public void Dispose()
+    {
+    }
+
     public void SetTarget(BallPresent target)
     {
         Debug.Log("NoTargetStrategy: попытка установить цель, но слежение отключено");
