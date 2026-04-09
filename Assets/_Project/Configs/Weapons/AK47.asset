@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AK47
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   Prefab: {fileID: 126546052518659635, guid: e0199b2e3fc9b384a839f0ea1d88fb38, type: 3}
-  Damage: 2
+  Damage: 3
   TargetStrategyConfig: {fileID: 11400000, guid: 3fe667365db772a4ca0c2153337d9e3c, type: 2}
   _modules:
   - {fileID: 11400000, guid: 15d007150a5e6964cb62bda8a3ab4046, type: 2}

@@ -1,14 +1,20 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Vector3 _editorPosition = new Vector3(0, 0, -10);
     [SerializeField] private Vector3 _battlePosition = new Vector3(0, 0.5f, -10);
-    [SerializeField] private float _editorZoom = 5f; 
+    [SerializeField] private float _editorZoom = 5f;
     private Camera _cam;
     private float _initialCameraSize;
     private static CameraController _instance;
     private MapScaler _mapScaler;
+
+    [SerializeField] private float bobHeight = 0.2f;
+    [SerializeField] private float bobDuration = 1.5f;
+
+    private Tween _bobTween;
 
     void Awake()
     {
@@ -51,9 +57,21 @@ public class CameraController : MonoBehaviour
 
         if (_mapScaler != null)
             _mapScaler.OnScaleChanged -= OnMapScaleChanged;
+
+        _bobTween?.Kill();
     }
 
     public void SetEditorPosition() => gameObject.transform.position = _editorPosition;
     public void SetBattlePosition() => gameObject.transform.position = _battlePosition;
     public void SetEditorZoom() => _cam.orthographicSize = _editorZoom;
+
+    public void BeginBob()
+    {
+        _bobTween?.Kill();
+
+        _bobTween = transform.DOLocalMoveY(_battlePosition.y + bobHeight, bobDuration)
+            .SetEase(Ease.InOutSine)
+            .SetLoops(-1, LoopType.Yoyo);
+    }
+
 }

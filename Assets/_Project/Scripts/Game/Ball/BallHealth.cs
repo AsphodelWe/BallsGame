@@ -20,13 +20,14 @@ public class BallHealth : MonoBehaviour
     {
         _currentHealth -= damage;
 
-        OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
-        OnDamaged?.Invoke(damage);
-
         if (_currentHealth <= 0)
         {
+            _currentHealth = 0;
             OnDied?.Invoke();
         }
+        
+        OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
+        OnDamaged?.Invoke(damage);
     }
 
     public int GetMaxHealth { get => _maxHealth; }

@@ -153,3 +153,5 @@ MonoBehaviour:
   _editorPosition: {x: 0, y: 0, z: -10}
   _battlePosition: {x: 0, y: 0.5, z: -10}
   _editorZoom: 5
+  bobHeight: 2
+  bobDuration: 1.5

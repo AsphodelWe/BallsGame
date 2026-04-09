@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d73e20a50c3c44d8fff0b430a9368d, type: 3}
   m_Name: StatsRussia
   m_EditorClassIdentifier: Assembly-CSharp::CountryGameplayConfig
-  _maxHealth: 100
+  _maxHealth: 50
   _damage: 3
   _cooldownWeapon: 2
   _baseSpeed: 6

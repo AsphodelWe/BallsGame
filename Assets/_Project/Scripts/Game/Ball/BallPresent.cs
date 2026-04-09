@@ -51,6 +51,7 @@ public class BallPresent : MonoBehaviour, IDamagable
 
     public void Die()
     {
+        _ballView.PlayDeathEffect();
         _ballHealth.OnDied -= Die;
         _ballRegistry.UnRegister(this);
         Destroy(gameObject);

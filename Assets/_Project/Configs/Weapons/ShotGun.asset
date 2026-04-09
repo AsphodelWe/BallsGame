@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShotGun
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   Prefab: {fileID: 126546052518659635, guid: 66e2f5643c00c22458bc5990b4c1e81e, type: 3}
-  Damage: 5
+  Damage: 3
   TargetStrategyConfig: {fileID: 11400000, guid: 3fe667365db772a4ca0c2153337d9e3c, type: 2}
   _modules:
   - {fileID: 11400000, guid: 17bd903fb2d552f48a54ac84f6eb70da, type: 2}

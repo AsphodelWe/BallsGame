@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf7ed47fd423a442b5b2cb06b3296f6, type: 3}
   m_Name: SniperShootConfig
   m_EditorClassIdentifier: Assembly-CSharp::SniperShootConfig
-  FireRate: 8
+  FireRate: 5
   BulletConfig: {fileID: 11400000, guid: 861bf8517ad6e2d459a822b7d48fa0ee, type: 2}
   _shootEffectPrefab: {fileID: 4674043691350975746, guid: d4935bde9b12f9c48a2da914def6fa9f, type: 3}
   RecoilForce: 15

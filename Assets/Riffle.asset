@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Riffle
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   Prefab: {fileID: 126546052518659635, guid: 875e4719a4f70cb4ab5a7a899dcc9f99, type: 3}
-  Damage: 10
+  Damage: 15
   TargetStrategyConfig: {fileID: 11400000, guid: 16a617cc9d57cf94ea5abe5e98564051, type: 2}
   _modules:
   - {fileID: 11400000, guid: faeea1bd178502845a68daa20409fadb, type: 2}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -19,8 +20,9 @@ public class TeamHealthUI : IUiStrategy
     private VisualElement _barsContainer;
     private Dictionary<SideConfig, TeamData> _teams = new();
     public IEnumerable<SideConfig> TeamSides => _teams.Keys;
+    private Dictionary<BallPresent, Action<int>> _damageHandlers = new();
 
-    public TeamHealthUI(BallRegistry ballRegistry)
+     public TeamHealthUI(BallRegistry ballRegistry)
     {
         _ballRegistry = ballRegistry;
     }
@@ -104,9 +106,15 @@ public class TeamHealthUI : IUiStrategy
 
             foreach (var ball in balls)
             {
-                ball.Health.OnDamaged += (damage) =>
+                Action<int> damageHandler = (damage) =>
                 {
-                    team.CurrentHealth -= damage;
+                    UpdateTeamBar(side);
+                };
+                _damageHandlers[ball] = damageHandler;
+                ball.Health.OnDamaged += damageHandler;
+
+                ball.OnDestroyed += () =>
+                {
                     UpdateTeamBar(side);
                 };
             }
@@ -117,6 +125,10 @@ public class TeamHealthUI : IUiStrategy
     {
         var team = _teams[side];
         if (team.Bar == null) return;
+
+        var aliveBalls = team.Balls.Where(b => b != null && b.gameObject != null).ToList();
+        
+        team.CurrentHealth = aliveBalls.Sum(b => b.Health.GetCurrentHealth);
 
         var fill = team.Bar.Q<VisualElement>("HealthFill");
         var text = team.Bar.Q<Label>("HealthText");
@@ -141,6 +153,12 @@ public class TeamHealthUI : IUiStrategy
 
     public void Clear()
     {
+        foreach (var kvp in _damageHandlers)
+        {
+            if (kvp.Key != null)
+                kvp.Key.Health.OnDamaged -= kvp.Value;
+        }
+        _damageHandlers.Clear();
         _teams.Clear();
     }
 }

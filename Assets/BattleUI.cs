@@ -20,6 +20,7 @@ public class BattleUI : MonoBehaviour
     {
         Time.timeScale = 1;
         _startBattleButton.visible = false;
+        UnityEngine.Cursor.visible = false;
     }
 
     public void SetPause()
@@ -30,5 +31,6 @@ public class BattleUI : MonoBehaviour
     public void SetVisualStartBattleButton()
     {
         _startBattleButton.visible = true;
+        UnityEngine.Cursor.visible = true;
     }
 }

@@ -25,6 +25,7 @@ public class BattleState : BaseState
     {
         _cts = new CancellationTokenSource();
         _cameraController.SetBattlePosition();
+        _cameraController.BeginBob();
         LoadBattleAsync(_cts).Forget();
     }
     private async UniTaskVoid LoadBattleAsync(CancellationTokenSource сts)
@@ -78,9 +79,13 @@ public class BattleState : BaseState
 
         _uiController.ResetUI();
 
+        _cameraController.SetBattlePosition();
+        _cameraController.BeginBob();
+
         _battleUI.Initialize();
         _battleUI.SetPause();
         _battleUI.SetVisualStartBattleButton();
+
     }
 
     private void Reset() => RestartLevel();
