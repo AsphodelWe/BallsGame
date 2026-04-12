@@ -21,8 +21,9 @@ public class TeamHealthUI : IUiStrategy
     private Dictionary<SideConfig, TeamData> _teams = new();
     public IEnumerable<SideConfig> TeamSides => _teams.Keys;
     private Dictionary<BallPresent, Action<int>> _damageHandlers = new();
+    private Dictionary<BallPresent, Action> _destroyHandlers = new();
 
-     public TeamHealthUI(BallRegistry ballRegistry)
+    public TeamHealthUI(BallRegistry ballRegistry)
     {
         _ballRegistry = ballRegistry;
     }
@@ -106,17 +107,17 @@ public class TeamHealthUI : IUiStrategy
 
             foreach (var ball in balls)
             {
-                Action<int> damageHandler = (damage) =>
-                {
-                    UpdateTeamBar(side);
-                };
+                Action<int> damageHandler = (_) => UpdateTeamBar(side);
                 _damageHandlers[ball] = damageHandler;
                 ball.Health.OnDamaged += damageHandler;
 
-                ball.OnDestroyed += () =>
+                Action destroyHandler = () =>
                 {
+                    team.Balls.Remove(ball);
                     UpdateTeamBar(side);
                 };
+                _destroyHandlers[ball] = destroyHandler;
+                ball.OnDestroyed += destroyHandler;
             }
         }
     }
@@ -126,9 +127,9 @@ public class TeamHealthUI : IUiStrategy
         var team = _teams[side];
         if (team.Bar == null) return;
 
-        var aliveBalls = team.Balls.Where(b => b != null && b.gameObject != null).ToList();
-        
-        team.CurrentHealth = aliveBalls.Sum(b => b.Health.GetCurrentHealth);
+        team.CurrentHealth = team.Balls
+            .Where(b => b != null && b.gameObject != null)
+            .Sum(b => b.Health.GetCurrentHealth);
 
         var fill = team.Bar.Q<VisualElement>("HealthFill");
         var text = team.Bar.Q<Label>("HealthText");
@@ -159,6 +160,14 @@ public class TeamHealthUI : IUiStrategy
                 kvp.Key.Health.OnDamaged -= kvp.Value;
         }
         _damageHandlers.Clear();
+
+        foreach (var kvp in _destroyHandlers)
+        {
+            if (kvp.Key != null)
+                kvp.Key.OnDestroyed -= kvp.Value;
+        }
+        _destroyHandlers.Clear();
+
         _teams.Clear();
     }
 }

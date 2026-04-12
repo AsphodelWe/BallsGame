@@ -1,8 +1,7 @@
-using Unity.VisualScripting;
-using UnityEngine;
 using R3;
+using System;
 
-public abstract class BaseState : IGameState
+public abstract class BaseState : IGameState, IDisposable
 {
     protected CompositeDisposable Disposables { get; } = new();
 

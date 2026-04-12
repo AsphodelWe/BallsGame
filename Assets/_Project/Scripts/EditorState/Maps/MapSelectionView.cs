@@ -5,18 +5,31 @@ using UnityEngine;
 public class MapSelectionView : MonoBehaviour, IMapView
 {
     private GameObject _currentMap;
-    public Collider2D GetCollider => _currentMap.GetComponent<Collider2D>();
-
+    public Collider2D GetCollider => _currentMap != null? _currentMap.GetComponent<Collider2D>(): null;
     public GameObject ShowMap(MapConfig mapConfig)
     {
+        if (mapConfig == null)
+        {
+            Debug.LogError("MapConfig is null!");
+            return null;
+        }
+
         if (_currentMap != null)
         {
             Destroy(_currentMap);
             _currentMap = null;
         }
-        return _currentMap = mapConfig.SpawnPreview();
-    }
-    public void Hide() => gameObject.SetActive(false);
 
+        _currentMap = mapConfig.SpawnPreview();
+
+        if (_currentMap == null)
+        {
+            Debug.LogError($"Failed to spawn preview for {mapConfig.name}");
+        }
+
+        return _currentMap;
+    }
+
+    public void Hide() => gameObject.SetActive(false);
 
 }

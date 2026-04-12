@@ -2,8 +2,9 @@ using UnityEngine;
 using R3;
 using Reflex.Attributes;
 using System;
+using Unity.VisualScripting;
 
-public class MapSelectionState : BaseState, IDisposable
+public class MapSelectionState : BaseState
 {
     [Inject] private IMapUI _ui;
     [Inject] private IMapView _view;
@@ -14,6 +15,18 @@ public class MapSelectionState : BaseState, IDisposable
     public override void Enter()
     {
         ShowCurrentMap();
+        SetButtonsStream();
+    }
+
+    private void ShowCurrentMap()
+    {
+        var mapInstance = _view.ShowMap(_mapRegistry.GetMap(_currentIndex));
+        _mapRegistry.PlayableMap = mapInstance;
+        _mapRegistry.SelectMap(_currentIndex);
+    }
+
+    private void SetButtonsStream()
+    {
 
         _ui.OnNextClicked
             .Subscribe(_ =>
@@ -33,10 +46,10 @@ public class MapSelectionState : BaseState, IDisposable
             .AddTo(Disposables);
     }
 
-    private void ShowCurrentMap()
+
+    public override void Exit()
     {
-        var mapInstance = _view.ShowMap(_mapRegistry.GetMap(_currentIndex));
-        _mapRegistry.PlayableMap = mapInstance;
-        _mapRegistry.SelectMap(_currentIndex);
+        base.Dispose();
     }
+
 }

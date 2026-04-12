@@ -2,11 +2,10 @@ using UnityEngine;
 using R3;
 using Reflex.Attributes;
 using Reflex.Core;
-using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
+
 using Cysharp.Threading.Tasks;
-using TMPro;
+
 public class UnitPlacementState : BaseState
 {
     [Inject] private BuildController _buildController;
@@ -30,7 +29,7 @@ public class UnitPlacementState : BaseState
     public override void Exit()
     {
         _battleData.SetMapScale(_mapScaler.GetScale);
-        _buildController.OnGhostPlaced -= (ghost) => { };
+        Dispose();
     }
 
     private void UpdateGhosts()
@@ -71,27 +70,34 @@ public class UnitPlacementState : BaseState
     private void SetBuildController()
     {
         _buildController = _container.Resolve<BuildController>();
-        
-        _buildController.OnGhostPlaced += (ghost) =>
-        {
-            _battleData.AddGhost(ghost);
-            UpdateGhosts();
-        };
 
-        _buildController.OnGhostDeleted += (ghost) =>
-        {
-            _battleData.RemoveGhost(ghost);
-            UpdateGhosts();
-        };
+        _buildController.OnGhostPlaced.Subscribe(OnGhostPlaced).AddTo(Disposables);
+        _buildController.OnGhostDeleted.Subscribe(OnGhostDeleted).AddTo(Disposables);
 
         _buildController.Initialize();
     }
 
     private void SetUI()
     {
-        _ui.OnScaleChanged += async (value) =>{_mapScaler.ChangeScale(value); await UniTask.WaitForFixedUpdate();UpdateGhosts();};
-        _ui.OnClearGhosts += DeleteAllGhost;
-        _ui.OnRotateToggleChanged += (rotate) => _battleData.SetRotateMap(rotate);
+        _ui.OnScaleChanged.Subscribe(OnScaleChanged).AddTo(Disposables);
+        _ui.OnClearGhosts.Subscribe(_ => DeleteAllGhost()).AddTo(Disposables);
+        _ui.OnRotateToggleChanged.Subscribe(OnRotateToggleChanged).AddTo(Disposables);
     }
 
+    private void OnGhostPlaced(Ghost ghost) { _battleData.AddGhost(ghost); UpdateGhosts(); }
+    private void OnGhostDeleted(Ghost ghost) { _battleData.RemoveGhost(ghost); UpdateGhosts(); }
+    private void OnRotateToggleChanged(bool rotate) => _battleData.SetRotateMap(rotate);
+    private async void OnScaleChanged(float value)
+    {
+        _mapScaler.ChangeScale(value);
+        await UniTask.WaitForFixedUpdate();
+        UpdateGhosts();
+    }
+
+    public override void Dispose()
+    {
+        _buildController?.Dispose(); 
+        base.Dispose();
+    }
 }
+

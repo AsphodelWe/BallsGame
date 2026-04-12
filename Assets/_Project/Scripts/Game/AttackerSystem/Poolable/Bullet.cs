@@ -12,19 +12,21 @@ public class Bullet : MonoBehaviour, IPoolable<Bullet>
     public event Action<Bullet> OnDespawnRequested;
     private TrailRenderer _trail;
     private float _timer;
+    private float _hitForce;
 
     void Awake()
     {
         _trail = GetComponent<TrailRenderer>();
     }
 
-    public void Initialize(BulletConfig config, int damage, Vector2 direction, SideConfig side)
+    public void Initialize(BulletConfig config, int damage, Vector2 direction, SideConfig side, float hitForce)
     {
         _config = config;
         _damage = damage;
         _speed = _config.Speed;
         _direction = direction.normalized;
         _side = side;
+        _hitForce = hitForce;
     }
 
     private void Update()
@@ -51,7 +53,7 @@ public class Bullet : MonoBehaviour, IPoolable<Bullet>
 
         Vector2 hitDirection = (other.transform.position - transform.position).normalized;
         
-        ball.TakeDamage(_damage, hitDirection);
+        ball.TakeDamage(_damage, hitDirection, _hitForce);
         ReturnToPool();
         return true;
     }

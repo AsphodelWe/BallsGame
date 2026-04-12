@@ -3,10 +3,11 @@ using R3;
 using System;
 public interface IUnitPlacementUI
 {
-    public event Action<CountryConfig> OnSelectCountry;
-    public event Action<float> OnScaleChanged;
-    public event Action OnClearGhosts;
-    public event Action<bool> OnRotateToggleChanged;
+    public Subject<CountryConfig> OnSelectCountry { get; }
+    public Subject<float> OnScaleChanged { get; }
+    public Subject<Unit> OnClearGhosts { get; }
+    public Subject<bool> OnRotateToggleChanged { get; }
+    CountryConfig CurrentSelectedCountry { get; }
     void SetActiveBattleButton(bool flag);
     void Show();
     void Hide();

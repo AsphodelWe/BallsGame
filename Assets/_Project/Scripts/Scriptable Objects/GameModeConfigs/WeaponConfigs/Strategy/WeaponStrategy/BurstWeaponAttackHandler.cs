@@ -45,7 +45,8 @@ public class BurstWeaponAttackHandler : IWeaponAttackHandler, IDisposable
             config: _config.BulletConfig,
             damage: weapon.Damage,
             direction: weapon.FirePoint.right,
-            side: weapon.Side
+            side: weapon.Side,
+            hitForce: _config.HitForce
         );
 
         Vector2 recoilDirection = -weapon.FirePoint.right;

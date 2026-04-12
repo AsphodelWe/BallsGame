@@ -7,6 +7,8 @@ public class BallPresent : MonoBehaviour, IDamagable
 {
     [Inject] private BallRegistry _ballRegistry;
     [Inject] IMasterFactory _masterFactory;
+
+    [Header("Аттакер")]
     [SerializeField] private AttackerConfig _attackerConfig;
     [Header("Физика")]
     [SerializeField] private BallPhysics _ballPhysics;
@@ -21,7 +23,8 @@ public class BallPresent : MonoBehaviour, IDamagable
     [SerializeField] private BallHealth _ballHealth;
     private BallData _ballData;
     private Master _master;
-    public void Inizialize(BallData ballData)
+    public event Action OnDestroyed;
+    public void Initialize(BallData ballData)
     {
         _ballData = ballData;
 
@@ -41,10 +44,10 @@ public class BallPresent : MonoBehaviour, IDamagable
 
     }
 
-    public void TakeDamage(int damage, Vector2 hitDirection)
+    public void TakeDamage(int damage, Vector2 hitDirection, float hitForce)
     {
         _ballHealth.GetDamage(damage);
-        _ballPhysics.ApplyForce(hitDirection, damage * 0.5f);
+        _ballPhysics.ApplyForce(hitDirection, hitForce);
         _ballView.PlayHitEffect();
         _ballView.ShowDamageNumber(damage);
     }
@@ -60,7 +63,6 @@ public class BallPresent : MonoBehaviour, IDamagable
     public SideConfig GetSide => _ballData.Side;
     public BallHealth Health => _ballHealth;
     public Sprite GetSprite => _ballView.GetFlag;
-    public event Action OnDestroyed;
 
     void OnDestroy()
     {

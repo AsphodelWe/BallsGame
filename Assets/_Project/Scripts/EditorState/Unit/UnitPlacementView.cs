@@ -7,85 +7,110 @@ using Reflex.Extensions;
 
 public class UnitPlacementView : MonoBehaviour, IUnitPlacementView
 {
-    [SerializeField] private LayerMask _ballLayer;
-    [SerializeField] private LayerMask _groundLayer;
-
-    [Header("Visual")]
-    [SerializeField] private GameObject _visualContainer;
-
     [Inject] private CameraController _cameraController;
+    [SerializeField] private GameObject _visualContainer;
+    [SerializeField] private LayerMask _ballLayer;
     private Camera _mainCamera;
+    private CompositeDisposable _disposables = new();
+    
+    private Subject<Vector3> _mousePositionSubject = new();
+    private Subject<Vector3> _mouseLeftClickSubject = new();
+    private Subject<Unit> _mouseRightClickSubject = new();
 
-    void Start()
+    public LayerMask GetBallLayer => _ballLayer;
+    
+    private void Awake()
     {
-        if (_cameraController != null)
-        {
-            _mainCamera = _cameraController.GetComponent<Camera>();
-        }
+        _mainCamera = _cameraController?.GetComponent<Camera>() ?? Camera.main;
+        InitializeStreams();
     }
-
-    public CountryConfig GetCountryFromPosition(Vector3 worldPos)
+    
+    private void InitializeStreams()
     {
-        Collider2D hit = Physics2D.OverlapPoint(worldPos, _ballLayer);
-        if (hit != null)
-        {
-            var countryComponent = hit.GetComponent<CountryComponent>();
-            return countryComponent?.CountryConfig;
-        }
-        return null;
+        // Позиция мыши (каждый кадр при движении)
+        Observable.EveryUpdate()
+            .Where(_ => IsMouseValid())
+            .Select(_ => GetWorldPosition())
+            .Where(pos => IsPositionValid(pos))
+            .DistinctUntilChanged()
+            .Subscribe(pos => _mousePositionSubject.OnNext(pos))
+            .AddTo(_disposables);
+        
+        // Левый клик
+        Observable.EveryUpdate()
+            .Where(_ => IsMouseValid())
+            .Where(_ => Mouse.current.leftButton.wasPressedThisFrame)
+            .Select(_ => GetWorldPosition())
+            .Where(pos => IsPositionValid(pos))
+            .Subscribe(pos => _mouseLeftClickSubject.OnNext(pos))
+            .AddTo(_disposables);
+        
+        // Правый клик
+        Observable.EveryUpdate()
+            .Where(_ => IsMouseValid())
+            .Where(_ => Mouse.current.rightButton.wasPressedThisFrame)
+            .Subscribe(_ => _mouseRightClickSubject.OnNext(Unit.Default))
+            .AddTo(_disposables);
     }
+    
+    private bool IsMouseValid()
+    {
+        if (Mouse.current == null || _mainCamera == null) return false;
+        
+        var eventSystem = UnityEngine.EventSystems.EventSystem.current;
+        if (eventSystem != null && eventSystem.IsPointerOverGameObject())
+            return false;
+            
+        return true;
+    }
+    
+    private bool IsPositionValid(Vector3 pos)
+    {
+        return !float.IsNaN(pos.x) && 
+               !float.IsInfinity(pos.x) && 
+               pos != Vector3.negativeInfinity &&
+               pos != Vector3.zero;
+    }
+    
     public Vector3 GetWorldPosition()
     {
-        var cam = _mainCamera;
-        if (cam == null)
-        {
-            return Vector3.zero;
-        }
-
+        if (_mainCamera == null) return Vector3.negativeInfinity;
+        
         Vector3 screenPos = Mouse.current.position.ReadValue();
-        Vector3 worldPos = cam.ScreenToWorldPoint(screenPos);
+        
+        if (screenPos.x < 0 || screenPos.x > Screen.width || 
+            screenPos.y < 0 || screenPos.y > Screen.height)
+            return Vector3.negativeInfinity;
+            
+        Vector3 worldPos = _mainCamera.ScreenToWorldPoint(screenPos);
         worldPos.z = 0;
         return worldPos;
     }
-
-    public Observable<Vector3> GetMouseWorldPositionStream()
-    {
-        return Observable.EveryUpdate()
-            .Where(_ => Mouse.current != null)
-            .Select(_ => GetWorldPosition());
-    }
-
-    public Observable<Vector3> GetMouseClickStream()
-    {
-        return GetMouseWorldPositionStream()
-            .Where(_ => Mouse.current.leftButton.wasPressedThisFrame);
-    }
-
-    public Observable<Ghost> GetMouseClickStreamRight()
-    {
-        return Observable.EveryUpdate()
-            .Where(_ => Mouse.current != null && Mouse.current.rightButton.wasPressedThisFrame)
-            .Select(_ => GetWorldPosition())
-            .Select(pos => GetGhostAtPosition(pos))
-            .Where(ghost => ghost != null);
-
-    }
-
-    private Ghost GetGhostAtPosition(Vector3 worldPos)
-    {
-        Collider2D hit = Physics2D.OverlapPoint(worldPos, _ballLayer);
-        Debug.Log(hit);
-        return hit?.GetComponent<Ghost>();
-    }
-
+    
+    // Публичные стримы (Observable)
+    public Observable<Vector3> GetMouseWorldPositionStream() => _mousePositionSubject.AsObservable();
+    public Observable<Vector3> GetMouseClickStreamLeft() => _mouseLeftClickSubject.AsObservable();
+    public Observable<Unit> GetMouseClickStreamRight() => _mouseRightClickSubject.AsObservable();
+    
     public void Show()
     {
         gameObject.SetActive(true);
         _visualContainer.SetActive(true);
     }
-
+    
     public void Hide()
     {
         gameObject.SetActive(false);
+        _visualContainer.SetActive(false);
     }
+    
+    public void Dispose()
+    {
+        _disposables?.Dispose();
+        _mousePositionSubject?.Dispose();
+        _mouseLeftClickSubject?.Dispose();
+        _mouseRightClickSubject?.Dispose();
+    }
+    
+    private void OnDestroy() => Dispose();
 }

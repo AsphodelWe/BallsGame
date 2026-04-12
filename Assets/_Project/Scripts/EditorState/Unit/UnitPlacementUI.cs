@@ -3,7 +3,6 @@ using R3;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
 using Reflex.Attributes;
-using Unity.VisualScripting;
 using System;
 
 public class UnitPlacementUI : MonoBehaviour, IUnitPlacementUI
@@ -11,54 +10,43 @@ public class UnitPlacementUI : MonoBehaviour, IUnitPlacementUI
     [Inject] private IEventBus _eventBus;
     [SerializeField] private VisualTreeAsset _countryButtonTemplate;
     [SerializeField] private List<CountryConfig> _countries;
-    [SerializeField] private string _battleName = "BattleButton";
-    [SerializeField] private string _mapContainerName = "MapPreferenceButton";
+
     private UIDocument _document;
-    private Button _battlebutton;
+    private VisualElement _root;
+    private Button _battleButton;
     private Button _mapButton;
     private Button _clearButton;
     private Toggle _rotateMode;
-    private CompositeDisposable _disposables = new();
     private Slider _slider;
-    public event Action<float> OnScaleChanged;
-    public event Action<CountryConfig> OnSelectCountry;
-    public event Action OnClearGhosts;
-    public event Action<bool> OnRotateToggleChanged;
+    private CountryConfig _currentSelectedCountry;
+    private CompositeDisposable _disposables = new();
+    public Subject<float> OnScaleChanged { get; } = new();
+    public Subject<CountryConfig> OnSelectCountry { get; } = new();
+    public Subject<Unit> OnClearGhosts { get; } = new();
+    public Subject<bool> OnRotateToggleChanged { get; } = new();
 
+    public CountryConfig CurrentSelectedCountry => _currentSelectedCountry;
 
-    void Awake()
-    {
-        Initialization();
-    }
+    void Awake() => Initialization();
 
     private void Initialization()
     {
         _document = GetComponent<UIDocument>();
-        var root = _document.rootVisualElement;
+        _root = _document.rootVisualElement;
 
-        _battlebutton = root.Q<Button>(_battleName);
+        SetBattleButton();
+        SetMapPanel();
+        SetMapSlider();
+        SetClearButton();
+        SetCountryContainer();
+    }
 
-        _mapButton = root.Q<Button>(_mapContainerName);
-        VisualElement _containerSettings = root.Q<VisualElement>("MapPanel");
+    public void SetActiveBattleButton(bool flag) => _battleButton?.SetEnabled(flag);
 
-        _mapButton.clicked += () =>
-        {
-            bool isVisible = _containerSettings.style.visibility == Visibility.Visible;
-            _containerSettings.style.visibility = isVisible ? Visibility.Hidden : Visibility.Visible;
-        };
-
-        _battlebutton.clicked += () => _eventBus.OnBattleClicked.OnNext(R3.Unit.Default);
-
-        _slider = root.Q<Slider>("MapSlider");
-        _slider.RegisterValueChangedCallback(evt => OnScaleChanged?.Invoke(evt.newValue));
-
-        _rotateMode = root.Q<Toggle>("IsRotate");
-        _rotateMode.RegisterValueChangedCallback(evt => OnRotateToggleChanged?.Invoke(evt.newValue));
-
-        _clearButton = root.Q<Button>("ClearButton");
-        _clearButton.clicked += () => OnClearGhosts.Invoke();
-
-        VisualElement container = root.Q<VisualElement>("CountryContainer");
+    private void SetCountryContainer()
+    {
+        var container = _root.Q<VisualElement>("CountryContainer");
+        if (container == null) return;
 
         foreach (var country in _countries)
         {
@@ -67,18 +55,91 @@ public class UnitPlacementUI : MonoBehaviour, IUnitPlacementUI
             button.style.backgroundImage = new StyleBackground(country.CountryFlag);
             container.Add(buttonElement);
 
-            button.clicked += () => OnSelectCountry?.Invoke(country);
+            Observable.FromEvent(
+                h => button.clicked += h,
+                h => button.clicked -= h)
+                .Subscribe(_ => OnSelectCountry.OnNext(country))
+                .AddTo(_disposables);
+        }
+    }
+
+    private void SetClearButton()
+    {
+        _clearButton = _root.Q<Button>("ClearButton");
+        if (_clearButton == null) return;
+
+        Observable.FromEvent(
+            h => _clearButton.clicked += h,
+            h => _clearButton.clicked -= h)
+            .Subscribe(_ => OnClearGhosts.OnNext(Unit.Default))
+            .AddTo(_disposables);
+    }
+
+    private void SetMapPanel()
+    {
+        _mapButton = _root.Q<Button>("MapPreferenceButton");
+        var containerSettings = _root.Q<VisualElement>("MapPanel");
+
+        if (_mapButton != null && containerSettings != null)
+        {
+            Observable.FromEvent(
+                h => _mapButton.clicked += h,
+                h => _mapButton.clicked -= h)
+                .Subscribe(_ =>
+                {
+                    bool isVisible = containerSettings.style.visibility == Visibility.Visible;
+                    containerSettings.style.visibility = isVisible ? Visibility.Hidden : Visibility.Visible;
+                })
+                .AddTo(_disposables);
         }
 
+        _rotateMode = _root.Q<Toggle>("IsRotate");
+        if (_rotateMode != null)
+        {
+            _rotateMode.RegisterValueChangedCallback(OnRotateChanged);
+        }
     }
 
-    public void SetActiveBattleButton(bool flag)
+    private void OnRotateChanged(ChangeEvent<bool> evt) => OnRotateToggleChanged.OnNext(evt.newValue);
+
+    private void SetBattleButton()
     {
-        _battlebutton.SetEnabled(flag);
+        _battleButton = _root.Q<Button>("BattleButton");
+        if (_battleButton == null) return;
+
+        Observable.FromEvent(
+            h => _battleButton.clicked += h,
+            h => _battleButton.clicked -= h)
+            .Subscribe(_ => _eventBus.OnBattleClicked.OnNext(Unit.Default))
+            .AddTo(_disposables);
     }
 
-    private void OnDisable() => _disposables.Clear();
-    private void OnDestroy() => _disposables.Dispose();
+    private void SetMapSlider()
+    {
+        _slider = _root.Q<Slider>("MapSlider");
+        if (_slider == null) return;
+
+        _slider.RegisterValueChangedCallback(OnScaleValueChanged);
+    }
+
+    private void OnScaleValueChanged(ChangeEvent<float> evt) => OnScaleChanged.OnNext(evt.newValue);
+
+    private void OnDestroy()
+    {
+        if (_slider != null)
+            _slider.UnregisterValueChangedCallback(OnScaleValueChanged);
+
+        if (_rotateMode != null)
+            _rotateMode.UnregisterValueChangedCallback(OnRotateChanged);
+
+        _disposables.Dispose();
+
+        OnScaleChanged.Dispose();
+        OnSelectCountry.Dispose();
+        OnClearGhosts.Dispose();
+        OnRotateToggleChanged.Dispose();
+    }
+
     public void Hide() => gameObject.SetActive(false);
     public void Show() => gameObject.SetActive(true);
 }

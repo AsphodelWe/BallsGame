@@ -45,7 +45,7 @@ public class EditorState : BaseState
     public override void Exit()
     {
         _currentSubState?.Exit();
-        Disposables.Clear();
+        base.Dispose();
     }
 
     private void HideMapElements()

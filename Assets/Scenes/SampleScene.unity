@@ -220,8 +220,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c54b6548b1771414fa08e6066c320596, type: 2}
   - {fileID: 11400000, guid: ffca45b2d5f9fe54fb30021b2f744e2f, type: 2}
   - {fileID: 11400000, guid: 3c3b40e2ad9722643a5b0638d5a52b97, type: 2}
-  _battleName: BattleButton
-  _mapContainerName: MapPreferenceButton
 --- !u!4 &457933911
 Transform:
   m_ObjectHideFlags: 0
@@ -726,13 +724,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc866847e32af649813ca05fee78d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitPlacementView
+  _visualContainer: {fileID: 1293432575}
   _ballLayer:
     serializedVersion: 2
     m_Bits: 256
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  _visualContainer: {fileID: 1293432575}
 --- !u!4 &1479726283
 Transform:
   m_ObjectHideFlags: 0

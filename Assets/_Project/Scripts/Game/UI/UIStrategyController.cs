@@ -5,58 +5,64 @@ using UnityEngine.UIElements;
 
 public class UIStrategyController : MonoBehaviour
 {
-    [Inject] private UiStrategyFactory factory;
+    [Inject] private UiStrategyFactory _factory;
     [Inject] private BallRegistry _ballRegistry;
     [SerializeField] private VisualTreeAsset _healthBarTemplate;
-    [SerializeField] private BattleUISettings _uIsettings;
+    [SerializeField] private BattleUISettings _uiSettings;
+
     private IUiStrategy _currentStrategy;
     private UIDocument _uiDoc;
-    private VisualElement _barsContainer;
 
     private void Start()
     {
-        if (_uIsettings == null)
+        if (_uiSettings == null)
         {
             Debug.LogError("BattleUISettings not assigned!", this);
             return;
         }
 
         _uiDoc = GetComponent<UIDocument>();
-
-        var root = _uiDoc.rootVisualElement;
-        _barsContainer = root.Q<VisualElement>("HealthBarsContainer");
+        if (_uiDoc == null)
+        {
+            Debug.LogError("UIDocument component missing!", this);
+            return;
+        }
 
         ApplyStrategy();
     }
 
     private void ApplyStrategy()
     {
-        _currentStrategy = factory.CreateUIStratege();
-        _currentStrategy.Initialize(_healthBarTemplate, _uIsettings, _uiDoc);
+        _currentStrategy = _factory.CreateUIStratege();
+        _currentStrategy.Initialize(_healthBarTemplate, _uiSettings, _uiDoc);
 
-        if (_currentStrategy is IndividualHealthUI individual)
+        switch (_currentStrategy)
         {
-            foreach (var ball in _ballRegistry.GetAllBalls())
-                individual.SetBallHealth(ball);
-        }
-        else if (_currentStrategy is TeamHealthUI team)
-        {
-            foreach (var side in team.TeamSides)
-                team.SetTeamHealth(side);
+            case IndividualHealthUI individual:
+                foreach (var ball in _ballRegistry.GetAllBalls())
+                    individual.SetBallHealth(ball);
+                break;
+            case TeamHealthUI team:
+                foreach (var side in team.TeamSides)
+                    team.SetTeamHealth(side);
+                break;
         }
     }
 
     public void ResetUI()
     {
-        _barsContainer.Clear();
+        var barsContainer = _uiDoc.rootVisualElement.Q<VisualElement>("HealthBarsContainer");
+        barsContainer?.Clear();
 
-        if (_currentStrategy is IndividualHealthUI individual)
-            individual.Clear();
-        else if (_currentStrategy is TeamHealthUI team)
-            team.Clear();
+        _currentStrategy?.Clear();
 
         ApplyStrategy();
-        _currentStrategy.UpdateBarsAlignment();
+        _currentStrategy?.UpdateBarsAlignment();
+    }
+
+    private void OnDestroy()
+    {
+        (_currentStrategy as IDisposable)?.Dispose();
     }
 }
 

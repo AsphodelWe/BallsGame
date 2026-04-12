@@ -13,6 +13,7 @@ public class ShotgunConfig : ScriptableObject, IShootConfig
     public GameObject ShootEffectPrefab => _shootEffectPrefab;
 
     public float RecoilForce = 5f;
+    public float HitForce => 3f;
 
     public int BulletCount = 5;
 

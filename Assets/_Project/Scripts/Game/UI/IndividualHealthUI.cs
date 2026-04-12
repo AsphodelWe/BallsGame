@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using Reflex.Attributes;
 using UnityEngine;
 using UnityEngine.UIElements;
-using System.Linq;
 
 public class IndividualHealthUI : IUiStrategy
 {
@@ -11,7 +9,7 @@ public class IndividualHealthUI : IUiStrategy
     private VisualElement _root;
     private VisualElement _barsContainer;
     private Dictionary<BallPresent, VisualElement> _activeBars = new();
-
+    private Dictionary<BallPresent, System.Action<int, int>> _healthHandlers = new();
     public IndividualHealthUI() { }
 
     public void Initialize(VisualTreeAsset healthBarTemplate, BattleUISettings UIsettings, UIDocument uiDoc)
@@ -42,9 +40,11 @@ public class IndividualHealthUI : IUiStrategy
 
         UpdateHealthBar(ball.Health.GetCurrentHealth, ball.Health.GetMaxHealth, fill, text);
 
-        ball.Health.OnHealthChanged += (current, max) =>
+        System.Action<int, int> handler = (current, max) =>
             UpdateHealthBar(current, max, fill, text);
 
+        _healthHandlers[ball] = handler;
+        ball.Health.OnHealthChanged += handler;
     }
 
     public void UpdateBarsAlignment()
@@ -70,13 +70,10 @@ public class IndividualHealthUI : IUiStrategy
         {
             BallPresent ball = kvp.Key;
             VisualElement bar = kvp.Value;
+            
             var container = bar.Q<VisualElement>("HealthContainer");
             var flag = bar.Q<Image>("CountryFlag");
-
-            if (flag != null)
-                flag.sprite = ball.GetSprite;
-            else
-                Debug.LogError("CountryFlag not found!");
+            flag.sprite = ball.GetSprite;
 
             container.style.width = targetWidth;
         }
@@ -98,6 +95,13 @@ public class IndividualHealthUI : IUiStrategy
 
     public void Clear()
     {
+        foreach (var kvp in _healthHandlers)
+        {
+            if (kvp.Key != null)
+                kvp.Key.Health.OnHealthChanged -= kvp.Value;
+        }
+        _healthHandlers.Clear();
+
         foreach (var bar in _activeBars.Values)
         {
             if (bar != null)

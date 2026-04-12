@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4863f4323eaab6e45a5d7d9f12a9a0f7, type: 3}
+  m_Name: CameraSettings
+  m_EditorClassIdentifier: Assembly-CSharp::CameraSettings
+  EditorPosition: {x: 0, y: 0, z: -10}
+  BattlePosition: {x: 0, y: 0.5, z: -10}
+  EditorZoom: 5

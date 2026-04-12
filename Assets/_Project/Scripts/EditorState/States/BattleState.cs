@@ -7,25 +7,25 @@ using Reflex.Extensions;
 using System.Threading;
 using System;
 using Reflex.Injectors;
-using DG.Tweening;
 public class BattleState : BaseState
 {
     [Inject] private BattleData _battleData;
     [Inject] private Container _battleContainer;
     [Inject] private CameraController _cameraController;
-    private InputHandlerBattle _inputHandler;
+    private IInputHandler _inputHandler;
     private BattleUI _battleUI;
     private UIStrategyController _uiController;
     private BallFactory _ballFactory;
     private CancellationTokenSource _cts;
     private GameObject map;
+    private ITimeManager _timeManager;
     private const string _battleSceneName = "BattleScene";
 
     public override void Enter()
     {
         _cts = new CancellationTokenSource();
         _cameraController.SetBattlePosition();
-        _cameraController.BeginBob();
+        _cameraController.VerticalBob();
         LoadBattleAsync(_cts).Forget();
     }
     private async UniTaskVoid LoadBattleAsync(CancellationTokenSource сts)
@@ -34,24 +34,21 @@ public class BattleState : BaseState
         {
             await SceneManager.LoadSceneAsync(_battleSceneName).ToUniTask();
             _battleContainer = SceneManager.GetActiveScene().GetSceneContainer();
+            _timeManager = _battleContainer.Resolve<ITimeManager>();
 
-            _inputHandler = _battleContainer.Resolve<InputHandlerBattle>();
-            _inputHandler.OnBattleRestart += Reset;
-            _inputHandler.OnExitToMenu += Exit;
-
-            _uiController = _battleContainer.Resolve<UIStrategyController>();
-
+            SetupInputHandler();
+            SetupUI();
             SpawnMap();
-            CreateFabric();
+
+            _ballFactory = _battleContainer.Resolve<BallFactory>();
+            CreateBalls();
         }
         catch (OperationCanceledException)
         {
             Debug.Log("Загрузка битвы отменена");
         }
 
-        _battleUI = _battleContainer.Resolve<BattleUI>();
-        _battleUI.Initialize();
-        _battleUI.SetPause();
+        _timeManager.Pause();
     }
 
     private void SpawnMap()
@@ -64,15 +61,9 @@ public class BattleState : BaseState
         GameObjectInjector.InjectRecursive(map, globalContainer);
     }
 
-    private void CreateFabric()
-    {
-        _ballFactory = _battleContainer.Resolve<BallFactory>();
-        CreateBalls();
-    }
-
     private void RestartLevel()
     {
-        ClearResourses();
+        ClearResources();
 
         SpawnMap();
         CreateBalls();
@@ -80,15 +71,12 @@ public class BattleState : BaseState
         _uiController.ResetUI();
 
         _cameraController.SetBattlePosition();
-        _cameraController.BeginBob();
 
-        _battleUI.Initialize();
-        _battleUI.SetPause();
-        _battleUI.SetVisualStartBattleButton();
+        _timeManager.Pause();
+        _battleUI.SetStartButtonVisible(true);
+        _battleUI.SetCursorVisible(true);
 
     }
-
-    private void Reset() => RestartLevel();
 
     private void CreateBalls()
     {
@@ -101,19 +89,13 @@ public class BattleState : BaseState
 
     private async UniTask ExitToMenu()
     {
-        ClearResourses();
+
+        ClearResources();
         _battleData.RemoveAllGhost();
 
-        if (_inputHandler != null)
-        {
-            _inputHandler.OnBattleRestart -= Reset;
-            _inputHandler.OnExitToMenu -= Exit;
-        }
-
-        _cts?.Cancel();
-        _cts?.Dispose();
-
         await UniTask.Yield();
+
+        _battleUI.SetCursorVisible(true);
 
         _cameraController.SetEditorPosition();
         _cameraController.SetEditorZoom();
@@ -121,16 +103,47 @@ public class BattleState : BaseState
         SceneManager.LoadScene("SampleScene");
     }
 
-    private void ClearResourses()
+    private void ClearResources()
     {
-        DOTween.KillAll();
-
         if (map != null)
             UnityEngine.Object.Destroy(map);
 
         _ballFactory?.DestroyAll();
     }
 
-    public override void Exit() => ExitToMenu().Forget();
+    private void SetupInputHandler()
+    {
+        _inputHandler = _battleContainer.Resolve<IInputHandler>();
+        _inputHandler.OnBattleRestart += () => { Reset(); };
+        _inputHandler.OnExitToMenu += () => { Exit(); };
+        _inputHandler.Enable();
+    }
 
+    private void SetupUI()
+    {
+        _uiController = _battleContainer.Resolve<UIStrategyController>();
+        _battleUI = _battleContainer.Resolve<BattleUI>();
+        _battleUI.OnBattleStarted += () => _timeManager.Resume();
+    }
+
+    public override void Exit() => ExitToMenu().Forget();
+    private void Reset() => RestartLevel();
+    public override void Dispose()
+    {
+        if (_inputHandler != null)
+        {
+            _inputHandler.OnBattleRestart -= () => { Reset(); };
+            _inputHandler.OnExitToMenu -= () => { Exit(); };
+            _inputHandler.Disable();
+            (_inputHandler as IDisposable)?.Dispose();
+        }
+
+        _cts?.Cancel();
+        _cts?.Dispose();
+
+        _uiController?.ResetUI();
+        (_uiController as IDisposable)?.Dispose();
+
+        base.Dispose();
+    }
 }

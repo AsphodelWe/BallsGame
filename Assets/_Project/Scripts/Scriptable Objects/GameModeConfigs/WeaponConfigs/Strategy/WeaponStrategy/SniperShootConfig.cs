@@ -12,6 +12,7 @@ public class SniperShootConfig : ScriptableObject, IShootConfig
     public GameObject ShootEffectPrefab => _shootEffectPrefab;
 
     public float RecoilForce = 5f;
+    public float HitForce => 3f;
 
     GameObject IShootConfig.BulletPrefab => BulletConfig.Prefab;
     float IShootConfig.BulletSpeed => BulletConfig.Speed;

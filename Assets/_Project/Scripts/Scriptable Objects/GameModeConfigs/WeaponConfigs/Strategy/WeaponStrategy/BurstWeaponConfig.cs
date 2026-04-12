@@ -15,6 +15,7 @@ public class BurstWeaponConfig : ScriptableObject, IShootConfig, IMagazineWeapon
     public GameObject _prefabShootEffect;
 
     public float RecoilForce = 5f;
+    public float HitForce => 3f;
     public float ReloadTime => BurstDelay;
     public GameObject ShootEffectPrefab => _prefabShootEffect;
     GameObject IShootConfig.BulletPrefab => BulletConfig.Prefab;

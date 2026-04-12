@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Desert Eagle
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   Prefab: {fileID: 126546052518659635, guid: 584883d302ddffe4b8f67c7bf71878a5, type: 3}
-  Damage: 10
+  Damage: 7
   TargetStrategyConfig: {fileID: 11400000, guid: 3fe667365db772a4ca0c2153337d9e3c, type: 2}
   _modules:
   - {fileID: 11400000, guid: 20c74aff0b6350142bd1dd7201bdc068, type: 2}

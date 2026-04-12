@@ -11,94 +11,178 @@ public enum PlaceLayer
     BallLayer
 }
 
-public class BuildController
+public class BuildController : IDisposable
 {
     [Inject] private IEventBus _eventBus;
     [Inject] private IUnitPlacementView _unitPlacementView;
     [Inject] private IUnitPlacementUI _unitPlacementUI;
-    [Inject] private GhostFacroty _ghostFactory;
-    private Ghost _ghost;
+    [Inject] private GhostFactory _ghostFactory;
+
+    private Ghost _currentGhost;
     private Collider2D _mapBounds;
     private CompositeDisposable _disposables = new();
-    public event Action<Ghost> OnGhostPlaced;
-    public event Action<Ghost> OnGhostDeleted;
+
+    public Subject<Ghost> OnGhostPlaced { get; } = new();
+    public Subject<Ghost> OnGhostDeleted { get; } = new();
+
     public void Initialize()
     {
-        _unitPlacementUI.OnSelectCountry += (country) => CreateGhost(country);
+        _unitPlacementUI.OnSelectCountry
+            .Subscribe(CreateGhost)
+            .AddTo(_disposables);
 
         GetMapCollider();
-        SetupBuildingPlacement();
         SetupGhostMovement();
-        SetupDeleteGhost();
-
-    }
-
-    private void SetupDeleteGhost()
-    {
-        _unitPlacementView.GetMouseClickStreamRight()
-        .Subscribe(ghost =>
-        {
-            OnGhostDeleted.Invoke(ghost);
-            ghost.Destroy();
-        });
-
-    }
-    private void SetupBuildingPlacement()
-    {
-        _unitPlacementView.GetMouseClickStream()
-       .Where(_ => _ghost != null)
-       .Where(pos => IsWithinMap(pos))
-       .Subscribe(_ => PlaceGhost())
-       .AddTo(_disposables);
-    }
-
-    private void SetupGhostMovement()
-    {
-        _unitPlacementView.GetMouseWorldPositionStream()
-            .Where(_ => _ghost != null)
-            .Subscribe(position =>
-            {
-                _ghost.SetPosition(position);
-                _ghost.SetColor(IsWithinMap(position) ? Color.green : Color.red);
-            })
-            .AddTo(_disposables);
-    }
-
-
-    private void CreateGhost(CountryConfig country)
-    {
-        _ghost?.Destroy();
-        _ghost = _ghostFactory.Create(country, 0.5f);
-    }
-
-    public bool IsWithinMap(Vector3 position)
-    {
-        if (_mapBounds == null) return false;
-
-        var result = _mapBounds.OverlapPoint(position);
-
-
-        return result;
+        SetupGhostPlacement();
+        SetupDeleteLogic();
     }
 
     private void GetMapCollider()
     {
         _eventBus.OnMapBoundsReady
-            .Subscribe(bounds =>
+            .Subscribe(bounds => _mapBounds = bounds)
+            .AddTo(_disposables);
+    }
+
+    private void CreateGhost(CountryConfig country)
+    {
+        _currentGhost?.Destroy();
+        _currentGhost = _ghostFactory.Create(country);
+
+        var mousePos = _unitPlacementView.GetWorldPosition();
+        if (IsPositionValid(mousePos))
+        {
+            _currentGhost.SetPosition(mousePos);
+            _currentGhost.SetColor(IsWithinMap(mousePos) ? Color.green : Color.red);
+        }
+    }
+
+    private void SetupGhostMovement()
+    {
+        _unitPlacementView.GetMouseWorldPositionStream()
+            .Where(_ => _currentGhost != null)
+            .Subscribe(position =>
             {
-                _mapBounds = bounds;
+                _currentGhost.SetPosition(position);
+
+                bool isValid = IsValidPlacementPosition(position);
+                _currentGhost.SetColor(isValid ? Color.green : Color.red);
             })
+            .AddTo(_disposables);
+    }
+
+    private void SetupGhostPlacement()
+    {
+        _unitPlacementView.GetMouseClickStreamLeft()
+            .Where(_ => _currentGhost != null)
+            .Where(pos => IsValidPlacementPosition(pos))
+            .Subscribe(_ => PlaceGhost())
+            .AddTo(_disposables);
+
+        Observable.EveryUpdate()
+            .Where(_ => _currentGhost != null)
+            .Where(_ => Mouse.current.leftButton.isPressed)
+            .Select(_ => _unitPlacementView.GetWorldPosition())
+            .Where(pos => IsValidPlacementPosition(pos))
+            .ThrottleFirst(TimeSpan.FromSeconds(0.5))
+            .Subscribe(_ => PlaceGhost())
             .AddTo(_disposables);
     }
 
     private void PlaceGhost()
     {
-        if (_ghost == null) return;
+        if (_currentGhost == null) return;
+        if (!IsWithinMap(_currentGhost.transform.position)) return;
 
-        _ghost.Place();
-        OnGhostPlaced?.Invoke(_ghost);
+        _currentGhost.Place();
+        OnGhostPlaced.OnNext(_currentGhost);
 
-        _ghost = null;
+        var country = _currentGhost.Country;
+        _currentGhost = _ghostFactory.Create(country);
+
+        var mousePos = _unitPlacementView.GetWorldPosition();
+        if (IsPositionValid(mousePos))
+        {
+            _currentGhost.SetPosition(mousePos);
+            _currentGhost.SetColor(IsWithinMap(mousePos) ? Color.green : Color.red);
+        }
     }
 
+    private void SetupDeleteLogic()
+    {
+        _unitPlacementView.GetMouseClickStreamRight()
+            .Subscribe(_ => TryDeleteUnderMouse())
+            .AddTo(_disposables);
+    }
+
+    private void TryDeleteUnderMouse()
+    {
+        if (_currentGhost != null)
+        {
+            OnGhostDeleted.OnNext(_currentGhost);
+            _currentGhost.Destroy();
+            _currentGhost = null;
+            return;
+        }
+
+        var mousePos = _unitPlacementView.GetWorldPosition();
+        if (!IsPositionValid(mousePos)) return;
+
+        Ghost placedGhost = GetGhostAtPosition(mousePos);
+        if (placedGhost != null)
+        {
+            OnGhostDeleted.OnNext(placedGhost);
+            placedGhost.Destroy();
+        }
+    }
+
+    private Ghost GetGhostAtPosition(Vector3 worldPos)
+    {
+        var hit = Physics2D.OverlapPoint(worldPos, _unitPlacementView.GetBallLayer);
+        return hit?.GetComponent<Ghost>();
+    }
+
+    public bool IsWithinMap(Vector3 position)
+    {
+        return _mapBounds != null && _mapBounds.OverlapPoint(position);
+    }
+
+    private bool IsPositionValid(Vector3 pos)
+    {
+        return !float.IsNaN(pos.x) &&
+               !float.IsInfinity(pos.x) &&
+               pos != Vector3.negativeInfinity &&
+               pos != Vector3.zero;
+    }
+
+    public bool IsValidPlacementPosition(Vector3 position)
+    {
+        if (!IsWithinMap(position))
+            return false;
+
+        if (_currentGhost == null)
+            return true;
+
+        var collider = _currentGhost.GetComponent<Collider2D>();
+        collider.enabled = false;
+
+        var hit = Physics2D.OverlapPoint(position, _unitPlacementView.GetBallLayer);
+
+        collider.enabled = true;
+
+        return hit == null;
+    }
+
+    public void Dispose()
+    {
+        if (_currentGhost != null)
+        {
+            _currentGhost.Destroy();
+            _currentGhost = null;
+        }
+        
+        _disposables?.Dispose();
+        OnGhostPlaced?.Dispose();
+        OnGhostDeleted?.Dispose();
+    }
 }

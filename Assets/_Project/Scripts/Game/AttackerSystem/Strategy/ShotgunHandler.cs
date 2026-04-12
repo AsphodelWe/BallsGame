@@ -45,7 +45,8 @@ public class ShotgunHandler : IWeaponAttackHandler, IDisposable
             config: _config.BulletConfig,
             damage: weapon.Damage,
             direction: direction,
-            side: weapon.Side
+            side: weapon.Side,
+            hitForce: _config.HitForce
         );
 
         weapon.TriggerRecoil(-weapon.FirePoint.right, _config.RecoilForce);

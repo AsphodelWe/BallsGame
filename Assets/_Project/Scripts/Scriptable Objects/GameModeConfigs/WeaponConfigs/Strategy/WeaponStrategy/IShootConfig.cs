@@ -6,4 +6,5 @@ public interface IShootConfig
     GameObject ShootEffectPrefab { get; }
     float BulletSpeed { get; }
     float RecoilForce { get; }
+    float HitForce { get; }
 }
