@@ -1,0 +1,15 @@
+.toast-message {
+    bottom: -20%;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.1);
+    background-image: url("project://database/Assets/_Project/%D0%BF%D0%BF%D0%B2.png?fileID=2800000&guid=110064db9b700444fb9e933e83593984&type=3#ппв");
+    background-color: rgba(0, 0, 0, 0);
+    transition-property: opacity, bottom;
+    transition-duration: 0.5s, 1s;
+    transition-timing-function: ease, ease-out-back;
+}
+
+.toast-message.show {
+    bottom: 32%;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 1);
+    background-image: url("project://database/Assets/_Project/%D0%BF%D0%BF%D0%B2.png?fileID=2800000&guid=110064db9b700444fb9e933e83593984&type=3#ппв");
+}

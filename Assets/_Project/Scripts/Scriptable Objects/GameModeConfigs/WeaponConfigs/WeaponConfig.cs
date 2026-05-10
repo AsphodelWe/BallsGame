@@ -6,23 +6,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WeaponConfig", menuName = "Scripts/Scriptable Objects/WeaponConfig")]
 public class WeaponConfig : AttackerConfig
 {
-    //[SerializeField] private ScriptableObject _attackConfig;
     [SerializeField] private List<ScriptableObject> _modules;
 
-/*     public IShootConfig AttackConfig
-    {
-        get => _attackConfig as IShootConfig;
-        set => _attackConfig = value as ScriptableObject;
-    } */
+    [SerializeField] private AttackWeaponType _activeWeaponType;
+    [SerializeField] private bool HasMarkerAbility;
+
     public override AttackType AttackerType => AttackType.Gun;
-    public override void SetupAttacker(Attacker attacker, SideConfig side)
-    {
-        if (attacker is Weapon weapon)
-        {
-            weapon.Damage = Damage;
-            weapon.Side = side;
-        }
-    }
 
     public T GetModule<T>() where T : class
     {
@@ -32,5 +21,64 @@ public class WeaponConfig : AttackerConfig
                 return result;
         }
         return null;
+    }
+
+    public T GetActiveModule<T>() where T : class
+    {
+        foreach (var module in _modules)
+        {
+            if (module is T && IsModuleOfActiveType(module))
+                return module as T;
+        }
+        return GetModule<T>();
+    }
+
+    private bool IsModuleOfActiveType(ScriptableObject module)
+    {
+        return module switch
+        {
+            AutoWeaponConfig => _activeWeaponType == AttackWeaponType.Auto,
+            BurstWeaponConfig => _activeWeaponType == AttackWeaponType.Burst,
+            SingleShootConfig => _activeWeaponType == AttackWeaponType.Single,
+            ShotgunConfig => _activeWeaponType == AttackWeaponType.Shotgun,
+            SniperShootConfig => _activeWeaponType == AttackWeaponType.Sniper,
+            _ => false
+        };
+    }
+
+    public override List<AttackWeaponType> GetAllowedWeaponTypes()
+    {
+        List<AttackWeaponType> allowed = new List<AttackWeaponType>();
+
+        foreach (var module in _modules)
+        {
+            if (module is AutoWeaponConfig) allowed.Add(AttackWeaponType.Auto);
+            else if (module is BurstWeaponConfig) allowed.Add(AttackWeaponType.Burst);
+            else if (module is SingleShootConfig) allowed.Add(AttackWeaponType.Single);
+            else if (module is ShotgunConfig) allowed.Add(AttackWeaponType.Shotgun);
+            else if (module is SniperShootConfig) allowed.Add(AttackWeaponType.Sniper);
+        }
+
+        return allowed;
+    }
+
+    public void SetActiveWeaponType(AttackWeaponType type) => _activeWeaponType = type;
+    public AttackWeaponType GetActiveWeaponType() => _activeWeaponType;
+
+
+    public override void SetupAttacker(Attacker attacker, SideConfig side)
+    {
+        if (attacker is Weapon weapon)
+        {
+            weapon.Damage = Damage;
+            weapon.Side = side;
+        }
+    }
+
+    public override bool IsTargetStrategyAllowed(TargetStrategyConfig strategy)
+    {
+        if (strategy is TrackTargetWithMarkConfig)
+            return HasMarkerAbility;
+        return true;
     }
 }

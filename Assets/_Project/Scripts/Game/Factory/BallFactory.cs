@@ -9,14 +9,17 @@ public class BallFactory
 {
     [Inject] private BallRegistry _ballRegistry;
     [Inject] private Container _container;
+    [Inject] private AttackerData _attackerData;
+    [Inject] private SideData _sideData;
     public BallPresent CreateBall(CountryConfig country, Vector3 position)
     {
-        GameObject ball = Object.Instantiate(country.BallPrefabBattle, position, quaternion.identity);
+        GameObject ball = Object.Instantiate(country.BallPrefabBattle, position, Quaternion.identity);
 
         GameObjectInjector.InjectRecursive(ball, _container);
 
         if (ball.TryGetComponent<BallPresent>(out var presenter))
         {
+            CountrySaveSystem.LoadCountry(country, _attackerData, _sideData);
             var data = new BallData(country);
             presenter.Initialize(data);
             _ballRegistry.Register(presenter);

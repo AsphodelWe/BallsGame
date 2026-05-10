@@ -10,8 +10,8 @@ public class TargetStrategyFactory : ITargetStrategyFactory
         return config switch
         {
             TrackTargetConfig track => new TrackTargetStrategy(_ballRegistry, side, track.SmoothTime),
-            NoTargetConfig noTarget => new NoTargetStrategy(),
-            TrackTargetWithMarkConfig trackWithMart => new TrackTargetWithMarkStrategy(_ballRegistry, side, trackWithMart.SmoothTime, trackWithMart.Mark),
+            TrackTargetWithMarkConfig trackWithMark => new TrackTargetWithMarkStrategy(_ballRegistry, side, trackWithMark.SmoothTime, trackWithMark.Mark),
+            NoTargetConfig => new NoTargetStrategy(),
             _ => throw new ArgumentException($"Unknown config: {config.GetType()}")
         };
     }

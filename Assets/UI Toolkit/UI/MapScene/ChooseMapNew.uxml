@@ -1,0 +1,17 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/MapSelection.uss?fileID=7433441132597879392&amp;guid=87010d8199fba35478d0df7ee1770e49&amp;type=3#MapSelection"/>
+    <ui:VisualElement name="RootContainer" style="flex-grow: 1;">
+        <ui:VisualElement name="NextButtonContainer" style="flex-grow: 1; height: auto;">
+            <ui:Button text="NEXT" name="Next" class="buttonAnimation" style="align-self: flex-end; width: 25%; height: 40%; top: 15%; right: 5%; font-size: 40px; -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/Anton.ttf?fileID=12800000&amp;guid=997a43b767814dd0a7642ec9b78cba41&amp;type=3#Anton&quot;); color: rgb(255, 255, 255); -unity-text-align: middle-center; white-space: nowrap; text-overflow: clip; letter-spacing: 15px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: url(&quot;project://database/Assets/FreeButtonSet/Textures/buttons/button_100.png?fileID=2800000&amp;guid=47eaa4f43430bf14f996b113a313b0cc&amp;type=3#button_100&quot;); background-color: rgba(188, 188, 188, 0);"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="Spacer" style="flex-grow: 5; height: auto;"/>
+        <ui:VisualElement name="MainArrowContainer" style="flex-grow: 1; height: auto; flex-direction: row; justify-content: space-around;">
+            <ui:Button text="" name="LeftButton" class="arrowButton buttonAnimation">
+                <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/FreeButtonSet/Textures/icons/128x128/arrow_left.png?fileID=2800000&amp;guid=d31115fa9cb67004b96bc76f48802b9f&amp;type=3#arrow_left&quot;); bottom: 5%;"/>
+            </ui:Button>
+            <ui:Button text="" name="RightButton" class="arrowButton buttonAnimation">
+                <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/FreeButtonSet/Textures/icons/256x256/arrow_right.png?fileID=2800000&amp;guid=841ae3188ba4d9746ba4f4ed86597a98&amp;type=3#arrow_right&quot;); bottom: 5%;"/>
+            </ui:Button>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

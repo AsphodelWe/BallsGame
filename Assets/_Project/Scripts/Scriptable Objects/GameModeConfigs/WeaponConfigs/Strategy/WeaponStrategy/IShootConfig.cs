@@ -7,4 +7,5 @@ public interface IShootConfig
     float BulletSpeed { get; }
     float RecoilForce { get; }
     float HitForce { get; }
+    float FireRate{get;}
 }

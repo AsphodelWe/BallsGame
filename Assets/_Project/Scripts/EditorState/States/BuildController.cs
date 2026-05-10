@@ -21,7 +21,6 @@ public class BuildController : IDisposable
     private Ghost _currentGhost;
     private Collider2D _mapBounds;
     private CompositeDisposable _disposables = new();
-
     public Subject<Ghost> OnGhostPlaced { get; } = new();
     public Subject<Ghost> OnGhostDeleted { get; } = new();
 
@@ -84,7 +83,6 @@ public class BuildController : IDisposable
             .Where(_ => Mouse.current.leftButton.isPressed)
             .Select(_ => _unitPlacementView.GetWorldPosition())
             .Where(pos => IsValidPlacementPosition(pos))
-            .ThrottleFirst(TimeSpan.FromSeconds(0.5))
             .Subscribe(_ => PlaceGhost())
             .AddTo(_disposables);
     }
@@ -97,6 +95,9 @@ public class BuildController : IDisposable
         _currentGhost.Place();
         OnGhostPlaced.OnNext(_currentGhost);
 
+#if UNITY_ANDROID || UNITY_IOS
+        _currentGhost = null;
+#else
         var country = _currentGhost.Country;
         _currentGhost = _ghostFactory.Create(country);
 
@@ -106,6 +107,7 @@ public class BuildController : IDisposable
             _currentGhost.SetPosition(mousePos);
             _currentGhost.SetColor(IsWithinMap(mousePos) ? Color.green : Color.red);
         }
+#endif
     }
 
     private void SetupDeleteLogic()
@@ -180,7 +182,7 @@ public class BuildController : IDisposable
             _currentGhost.Destroy();
             _currentGhost = null;
         }
-        
+
         _disposables?.Dispose();
         OnGhostPlaced?.Dispose();
         OnGhostDeleted?.Dispose();

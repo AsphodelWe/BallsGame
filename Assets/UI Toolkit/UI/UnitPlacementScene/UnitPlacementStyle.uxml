@@ -1,9 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/UI/UnitPlacementScene/UnitPlacementStyle.uss?fileID=7433441132597879392&amp;guid=f993f6957ca86844c8355a38cb85dbf5&amp;type=3#UnitPlacementStyle"/>
-    <Style src="project://database/Assets/_Project/BattleUI.uss?fileID=7433441132597879392&amp;guid=d6bb06e659b05fa4caaa9596dcd568d8&amp;type=3#BattleUI"/>
-    <ui:VisualElement name="Container" style="flex-grow: 1;">
-        <ui:VisualElement style="flex-grow: 1;">
-            <ui:Button text="Battle" name="Battle" class="BattleButton" style="top: 16px; left: 324px; height: 94px; width: 276px;"/>
-        </ui:VisualElement>
-    </ui:VisualElement>
-</ui:UXML>

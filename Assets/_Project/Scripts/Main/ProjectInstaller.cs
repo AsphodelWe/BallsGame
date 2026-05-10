@@ -7,10 +7,16 @@ public class ProjectInstaller : MonoBehaviour, IInstaller
 {
     [SerializeField] private BattleData _battleData;
     [SerializeField] private CameraController _cameraPrefab;
+    [SerializeField] private AttackerData _attackerData;
+    [SerializeField] private SideData _sideData;
+
     public void InstallBindings(ContainerBuilder containerBuilder)
     {
         containerBuilder.RegisterValue(_battleData);
         containerBuilder.RegisterType(typeof(MapScaleProvider), new Type[] { typeof(IMapScaleProvider) }, Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
+        containerBuilder.RegisterValue(_attackerData);
+        containerBuilder.RegisterValue(_sideData);
+
 
         if (_cameraPrefab != null)
         {
@@ -18,7 +24,6 @@ public class ProjectInstaller : MonoBehaviour, IInstaller
             DontDestroyOnLoad(camera.gameObject);
             containerBuilder.RegisterValue(camera);
 
-            // Убеждаемся, что у камеры есть CameraController скрипт
             var cameraController = camera.GetComponent<CameraController>();
             if (cameraController == null)
             {

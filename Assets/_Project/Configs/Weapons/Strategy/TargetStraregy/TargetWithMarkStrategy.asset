@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebef6f23c444cf4e96e89e2db10fa7f, type: 3}
   m_Name: TargetWithMarkStrategy
   m_EditorClassIdentifier: Assembly-CSharp::TrackTargetWithMarkConfig
+  <Name>k__BackingField: Target with mark
   Mark: {fileID: 1083818241260209119, guid: 07c759f205eaa404eb086311e9c66435, type: 3}
   SmoothTime: 0.02

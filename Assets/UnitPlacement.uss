@@ -1,0 +1,13 @@
+:root {
+}
+
+.buttonAnimation {
+}
+
+.buttonAnimation:hover {
+    scale: 1.1 1.1;
+}
+
+.buttonAnimation:active {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.51);
+}

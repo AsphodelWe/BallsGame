@@ -154,6 +154,9 @@ MonoBehaviour:
   _chooseMapUI: {fileID: 1121913158}
   _mapView: {fileID: 1279561090}
   _mapRegistry: {fileID: 11400000, guid: 828ba798ed9b26b458bcb822e91df332, type: 2}
+  _countryDatabase: {fileID: 11400000, guid: fee474ec836377443b9ac36d8bda17a6, type: 2}
+  _targetStrategys: {fileID: 11400000, guid: fc698f4c27946df4a98b351a59be9d9b, type: 2}
+  _mobileUnitPlaceView: {fileID: 1167558953}
 --- !u!114 &418740796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,14 +215,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitPlacementUI
   _countryButtonTemplate: {fileID: 9197481963319205126, guid: 1636ae3ad8d18544f82d9fe4e7821edb, type: 3}
-  _countries:
-  - {fileID: 11400000, guid: dc315d9a43e1fbc40b3f0184611ffc75, type: 2}
-  - {fileID: 11400000, guid: 76eeb1c8b462d1041acf859d7cad066e, type: 2}
-  - {fileID: 11400000, guid: e29cfac689b046f49b61fabe15908147, type: 2}
-  - {fileID: 11400000, guid: 312b218272d4f72459056325e5ad978e, type: 2}
-  - {fileID: 11400000, guid: c54b6548b1771414fa08e6066c320596, type: 2}
-  - {fileID: 11400000, guid: ffca45b2d5f9fe54fb30021b2f744e2f, type: 2}
-  - {fileID: 11400000, guid: 3c3b40e2ad9722643a5b0638d5a52b97, type: 2}
+  _settingsUIDocument: {fileID: 1232585258}
+  _countrySettingsUI: {fileID: 1232585260}
+  _mobilePlacementView: {fileID: 1167558953}
 --- !u!4 &457933911
 Transform:
   m_ObjectHideFlags: 0
@@ -550,7 +548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
   m_PanelSettings: {fileID: 11400000, guid: e6290f007f5520c4aab37966ee78362c, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 42be5272627eaa44d863745029065f8a, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: 9eb3ece3ae6ce7e449912e070d1d9529, type: 3}
   m_SortingOrder: 0
   m_Position: 0
   m_WorldSpaceSizeMode: 1
@@ -586,6 +584,136 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46dd409042f4071429908be025f3aab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChooseMapUI
+--- !u!1 &1167558951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1167558952}
+  - component: {fileID: 1167558953}
+  m_Layer: 0
+  m_Name: MobileUnitPlacementView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1167558952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167558951}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1549790093}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1167558953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167558951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dede0ffeeafb9a4ebdfd329f844aa86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MobileUnitPlacementView
+  _ui: {fileID: 457933910}
+  _visualContainer: {fileID: 1293432575}
+  _ballLayer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!1 &1232585256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1232585257}
+  - component: {fileID: 1232585258}
+  - component: {fileID: 1232585260}
+  - component: {fileID: 1232585261}
+  m_Layer: 0
+  m_Name: CountrySettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1232585257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232585256}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2043166596}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1232585258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232585256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: c422da0f87748334cbbcd8c117029b00, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 88967d1a06ce75145ac5e02bc02bfa37, type: 3}
+  m_SortingOrder: 999
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &1232585260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232585256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775aaf6a5bd302245a4cd5e4cda5e507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CountrySettingsUI
+--- !u!114 &1232585261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232585256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df121491dcddde4aa68112f577eceed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSettingsUI
 --- !u!1 &1279561088
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +946,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1479726283}
+  - {fileID: 1167558952}
   m_Father: {fileID: 1095803202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1700731576
@@ -1006,6 +1135,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 457933911}
+  - {fileID: 1232585257}
   m_Father: {fileID: 1293432576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807

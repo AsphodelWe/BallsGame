@@ -1,0 +1,25 @@
+.country-button {
+    border-width: 3px;
+    border-color: transparent;
+    border-radius: 30px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.country-button:focus {
+    border-color: rgb(255, 200, 0);
+    border-left-color: rgb(255, 201, 0);
+    border-right-color: rgb(255, 201, 0);
+    border-top-color: rgb(255, 201, 0);
+    border-bottom-color: rgb(255, 201, 0);
+    border-top-width: 8px;
+    border-right-width: 8px;
+    border-bottom-width: 8px;
+    border-left-width: 8px;
+}

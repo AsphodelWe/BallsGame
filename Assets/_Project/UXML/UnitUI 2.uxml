@@ -1,0 +1,26 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="RootElement" style="flex-grow: 1; flex-direction: column; align-items: stretch; justify-content: flex-start; align-self: stretch; align-content: auto; flex-wrap: nowrap; height: auto;">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 0; width: 100%; height: 6%; position: relative; top: auto; left: auto; align-self: center; margin-top: 2%; flex-direction: row; justify-content: space-between;">
+            <ui:Button text="Очистить призраков" name="ClearButton" style="width: 20%; height: 100%; background-color: rgb(255, 255, 255); border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; border-left-color: rgb(0, 104, 255); border-right-color: rgb(0, 104, 255); border-top-color: rgb(0, 104, 255); border-bottom-color: rgb(0, 104, 255); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; font-size: 18px; text-overflow: clip; -unity-font-style: normal;"/>
+            <ui:Button text="Battle" name="BattleButton" parse-escape-sequences="false" display-tooltip-when-elided="true" triple-click-selects-line="true" double-click-selects-word="true" selectable="false" focusable="false" emoji-fallback-support="true" enable-rich-text="true" enabled="false" style="flex-grow: 0; width: 40%; height: 100%; justify-content: flex-start; align-self: flex-start; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px; border-top-left-radius: 44px; border-top-right-radius: 44px; border-bottom-right-radius: 44px; border-bottom-left-radius: 44px; background-color: rgb(255, 235, 12); font-size: 42%; -unity-text-outline-color: rgb(0, 0, 0); overflow: visible; visibility: visible; display: flex; background-size: 100% 100%; flex-direction: row; top: auto; align-items: stretch; position: relative; flex-wrap: nowrap;"/>
+            <ui:Button text="Настройки карты" name="MapPreferenceButton" style="width: 20%; height: 100%; align-self: flex-start; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; border-left-color: rgb(0, 192, 255); border-right-color: rgb(0, 192, 255); border-top-color: rgb(0, 192, 255); border-bottom-color: rgb(0, 192, 255); background-color: rgb(255, 255, 255); font-size: 20px; flex-direction: row;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="MapScaler" style="flex-grow: 0; position: relative; top: auto; right: auto; margin-top: 5%; margin-right: 0%; align-items: stretch; justify-content: flex-start; align-self: auto; align-content: flex-start; visibility: visible; height: 14%;">
+            <ui:VisualElement name="MapPanel" style="flex-grow: 1; top: auto; width: 33%; height: 100px; background-color: rgb(255, 255, 255); visibility: hidden; justify-content: space-around; overflow: visible; align-self: flex-end;">
+                <ui:VisualElement name="MapScaleSliderContainer" style="flex-grow: 1;">
+                    <ui:Label text="MAP SCALE" name="Label" style="-unity-text-align: upper-center; background-color: rgb(146, 183, 103); font-size: 29px;"/>
+                    <ui:Slider label="" value="1" high-value="10" name="MapSlider" inverted="false" low-value="0.5" fill="true" direction="Horizontal"/>
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1;">
+                    <ui:Label text="MAP ROTATION" name="Label" style="background-color: rgb(87, 174, 207); font-size: 24px; -unity-text-align: upper-center;"/>
+                    <ui:Toggle label="" name="IsRotate" toggle-on-label-click="true" style="align-self: center; flex-direction: column; align-content: flex-start;"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Spacer" style="flex-grow: 1;"/>
+        <ui:Button text="" name="SettingsCountryButton" style="background-image: url(&quot;project://database/Assets/_Project/UXML/7835443.png?fileID=2800000&amp;guid=501f0324665845045964c23e15edf9b8&amp;type=3#7835443&quot;); -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgba(188, 188, 188, 0); background-size: 100% 100%; width: 10%; height: 5%; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; flex-grow: 0;"/>
+        <ui:ScrollView mode="Horizontal" name="CountryScrollView" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" elasticity="0.1" scroll-deceleration-rate="0" style="flex-grow: 0; position: relative; flex-direction: column; align-self: auto; bottom: auto; top: auto;">
+            <ui:VisualElement name="CountryContainer" style="flex-grow: 0; flex-direction: row;"/>
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>

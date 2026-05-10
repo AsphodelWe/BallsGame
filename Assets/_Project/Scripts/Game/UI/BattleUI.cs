@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 public class BattleUI : MonoBehaviour
 {
     public event Action OnBattleStarted;
-
     private UIDocument _document;
     private Button _startBattleButton;
 
@@ -42,7 +41,9 @@ public class BattleUI : MonoBehaviour
     private void OnStartButtonClicked()
     {
         SetStartButtonVisible(false);
+
         SetCursorVisible(false);
+
         OnBattleStarted?.Invoke();
     }
 

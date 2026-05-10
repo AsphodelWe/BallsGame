@@ -1,0 +1,33 @@
+.BattleToggle {
+    width: auto;
+}
+
+.BattleToggle .unity-toggle__input {
+    flex-grow: 1;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+}
+
+.BattleToggle #unity-checkmark {
+    width: 80px;
+    height: 80px;
+    border-top-left-radius: 48px;
+    border-top-right-radius: 48px;
+    border-bottom-right-radius: 48px;
+    border-bottom-left-radius: 48px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    bottom: 0%;
+    align-self: center;
+}
+
+.BattleToggle:active {
+    scale: 0.95;
+}

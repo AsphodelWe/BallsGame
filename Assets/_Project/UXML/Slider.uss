@@ -1,0 +1,58 @@
+.MySlider .unity-base-slider__drag-container {
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    align-self: center;
+}
+
+.MySlider .unity-base-slider__tracker {
+    background-color: rgb(87, 174, 207);
+    border-radius: 5px;
+    height: 206%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+}
+
+.MySlider .unity-base-slider__dragger {
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+    background-color: rgb(255, 255, 255);
+    align-items: stretch;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-self: auto;
+    flex-direction: column;
+    margin-top: -15px;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.MySlider .unity-base-slider__dragger-border {
+    display: none;
+}
+
+.MySlider .unity-base-slider__text-field {
+    width: 18%;
+    font-size: 38px;
+    -unity-text-align: upper-center;
+    white-space: normal;
+    background-position-x: center;
+    background-position-y: top 0;
+}

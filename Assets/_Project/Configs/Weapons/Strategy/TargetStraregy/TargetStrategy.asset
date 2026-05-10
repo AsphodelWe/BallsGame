@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52a54afdfb542e42b22f351fa22817a, type: 3}
   m_Name: TargetStrategy
   m_EditorClassIdentifier: Assembly-CSharp::TrackTargetConfig
+  <Name>k__BackingField: Target
   SmoothTime: 0.1

@@ -15,7 +15,9 @@ MonoBehaviour:
   CountryName: USA
   BallPrefabPrew: {fileID: 2337704486313529925, guid: e9369c470db9586409569a4ed5128a5e, type: 3}
   BallPrefabBattle: {fileID: 2337704486313529925, guid: 47037d7b4219a4a49a7a2f4043d4f15b, type: 3}
-  Side: {fileID: 11400000, guid: d04f65e42bffd104084e826d57313330, type: 2}
   CountryGameplayConfig: {fileID: 11400000, guid: 811e582704b5f1d4ebf9e50ff81a96be, type: 2}
   PhysicsConfig: {fileID: 11400000, guid: 1d49e37e8e8da264792e3ea8058029e5, type: 2}
   CountryFlag: {fileID: -7992286938110287893, guid: 11a1715a04bd8384a8cb2518cb9200ef, type: 3}
+  DefaultAttacker: {fileID: 11400000, guid: f4fccf3ebcc86b848bfea4d24f2afc07, type: 2}
+  DefaultAttackerSlotIndex: 0
+  DefaultSide: {fileID: 11400000, guid: d04f65e42bffd104084e826d57313330, type: 2}

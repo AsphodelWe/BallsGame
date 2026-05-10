@@ -59,3 +59,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectInstaller
   _battleData: {fileID: 11400000, guid: e145536c35ca99947a185deed7bf6428, type: 2}
   _cameraPrefab: {fileID: 7869907038135507132, guid: 3e2d7f9f33a2a7640b73f99fcca20a03, type: 3}
+  _attackerData: {fileID: 11400000, guid: 2854f835789d31d4780fed84b731f2eb, type: 2}
+  _sideData: {fileID: 11400000, guid: b68ab012b493d5c488d045b1abc735d5, type: 2}

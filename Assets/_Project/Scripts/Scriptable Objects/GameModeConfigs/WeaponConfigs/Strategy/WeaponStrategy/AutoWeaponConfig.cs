@@ -15,15 +15,24 @@ public class AutoWeaponConfig : ScriptableObject, IShootConfig, IMagazineWeapon
     public GameObject _prefabShootEffect;
 
     public float RecoilForce = 5f;
-    public float HitForce => 3f;
-    public float ReloadTime => FireRateMagazine;
+    public float HitForce = 3f;
+    public float ReloadTime = 5f;
     public GameObject ShootEffectPrefab => _prefabShootEffect;
-    GameObject IShootConfig.BulletPrefab => BulletConfig.Prefab;
+
     float IShootConfig.BulletSpeed => BulletConfig.Speed;
-    int IMagazineWeapon.MaxAmmo => MaxAmmo;
     float IShootConfig.RecoilForce => RecoilForce;
+    float IShootConfig.HitForce => HitForce;
+    float IShootConfig.FireRate => FireRate;
+    GameObject IShootConfig.BulletPrefab => BulletConfig.Prefab;
+
+    float IMagazineWeapon.ReloadTime => ReloadTime;
+    int IMagazineWeapon.MaxAmmo => MaxAmmo;
+
 
     [Header("🔊 Audio")]
     public AudioClip ShootSound;
     [Range(0f, 1f)] public float ShootVolume = 0.5f;
+
+    [Header("Тип Стрельбы")]
+    public AttackWeaponType WeaponType = AttackWeaponType.Auto;
 }

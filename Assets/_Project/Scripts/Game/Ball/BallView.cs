@@ -75,6 +75,7 @@ public class BallView : MonoBehaviour
 
     public void PlayDeathEffect()
     {
+        if (_deathEffect == null) return;
         GameObject effect = Instantiate(_deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 1f);
     }

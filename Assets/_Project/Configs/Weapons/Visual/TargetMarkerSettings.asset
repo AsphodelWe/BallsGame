@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85a5e68a9007084d8a678c8ef5f44b1, type: 3}
   m_Name: TargetMarkerSettings
   m_EditorClassIdentifier: Assembly-CSharp::TargetMarkerSettings
-  ScaleMin: 1.1
-  ScaleMax: 1.2
+  ScaleMin: 0.15
+  ScaleMax: 0.25
   Duration: 0.5
   Ease: 4

@@ -25,7 +25,6 @@ public class BattleState : BaseState
     {
         _cts = new CancellationTokenSource();
         _cameraController.SetBattlePosition();
-        _cameraController.VerticalBob();
         LoadBattleAsync(_cts).Forget();
     }
     private async UniTaskVoid LoadBattleAsync(CancellationTokenSource сts)

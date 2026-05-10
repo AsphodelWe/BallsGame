@@ -15,15 +15,22 @@ public class BurstWeaponConfig : ScriptableObject, IShootConfig, IMagazineWeapon
     public GameObject _prefabShootEffect;
 
     public float RecoilForce = 5f;
-    public float HitForce => 3f;
-    public float ReloadTime => BurstDelay;
+    public float HitForce = 3f;
     public GameObject ShootEffectPrefab => _prefabShootEffect;
-    GameObject IShootConfig.BulletPrefab => BulletConfig.Prefab;
+
     float IShootConfig.BulletSpeed => BulletConfig.Speed;
-    int IMagazineWeapon.MaxAmmo => BurstSize;
     float IShootConfig.RecoilForce => RecoilForce;
+    float IShootConfig.HitForce => HitForce;
+    float IShootConfig.FireRate => BulletDelay;
+    GameObject IShootConfig.BulletPrefab => BulletConfig.Prefab;
+
+    int IMagazineWeapon.MaxAmmo => BurstSize;
+    float IMagazineWeapon.ReloadTime => BurstDelay;
 
     [Header("🔊 Audio")]
     public AudioClip ShootSound;
     [Range(0f, 1f)] public float ShootVolume = 0.5f;
+
+    [Header("Тип Стрельбы")]
+    public AttackWeaponType WeaponType = AttackWeaponType.Burst;
 }

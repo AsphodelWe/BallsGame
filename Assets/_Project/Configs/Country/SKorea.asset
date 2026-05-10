@@ -15,7 +15,9 @@ MonoBehaviour:
   CountryName: SKorea
   BallPrefabPrew: {fileID: 8463237698111053587, guid: c0c63e0e9a499b24d8437fae9bff44c9, type: 3}
   BallPrefabBattle: {fileID: 8463237698111053587, guid: 2a81178c51e768248b72765e8c237c9e, type: 3}
-  Side: {fileID: 11400000, guid: d04f65e42bffd104084e826d57313330, type: 2}
   CountryGameplayConfig: {fileID: 11400000, guid: 2a77bd2a559fba44fa4de405ac406388, type: 2}
   PhysicsConfig: {fileID: 11400000, guid: 35c3ecb394afa6d40ba5724b42c46145, type: 2}
   CountryFlag: {fileID: -7111016083415345331, guid: 1472f719b707108478272177536814ec, type: 3}
+  DefaultAttacker: {fileID: 11400000, guid: 59059f2f5926e4245a5886c969ae811d, type: 2}
+  DefaultAttackerSlotIndex: 0
+  DefaultSide: {fileID: 11400000, guid: d04f65e42bffd104084e826d57313330, type: 2}

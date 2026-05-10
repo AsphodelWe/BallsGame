@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fafe05104a395c4eb8c3da63c12904f, type: 3}
   m_Name: NoTarget
   m_EditorClassIdentifier: Assembly-CSharp::NoTargetConfig
+  <Name>k__BackingField: No Target

@@ -15,7 +15,9 @@ MonoBehaviour:
   CountryName: Iran
   BallPrefabPrew: {fileID: 8463237698111053587, guid: 890bfe528c1840b43b186f047cd1b515, type: 3}
   BallPrefabBattle: {fileID: 8463237698111053587, guid: e137f20f00c7b194290f88be778d9141, type: 3}
-  Side: {fileID: 11400000, guid: e2b465edb15b5db45a1604f5c27b01d2, type: 2}
   CountryGameplayConfig: {fileID: 11400000, guid: 5caeb30b3952ebc498d9c6bc29159b94, type: 2}
   PhysicsConfig: {fileID: 11400000, guid: 8d04f22e0b8ea234899a1677318293c7, type: 2}
   CountryFlag: {fileID: 2368165046837089793, guid: 147a3eeee7b147b4baa087dc91c0df27, type: 3}
+  DefaultAttacker: {fileID: 11400000, guid: 18a737d15c675414bbceb49ac671efcd, type: 2}
+  DefaultAttackerSlotIndex: 0
+  DefaultSide: {fileID: 11400000, guid: e2b465edb15b5db45a1604f5c27b01d2, type: 2}

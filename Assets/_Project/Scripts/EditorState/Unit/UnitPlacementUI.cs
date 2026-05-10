@@ -4,18 +4,23 @@ using UnityEngine.UIElements;
 using System.Collections.Generic;
 using Reflex.Attributes;
 using System;
+using static UnityEngine.UIElements.ScrollView;
+using Cysharp.Threading.Tasks;
 
 public class UnitPlacementUI : MonoBehaviour, IUnitPlacementUI
 {
     [Inject] private IEventBus _eventBus;
+    [Inject] private CountryDatabase _countries;
     [SerializeField] private VisualTreeAsset _countryButtonTemplate;
-    [SerializeField] private List<CountryConfig> _countries;
-
+    [SerializeField] private UIDocument _settingsUIDocument;
+    [SerializeField] private CountrySettingsUI _countrySettingsUI;
+    [SerializeField] private MobileUnitPlacementView _mobilePlacementView;
     private UIDocument _document;
     private VisualElement _root;
     private Button _battleButton;
     private Button _mapButton;
     private Button _clearButton;
+    private Button _settingsCountryButton;
     private Toggle _rotateMode;
     private Slider _slider;
     private CountryConfig _currentSelectedCountry;
@@ -24,8 +29,8 @@ public class UnitPlacementUI : MonoBehaviour, IUnitPlacementUI
     public Subject<CountryConfig> OnSelectCountry { get; } = new();
     public Subject<Unit> OnClearGhosts { get; } = new();
     public Subject<bool> OnRotateToggleChanged { get; } = new();
-
     public CountryConfig CurrentSelectedCountry => _currentSelectedCountry;
+
 
     void Awake() => Initialization();
 
@@ -39,6 +44,9 @@ public class UnitPlacementUI : MonoBehaviour, IUnitPlacementUI
         SetMapSlider();
         SetClearButton();
         SetCountryContainer();
+
+
+        SetSettingsCountryButton();
     }
 
     public void SetActiveBattleButton(bool flag) => _battleButton?.SetEnabled(flag);
@@ -46,21 +54,29 @@ public class UnitPlacementUI : MonoBehaviour, IUnitPlacementUI
     private void SetCountryContainer()
     {
         var container = _root.Q<VisualElement>("CountryContainer");
-        if (container == null) return;
+        var scrollView = _root.Q<ScrollView>("CountryScrollView");
 
-        foreach (var country in _countries)
+        if (container == null || scrollView == null) return;
+
+        foreach (var country in _countries.AllCountries)
         {
             var buttonElement = _countryButtonTemplate.CloneTree();
             var button = buttonElement.Q<Button>();
             button.style.backgroundImage = new StyleBackground(country.CountryFlag);
-            container.Add(buttonElement);
 
-            Observable.FromEvent(
-                h => button.clicked += h,
-                h => button.clicked -= h)
-                .Subscribe(_ => OnSelectCountry.OnNext(country))
-                .AddTo(_disposables);
+#if UNITY_ANDROID || UNITY_IOS
+            button.clicked += () => _mobilePlacementView?.PrepareForNewGhost(country);
+#else
+            button.clicked += () => OnSelectCountry.OnNext(country);
+#endif
+
+            container.Add(buttonElement);
         }
+    }
+
+    public void SpawnGhostForCountry(CountryConfig country)
+    {
+        OnSelectCountry.OnNext(country);
     }
 
     private void SetClearButton()
@@ -112,6 +128,8 @@ public class UnitPlacementUI : MonoBehaviour, IUnitPlacementUI
             h => _battleButton.clicked -= h)
             .Subscribe(_ => _eventBus.OnBattleClicked.OnNext(Unit.Default))
             .AddTo(_disposables);
+
+
     }
 
     private void SetMapSlider()
@@ -122,6 +140,25 @@ public class UnitPlacementUI : MonoBehaviour, IUnitPlacementUI
         _slider.RegisterValueChangedCallback(OnScaleValueChanged);
     }
 
+    private void SetSettingsCountryButton()
+    {
+        _settingsCountryButton = _root.Q<Button>("SettingsCountryButton");
+        if (_settingsCountryButton == null) return;
+
+        Observable.FromEvent(
+        h => _settingsCountryButton.clicked += h,
+        h => _settingsCountryButton.clicked -= h)
+        .Subscribe(_ => OpenSettings())
+        .AddTo(_disposables);
+
+        _countrySettingsUI.OnClosed.Subscribe(_ => Show()).AddTo(_disposables);
+    }
+
+    private void OpenSettings()
+    {
+        _root.style.display = DisplayStyle.None;
+        _settingsUIDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+    }
     private void OnScaleValueChanged(ChangeEvent<float> evt) => OnScaleChanged.OnNext(evt.newValue);
 
     private void OnDestroy()
@@ -140,6 +177,6 @@ public class UnitPlacementUI : MonoBehaviour, IUnitPlacementUI
         OnRotateToggleChanged.Dispose();
     }
 
-    public void Hide() => gameObject.SetActive(false);
-    public void Show() => gameObject.SetActive(true);
+    public void Hide() => _root.style.display = DisplayStyle.None;
+    public void Show() => _root.style.display = DisplayStyle.Flex;
 }

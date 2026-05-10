@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 466a48903ec00264cb8d38cd73b6c754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
+  Name: Shotgun Classic
   _firePoint: {fileID: 1292726587213918558}
 --- !u!1 &6924746528194850859
 GameObject:

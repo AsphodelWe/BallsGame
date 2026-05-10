@@ -13,22 +13,33 @@ public class WeaponFactory : AttackerFactory
     public override Attacker CreateAttacker(AttackerConfig config, SideConfig side, Transform slot, BallPresent target = null)
     {
         var weaponConfig = config as WeaponConfig;
-        if (weaponConfig == null) Debug.Log("WeaponConfig null");
 
-        var shootConfig = weaponConfig.GetModule<IShootConfig>();
-        if (shootConfig == null) Debug.Log("Нет модуля Стрельбы");
+        WeaponSaveSystem.LoadWeapon(weaponConfig);
+        
+        if (weaponConfig == null)
+        {
+            Debug.LogError($"[WeaponFactory] Неверный тип конфига: {config?.GetType().Name ?? "null"}. Ожидался WeaponConfig.");
+            return null;
+        }
 
-        var magazineConfig = weaponConfig.GetModule<IMagazineWeapon>();
-        if (magazineConfig == null) Debug.Log("Нет модуля магазина");
+        var shootModule = weaponConfig.GetActiveModule<IShootConfig>();
+        if (shootModule == null)
+        {
+            Debug.LogError($"[WeaponFactory] У {weaponConfig.Name} нет активного модуля IShootConfig!");
+            return null;
+        }
+
+        var magazineModule = weaponConfig.GetModule<IMagazineWeapon>();
 
         var weapon = Object.Instantiate(weaponConfig.Prefab, slot).GetComponent<Weapon>();
         weapon.transform.ApplyCurrentScaleToWorld();
 
-        var bulletPool = CreateBulletPull(shootConfig, weapon, magazineConfig);
-        var effectPool = CreateEffectPull(shootConfig, weapon);
+        var bulletPool = CreateBulletPull(shootModule, weapon, magazineModule);
+        var effectPool = CreateEffectPull(shootModule, weapon);
 
-        weapon.AttackHandler = _handlerFactory.CreateHandler(shootConfig, bulletPool, effectPool);
-        SetupAttacker(weapon, config, side, target);
+        weapon.AttackHandler = _handlerFactory.CreateHandler(shootModule, bulletPool, effectPool);
+
+        SetupAttacker(weapon, weaponConfig, side, target);
 
         return weapon;
     }
@@ -51,7 +62,7 @@ public class WeaponFactory : AttackerFactory
     private ObjectPool<ShootExplosion> CreateEffectPull(IShootConfig shootConfig, Weapon weapon)
     {
 
-        Transform parent= shootConfig is SingleShootConfig ? weapon.transform : null;
+        Transform parent = shootConfig is SingleShootConfig ? weapon.transform : null;
         var effectPool = new ObjectPool<ShootExplosion>
             (shootConfig.ShootEffectPrefab.GetComponent<ShootExplosion>(),
             parent,

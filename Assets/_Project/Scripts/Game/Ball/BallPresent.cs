@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Reflex.Attributes;
 using Reflex.Core;
 using UnityEngine;
@@ -17,8 +19,7 @@ public class BallPresent : MonoBehaviour, IDamagable
     [SerializeField] private BallView _ballView;
 
     [Header("Оружие")]
-    [SerializeField] private Transform _attackerSlot;
-
+    [SerializeField] private Transform _weaponSlots;
     [Header("Здоровье")]
     [SerializeField] private BallHealth _ballHealth;
     private BallData _ballData;
@@ -32,12 +33,15 @@ public class BallPresent : MonoBehaviour, IDamagable
         _ballHealth.Initialize(_ballData.MaxHealth);
         _ballHealth.OnDied += Die;
         _ballView.Initialize(ballData.Flag);
-        EquipAttacker(_attackerConfig);
+
+        var slot = _weaponSlots.Cast<Transform>().OrderBy(t => t.GetSiblingIndex()).ToArray()[ballData.SelectedSloIndex];
+
+        EquipAttacker(ballData.SelectedAttacker, slot);
 
     }
-    public void EquipAttacker(AttackerConfig config)
+    public void EquipAttacker(AttackerConfig weapon, Transform selectedSlot)
     {
-        _master = _masterFactory.CreateMaster(config, _ballData.Side, _attackerSlot);
+        _master = _masterFactory.CreateMaster(weapon, _ballData.SelectedSide, selectedSlot);
 
         if (_master.HasRecoil)
             _master.OnRecoil += (dir, force) => _ballPhysics.ApplyForce(dir, force);
@@ -60,7 +64,7 @@ public class BallPresent : MonoBehaviour, IDamagable
         Destroy(gameObject);
     }
 
-    public SideConfig GetSide => _ballData.Side;
+    public SideConfig GetSide => _ballData.SelectedSide;
     public BallHealth Health => _ballHealth;
     public Sprite GetSprite => _ballView.GetFlag;
 

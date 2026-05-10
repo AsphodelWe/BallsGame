@@ -55,6 +55,7 @@ public class UnitPlacementState : BaseState
     {
         foreach (var ghost in _battleData.GhostList.ToList())
         {
+            Debug.Log($"Удаляю: {ghost.name}, Active: {ghost.gameObject.activeSelf}");
             ghost.Destroy();
         }
         _battleData.RemoveAllGhost();
