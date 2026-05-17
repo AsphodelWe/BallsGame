@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   Name: M11
   Prefab: {fileID: 126546052518659635, guid: 150e8652e916b824baa2d2cce8ed8ed3, type: 3}
-  Damage: 2
-  DefaultDamage: 1
+  Damage: 17
+  DefaultDamage: 17
   TargetStrategyConfig: {fileID: 11400000, guid: 3fe667365db772a4ca0c2153337d9e3c, type: 2}
-  ImageUI: {fileID: -1820543508280066630, guid: aaf9832f487c46e418a583c0f5187c99, type: 3}
+  ImageUI: {fileID: 1758105631990259819, guid: e9b89ee0dd4d8d94a8cc37f6f9faeb35, type: 3}
   _modules:
   - {fileID: 11400000, guid: a4a235f7fd11eed45b2f63a20a3912b9, type: 2}
+  - {fileID: 11400000, guid: 78fcb07c234008a478aadd43d3788e07, type: 2}
+  - {fileID: 11400000, guid: 5940f7bd40fff5147a8e2fbc268928f4, type: 2}
   _activeWeaponType: 1
   HasMarkerAbility: 0

@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b4c17a58ad5504d87606c5bb41e96c, type: 3}
+  m_Name: PolandPhysicsConfig 4
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysicsConfig
+  BaseSpeed: 6
+  MaxSpeedMultiplier: 2
+  SpeedDecayRate: 0.1
+  SpeedThreshold: 0.8
+  SpeedMultiplier: 1
+  BoostForce: 2
+  BounceImpulse: 2
+  MinSpeed: 1
+  WallBoostMultiplier: 0.3
+  BallBoostMultiplier: 0.2
+  RandomWallKickForce: 1
+  HitForce: 1
+  ForceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.695292
+      outSlope: 0.695292
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0049827
+      value: 0.69875646
+      inSlope: 0.25699884
+      outSlope: 0.25699884
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.3294967
+    - serializedVersion: 3
+      time: 10.004826
+      value: 3.058817
+      inSlope: 0.26223353
+      outSlope: 0.26223353
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  SpeedFactorCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.0022802
+      outSlope: 1.0022802
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9974208
+      value: 0.9996951
+      inSlope: 0.99636936
+      outSlope: 0.99636936
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 21.827087
+      value: 21.630615
+      inSlope: 0.99045855
+      outSlope: 0.99045855
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  DecayFactorCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.08775887
+      outSlope: -0.08775887
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 10.026579
+      value: 0.20783766
+      inSlope: -0.08775887
+      outSlope: -0.08775887
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

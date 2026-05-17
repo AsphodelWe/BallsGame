@@ -99,7 +99,7 @@ public class BattleState : BaseState
         _cameraController.SetEditorPosition();
         _cameraController.SetEditorZoom();
 
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MenuScene");
     }
 
     private void ClearResources()

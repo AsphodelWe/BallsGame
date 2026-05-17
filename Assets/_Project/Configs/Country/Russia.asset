@@ -20,4 +20,5 @@ MonoBehaviour:
   CountryFlag: {fileID: 8697251012617859226, guid: 3b3f88921fb997d4c89fa4d99dbc5392, type: 3}
   DefaultAttacker: {fileID: 11400000, guid: b0b0ed1ae3117844880cea207a3130f3, type: 2}
   DefaultAttackerSlotIndex: 0
-  DefaultSide: {fileID: 11400000, guid: e2b465edb15b5db45a1604f5c27b01d2, type: 2}
+  DefaultSide: {fileID: 11400000, guid: e1c28c6f2fc41e64cb2c7dfbb1552932, type: 2}
+  CountrySlotsTemplate: {fileID: 5388942550366643177, guid: 8298a58958e424d44b6612a520d3ae2c, type: 3}

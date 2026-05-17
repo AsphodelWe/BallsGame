@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3718f38274dfcff4aa7a9a23cab1c418, type: 3}
+  m_Name: Taiwan
+  m_EditorClassIdentifier: Assembly-CSharp::CountryConfig
+  CountryName: Taiwan
+  BallPrefabPrew: {fileID: 8463237698111053587, guid: 5ca4839e48456a844aaca4df75317a60, type: 3}
+  BallPrefabBattle: {fileID: 8463237698111053587, guid: 40a081584b5f24445ad62d3161a13cb6, type: 3}
+  CountryGameplayConfig: {fileID: 11400000, guid: 9d972b7d17fb664418bf83794728bd11, type: 2}
+  PhysicsConfig: {fileID: 11400000, guid: c20f810ceae5ba946b666c668ef67c77, type: 2}
+  CountryFlag: {fileID: 6322547077364981464, guid: b39d6d28020e7d14c99df0207be321df, type: 3}
+  DefaultAttacker: {fileID: 11400000, guid: 157f695a2614c2b469aa156f2554007a, type: 2}
+  DefaultAttackerSlotIndex: 0
+  DefaultSide: {fileID: 11400000, guid: 4f552be3abbe7df4fa9459b46a381bc6, type: 2}
+  CountrySlotsTemplate: {fileID: -9017620860825834762, guid: b11deb7289e48994891c0cb742a97516, type: 3}

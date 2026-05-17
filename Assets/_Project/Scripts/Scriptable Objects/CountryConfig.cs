@@ -27,4 +27,6 @@ public class CountryConfig : ScriptableObject
     public int DefaultAttackerSlotIndex = 0;
     public SideConfig DefaultSide;
 
+    public Sprite CountrySlotsTemplate;
+
 }

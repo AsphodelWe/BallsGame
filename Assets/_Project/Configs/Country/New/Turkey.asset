@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3718f38274dfcff4aa7a9a23cab1c418, type: 3}
+  m_Name: Turkey
+  m_EditorClassIdentifier: Assembly-CSharp::CountryConfig
+  CountryName: Turkey
+  BallPrefabPrew: {fileID: 8463237698111053587, guid: 035c1223c9c29854f83c96093415f5b1, type: 3}
+  BallPrefabBattle: {fileID: 8463237698111053587, guid: 5b0a329489ea226428b8df0e306c3eef, type: 3}
+  CountryGameplayConfig: {fileID: 11400000, guid: 8dca4501227dd8e48b6a70d7fd98b8d3, type: 2}
+  PhysicsConfig: {fileID: 11400000, guid: 6832c23839b3a4641a209e4fbb481683, type: 2}
+  CountryFlag: {fileID: -7328168124788687607, guid: b39d6d28020e7d14c99df0207be321df, type: 3}
+  DefaultAttacker: {fileID: 11400000, guid: 41a8f0e4234a3554eb1d5b7e672c076d, type: 2}
+  DefaultAttackerSlotIndex: 0
+  DefaultSide: {fileID: 11400000, guid: d73e2453c5df7314481cb833d967a133, type: 2}
+  CountrySlotsTemplate: {fileID: 7762022575491840228, guid: fa6cc8c828dde4641b6a010797c5bc34, type: 3}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3718f38274dfcff4aa7a9a23cab1c418, type: 3}
+  m_Name: Pakistan
+  m_EditorClassIdentifier: Assembly-CSharp::CountryConfig
+  CountryName: Pakistan
+  BallPrefabPrew: {fileID: 8463237698111053587, guid: 466324255677dfa4a93b1356737e80cf, type: 3}
+  BallPrefabBattle: {fileID: 8463237698111053587, guid: d6a150fff73dae64c9de10dff21f584f, type: 3}
+  CountryGameplayConfig: {fileID: 11400000, guid: 88f1b42f5514db2449df5a9a3cf44f0f, type: 2}
+  PhysicsConfig: {fileID: 11400000, guid: c9578fd7ac15d1e49922e8513e65bbd9, type: 2}
+  CountryFlag: {fileID: 1823739946084153551, guid: b39d6d28020e7d14c99df0207be321df, type: 3}
+  DefaultAttacker: {fileID: 11400000, guid: 247eb8239f00281498950b9a876ebad5, type: 2}
+  DefaultAttackerSlotIndex: 0
+  DefaultSide: {fileID: 11400000, guid: cfc5930d0894beb45a8c10a813ca2ee0, type: 2}
+  CountrySlotsTemplate: {fileID: -8064433631447358553, guid: 50587ba011fd30b4aabc5d5c4d9ece30, type: 3}

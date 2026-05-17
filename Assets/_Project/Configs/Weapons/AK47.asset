@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   Name: AK-47
   Prefab: {fileID: 126546052518659635, guid: e0199b2e3fc9b384a839f0ea1d88fb38, type: 3}
-  Damage: 3
-  DefaultDamage: 1
+  Damage: 22
+  DefaultDamage: 22
   TargetStrategyConfig: {fileID: 11400000, guid: 3fe667365db772a4ca0c2153337d9e3c, type: 2}
-  ImageUI: {fileID: 1421550930487963169, guid: 4237ced6435cac94aa2aa116bdca9c8b, type: 3}
+  ImageUI: {fileID: 825105119288602423, guid: 9cc0ac223d5c7aa4eb271042b2b32c50, type: 3}
   _modules:
   - {fileID: 11400000, guid: 15d007150a5e6964cb62bda8a3ab4046, type: 2}
   - {fileID: 11400000, guid: 570817bf8d3ecbf458d26af41e26eaa6, type: 2}
   - {fileID: 11400000, guid: af5294f69febfc14ea8edd2072ab9525, type: 2}
   _activeWeaponType: 1
+  HasMarkerAbility: 0

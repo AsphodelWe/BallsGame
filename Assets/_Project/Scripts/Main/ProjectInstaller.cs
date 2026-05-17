@@ -9,6 +9,8 @@ public class ProjectInstaller : MonoBehaviour, IInstaller
     [SerializeField] private CameraController _cameraPrefab;
     [SerializeField] private AttackerData _attackerData;
     [SerializeField] private SideData _sideData;
+    [SerializeField] private CountryDatabase _countryDatabase;
+    [SerializeField] private TargetRegistry _targetStrategys;
 
     public void InstallBindings(ContainerBuilder containerBuilder)
     {
@@ -16,6 +18,10 @@ public class ProjectInstaller : MonoBehaviour, IInstaller
         containerBuilder.RegisterType(typeof(MapScaleProvider), new Type[] { typeof(IMapScaleProvider) }, Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
         containerBuilder.RegisterValue(_attackerData);
         containerBuilder.RegisterValue(_sideData);
+        containerBuilder.RegisterValue(_countryDatabase);
+        containerBuilder.RegisterValue(_targetStrategys);
+
+        Debug.Log("ывфвыфв");
 
 
         if (_cameraPrefab != null)

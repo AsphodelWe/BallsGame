@@ -61,3 +61,5 @@ MonoBehaviour:
   _cameraPrefab: {fileID: 7869907038135507132, guid: 3e2d7f9f33a2a7640b73f99fcca20a03, type: 3}
   _attackerData: {fileID: 11400000, guid: 2854f835789d31d4780fed84b731f2eb, type: 2}
   _sideData: {fileID: 11400000, guid: b68ab012b493d5c488d045b1abc735d5, type: 2}
+  _countryDatabase: {fileID: 11400000, guid: fee474ec836377443b9ac36d8bda17a6, type: 2}
+  _targetStrategys: {fileID: 11400000, guid: fc698f4c27946df4a98b351a59be9d9b, type: 2}

@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 1e8a2f0e61f151a4fa15dae9e65c04b8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4881682739844604249
+    second: CountryBallsList_0
+  - first:
+      213: -2742334867436885264
+    second: CountryBallsList_1
+  - first:
+      213: -8428574902281685251
+    second: CountryBallsList_2
+  - first:
+      213: 7393337522702517255
+    second: CountryBallsList_3
+  - first:
+      213: 4109319629543361649
+    second: CountryBallsList_4
+  - first:
+      213: -1027626830535710616
+    second: CountryBallsList_5
+  - first:
+      213: -7259704974064837223
+    second: CountryBallsList_6
+  - first:
+      213: 6945442907182383108
+    second: CountryBallsList_7
+  - first:
+      213: 4524342253418417845
+    second: CountryBallsList_8
+  - first:
+      213: -7620702276588566470
+    second: CountryBallsList_9
+  - first:
+      213: -748057769396743173
+    second: CountryBallsList_10
+  - first:
+      213: -6827999324924183684
+    second: CountryBallsList_11
+  - first:
+      213: 4228318731420245698
+    second: CountryBallsList_12
+  - first:
+      213: 3690409814982622615
+    second: CountryBallsList_13
+  - first:
+      213: -7450555271555878463
+    second: CountryBallsList_14
+  - first:
+      213: -6195746011110065365
+    second: CountryBallsList_15
+  - first:
+      213: 6824443062466013840
+    second: CountryBallsList_16
+  - first:
+      213: 6377541017653327846
+    second: CountryBallsList_17
+  - first:
+      213: 5605065374959490573
+    second: CountryBallsList_18
+  - first:
+      213: -5975994156653731891
+    second: CountryBallsList_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CountryBallsList_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 3669
+        width: 409
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ae18619967c04cb0800000000000000
+      internalID: -4881682739844604249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_1
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 3669
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0faa143b7f441f9d0800000000000000
+      internalID: -2742334867436885264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_2
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 3669
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df63aba68cfa70b80800000000000000
+      internalID: -8428574902281685251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_3
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 3669
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70400492e496a9660800000000000000
+      internalID: 7393337522702517255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_4
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 3669
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17cc8735e6c370930800000000000000
+      internalID: 4109319629543361649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_5
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 3669
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 868224c97d22db1f0800000000000000
+      internalID: -1027626830535710616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_6
+      rect:
+        serializedVersion: 2
+        x: 2633
+        y: 3669
+        width: 409
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99d9ab62ac8504b90800000000000000
+      internalID: -7259704974064837223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_7
+      rect:
+        serializedVersion: 2
+        x: 3069
+        y: 3669
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 400cc5a868b236060800000000000000
+      internalID: 6945442907182383108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_8
+      rect:
+        serializedVersion: 2
+        x: 3501
+        y: 3669
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5be8b49fe41b9ce30800000000000000
+      internalID: 4524342253418417845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_9
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 3227
+        width: 409
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a388de8d7a3dd3690800000000000000
+      internalID: -7620702276588566470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_10
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 3227
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf3d2af0c6d5e95f0800000000000000
+      internalID: -748057769396743173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_11
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 3227
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7b794f4ac21e31a0800000000000000
+      internalID: -6827999324924183684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_12
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 3227
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce1f6fcb710eaa30800000000000000
+      internalID: 4228318731420245698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_13
+      rect:
+        serializedVersion: 2
+        x: 1761
+        y: 3227
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79d77a19c28f63330800000000000000
+      internalID: 3690409814982622615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_14
+      rect:
+        serializedVersion: 2
+        x: 2215
+        y: 3227
+        width: 409
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c17f7b847f4a9890800000000000000
+      internalID: -7450555271555878463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_15
+      rect:
+        serializedVersion: 2
+        x: 2645
+        y: 3227
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2bbd3154d9440aa0800000000000000
+      internalID: -6195746011110065365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_16
+      rect:
+        serializedVersion: 2
+        x: 3073
+        y: 3227
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09a6a20deca45be50800000000000000
+      internalID: 6824443062466013840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_17
+      rect:
+        serializedVersion: 2
+        x: 3506
+        y: 3227
+        width: 410
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e7b5b114c3918850800000000000000
+      internalID: 6377541017653327846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_18
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 2791
+        width: 409
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d065d49f24139cd40800000000000000
+      internalID: 5605065374959490573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryBallsList_19
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 2791
+        width: 409
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcf18d80af0011da0800000000000000
+      internalID: -5975994156653731891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CountryBallsList_0: -4881682739844604249
+      CountryBallsList_1: -2742334867436885264
+      CountryBallsList_10: -748057769396743173
+      CountryBallsList_11: -6827999324924183684
+      CountryBallsList_12: 4228318731420245698
+      CountryBallsList_13: 3690409814982622615
+      CountryBallsList_14: -7450555271555878463
+      CountryBallsList_15: -6195746011110065365
+      CountryBallsList_16: 6824443062466013840
+      CountryBallsList_17: 6377541017653327846
+      CountryBallsList_18: 5605065374959490573
+      CountryBallsList_19: -5975994156653731891
+      CountryBallsList_2: -8428574902281685251
+      CountryBallsList_3: 7393337522702517255
+      CountryBallsList_4: 4109319629543361649
+      CountryBallsList_5: -1027626830535710616
+      CountryBallsList_6: -7259704974064837223
+      CountryBallsList_7: 6945442907182383108
+      CountryBallsList_8: 4524342253418417845
+      CountryBallsList_9: -7620702276588566470
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

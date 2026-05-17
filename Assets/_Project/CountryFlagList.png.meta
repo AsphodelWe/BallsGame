@@ -1,0 +1,662 @@
+fileFormatVersion: 2
+guid: b39d6d28020e7d14c99df0207be321df
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2937868761925725240
+    second: CountryFlagList_0
+  - first:
+      213: -5667338754539232941
+    second: CountryFlagList_1
+  - first:
+      213: 7718359417090783815
+    second: CountryFlagList_2
+  - first:
+      213: 6333529238893897401
+    second: CountryFlagList_3
+  - first:
+      213: 8258399758183270375
+    second: CountryFlagList_4
+  - first:
+      213: -112833080286180750
+    second: CountryFlagList_5
+  - first:
+      213: -7328168124788687607
+    second: CountryFlagList_6
+  - first:
+      213: 3910830551459599390
+    second: CountryFlagList_7
+  - first:
+      213: 1823739946084153551
+    second: CountryFlagList_8
+  - first:
+      213: -7188110988218966770
+    second: CountryFlagList_9
+  - first:
+      213: 6322547077364981464
+    second: CountryFlagList_10
+  - first:
+      213: -30934393109434320
+    second: CountryFlagList_11
+  - first:
+      213: 4516580066711278036
+    second: CountryFlagList_12
+  - first:
+      213: 1587966083021115443
+    second: CountryFlagList_13
+  - first:
+      213: 7111920519015361456
+    second: CountryFlagList_14
+  - first:
+      213: -6235078349422335020
+    second: CountryFlagList_15
+  - first:
+      213: -501181526010964116
+    second: CountryFlagList_16
+  - first:
+      213: 8498030240559623285
+    second: CountryFlagList_17
+  - first:
+      213: 8173604533007496965
+    second: CountryFlagList_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CountryFlagList_0
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 3676
+        width: 600
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c353b03de79a37d0800000000000000
+      internalID: -2937868761925725240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_1
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 3665
+        width: 620
+        height: 411
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35162e9fd619951b0800000000000000
+      internalID: -5667338754539232941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_2
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 3666
+        width: 617
+        height: 411
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74abc780ffe1d1b60800000000000000
+      internalID: 7718359417090783815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_3
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 3664
+        width: 613
+        height: 409
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b622da494735e750800000000000000
+      internalID: 6333529238893897401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_4
+      rect:
+        serializedVersion: 2
+        x: 2630
+        y: 3666
+        width: 601
+        height: 401
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e78faf33dabb9270800000000000000
+      internalID: 8258399758183270375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_5
+      rect:
+        serializedVersion: 2
+        x: 3266
+        y: 3665
+        width: 601
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27a01aa49e22f6ef0800000000000000
+      internalID: -112833080286180750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_6
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 3218
+        width: 588
+        height: 392
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d31a3baed1d4a90800000000000000
+      internalID: -7328168124788687607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_7
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 3222
+        width: 583
+        height: 388
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e149e748aaf064630800000000000000
+      internalID: 3910830551459599390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_8
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 3216
+        width: 597
+        height: 397
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc8390181d93f4910800000000000000
+      internalID: 1823739946084153551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_9
+      rect:
+        serializedVersion: 2
+        x: 1996
+        y: 3224
+        width: 593
+        height: 397
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d5025f323be3c90800000000000000
+      internalID: -7188110988218966770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_10
+      rect:
+        serializedVersion: 2
+        x: 2642
+        y: 3234
+        width: 577
+        height: 385
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8de160e81133eb750800000000000000
+      internalID: 6322547077364981464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_11
+      rect:
+        serializedVersion: 2
+        x: 3278
+        y: 3226
+        width: 589
+        height: 393
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 030be575559129ff0800000000000000
+      internalID: -30934393109434320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_12
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 2750
+        width: 600
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d19feb04ad1eae30800000000000000
+      internalID: 4516580066711278036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_13
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 2757
+        width: 596
+        height: 398
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33097d53db6990610800000000000000
+      internalID: 1587966083021115443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_14
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 2763
+        width: 601
+        height: 401
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bbe8be080e92b260800000000000000
+      internalID: 7111920519015361456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_15
+      rect:
+        serializedVersion: 2
+        x: 1970
+        y: 2772
+        width: 579
+        height: 386
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dbe3fba64d8879a0800000000000000
+      internalID: -6235078349422335020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_16
+      rect:
+        serializedVersion: 2
+        x: 2596
+        y: 2768
+        width: 577
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c67d026be027b09f0800000000000000
+      internalID: -501181526010964116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_17
+      rect:
+        serializedVersion: 2
+        x: 3218
+        y: 2763
+        width: 582
+        height: 387
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57c6513ba711fe570800000000000000
+      internalID: 8498030240559623285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_18
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 2289
+        width: 592
+        height: 393
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5073f64640a7e6170800000000000000
+      internalID: 8173604533007496965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CountryFlagList_19
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 2280
+        width: 600
+        height: 402
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 729240978878a8548ab2f0561c67fc48
+      internalID: -602772686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 95df46a6677f9724286e58ffe23f5be6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      CountryFlagList_0: -2937868761925725240
+      CountryFlagList_1: -5667338754539232941
+      CountryFlagList_10: 6322547077364981464
+      CountryFlagList_11: -30934393109434320
+      CountryFlagList_12: 4516580066711278036
+      CountryFlagList_13: 1587966083021115443
+      CountryFlagList_14: 7111920519015361456
+      CountryFlagList_15: -6235078349422335020
+      CountryFlagList_16: -501181526010964116
+      CountryFlagList_17: 8498030240559623285
+      CountryFlagList_18: 8173604533007496965
+      CountryFlagList_19: -602772686
+      CountryFlagList_2: 7718359417090783815
+      CountryFlagList_3: 6333529238893897401
+      CountryFlagList_4: 8258399758183270375
+      CountryFlagList_5: -112833080286180750
+      CountryFlagList_6: -7328168124788687607
+      CountryFlagList_7: 3910830551459599390
+      CountryFlagList_8: 1823739946084153551
+      CountryFlagList_9: -7188110988218966770
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

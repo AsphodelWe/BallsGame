@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3718f38274dfcff4aa7a9a23cab1c418, type: 3}
+  m_Name: Vietnam
+  m_EditorClassIdentifier: Assembly-CSharp::CountryConfig
+  CountryName: Vietnam
+  BallPrefabPrew: {fileID: 8463237698111053587, guid: 4cc7b71e22404854aa2d8d99a5199b2e, type: 3}
+  BallPrefabBattle: {fileID: 8463237698111053587, guid: 367a5808ed2bfbd4f880f71581f0a1a6, type: 3}
+  CountryGameplayConfig: {fileID: 11400000, guid: 6071f2d20fae94b4cb0ce598f4c206de, type: 2}
+  PhysicsConfig: {fileID: 11400000, guid: 44d9ef64bded7f24f9ec848a199ed577, type: 2}
+  CountryFlag: {fileID: -602772686, guid: b39d6d28020e7d14c99df0207be321df, type: 3}
+  DefaultAttacker: {fileID: 11400000, guid: b0b0ed1ae3117844880cea207a3130f3, type: 2}
+  DefaultAttackerSlotIndex: 0
+  DefaultSide: {fileID: 11400000, guid: 2cec1ce9b75247d41a0204cc158999ca, type: 2}
+  CountrySlotsTemplate: {fileID: 1495910694367994746, guid: d5bcd64325fe6f34eb971c4d4c28ca53, type: 3}

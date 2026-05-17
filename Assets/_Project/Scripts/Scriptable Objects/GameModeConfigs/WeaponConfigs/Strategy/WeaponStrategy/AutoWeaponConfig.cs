@@ -16,7 +16,6 @@ public class AutoWeaponConfig : ScriptableObject, IShootConfig, IMagazineWeapon
 
     public float RecoilForce = 5f;
     public float HitForce = 3f;
-    public float ReloadTime = 5f;
     public GameObject ShootEffectPrefab => _prefabShootEffect;
 
     float IShootConfig.BulletSpeed => BulletConfig.Speed;
@@ -25,7 +24,7 @@ public class AutoWeaponConfig : ScriptableObject, IShootConfig, IMagazineWeapon
     float IShootConfig.FireRate => FireRate;
     GameObject IShootConfig.BulletPrefab => BulletConfig.Prefab;
 
-    float IMagazineWeapon.ReloadTime => ReloadTime;
+    float IMagazineWeapon.ReloadTime => FireRateMagazine;
     int IMagazineWeapon.MaxAmmo => MaxAmmo;
 
 

@@ -18,6 +18,7 @@ MonoBehaviour:
   CountryGameplayConfig: {fileID: 11400000, guid: 0bdd8632b07c32d41bbf16c7ba49141f, type: 2}
   PhysicsConfig: {fileID: 11400000, guid: 02a13c47ceb48654bb880de78f887032, type: 2}
   CountryFlag: {fileID: 2755318649702372677, guid: 0f4031342a07ac443b7fcdd507b7b1ce, type: 3}
-  DefaultAttacker: {fileID: 11400000, guid: c1308458f2339a344ad231dea37dbe07, type: 2}
+  DefaultAttacker: {fileID: 11400000, guid: f4fccf3ebcc86b848bfea4d24f2afc07, type: 2}
   DefaultAttackerSlotIndex: 0
-  DefaultSide: {fileID: 11400000, guid: e2b465edb15b5db45a1604f5c27b01d2, type: 2}
+  DefaultSide: {fileID: 11400000, guid: 1b41bc08d83ab69459bfca838b264c46, type: 2}
+  CountrySlotsTemplate: {fileID: -7673524646520443984, guid: 6861ddb69d688e54b82bfb1c0537f705, type: 3}

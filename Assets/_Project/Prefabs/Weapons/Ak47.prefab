@@ -105,7 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 466a48903ec00264cb8d38cd73b6c754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  Name: AK-47
   _firePoint: {fileID: 1292726587213918558}
 --- !u!1 &6924746528194850859
 GameObject:
@@ -132,7 +131,7 @@ Transform:
   m_GameObject: {fileID: 6924746528194850859}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.44, y: 0.79, z: 0}
+  m_LocalPosition: {x: 11.43, y: 0.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acee4bf57a877464db041e2244e116a9, type: 3}
+  m_Name: Mosin-Nagant
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
+  Name: Mosin-Nagant
+  Prefab: {fileID: 126546052518659635, guid: 0911db161810f2c43a75e5170fbf8337, type: 3}
+  Damage: 90
+  DefaultDamage: 90
+  TargetStrategyConfig: {fileID: 11400000, guid: 16a617cc9d57cf94ea5abe5e98564051, type: 2}
+  ImageUI: {fileID: 3712560666559498246, guid: ca965eea73bd690408879e414ed5254c, type: 3}
+  _modules:
+  - {fileID: 11400000, guid: 2434e5b5f313d26418e29a5964267ee3, type: 2}
+  _activeWeaponType: 3
+  HasMarkerAbility: 1

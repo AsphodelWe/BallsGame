@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using ConditionalField;
 using UnityEngine;
 
@@ -9,7 +10,8 @@ public class WeaponConfig : AttackerConfig
     [SerializeField] private List<ScriptableObject> _modules;
 
     [SerializeField] private AttackWeaponType _activeWeaponType;
-    [SerializeField] private bool HasMarkerAbility;
+
+    [SerializeField] private bool HasMarkerAbility = false;
 
     public override AttackType AttackerType => AttackType.Gun;
 
@@ -62,7 +64,19 @@ public class WeaponConfig : AttackerConfig
         return allowed;
     }
 
-    public void SetActiveWeaponType(AttackWeaponType type) => _activeWeaponType = type;
+    public void SetActiveWeaponType(AttackWeaponType type)
+    {
+        var allowedTypes = GetAllowedWeaponTypes();
+        if (allowedTypes.Contains(type))
+        {
+            _activeWeaponType = type;
+        }
+        else
+        {
+            Debug.LogWarning($"WeaponConfig: {Name} не поддерживает {type}. Установлен первый доступный.");
+            _activeWeaponType = allowedTypes.FirstOrDefault();
+        }
+    }
     public AttackWeaponType GetActiveWeaponType() => _activeWeaponType;
 
 

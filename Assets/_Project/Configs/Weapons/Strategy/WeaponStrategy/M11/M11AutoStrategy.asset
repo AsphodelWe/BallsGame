@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4756b0791f3d8a644a04de639c8957c9, type: 3}
   m_Name: M11AutoStrategy
   m_EditorClassIdentifier: Assembly-CSharp::AutoWeaponConfig
-  FireRate: 0.05
+  FireRate: 0.07
   BulletConfig: {fileID: 11400000, guid: 861bf8517ad6e2d459a822b7d48fa0ee, type: 2}
   MaxAmmo: 30
-  FireRateMagazine: 2
+  FireRateMagazine: 2.8
   _prefabShootEffect: {fileID: 4674043691350975746, guid: 9894454b1cf82e14f8c8580a6a4d8e35, type: 3}
-  RecoilForce: 1
-  HitForce: 3
-  ReloadTime: 6
+  RecoilForce: 3
+  HitForce: 1.5
   ShootSound: {fileID: 8300000, guid: f2dd39c5101f5a94097a8b87908a19a2, type: 3}
   ShootVolume: 0.5
   WeaponType: 1

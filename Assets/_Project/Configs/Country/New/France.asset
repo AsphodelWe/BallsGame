@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3718f38274dfcff4aa7a9a23cab1c418, type: 3}
+  m_Name: France
+  m_EditorClassIdentifier: Assembly-CSharp::CountryConfig
+  CountryName: France
+  BallPrefabPrew: {fileID: 8463237698111053587, guid: 887b92f507b6b7244925c45be8834b06, type: 3}
+  BallPrefabBattle: {fileID: 8463237698111053587, guid: 57470cb4d0267904ca586913281393b8, type: 3}
+  CountryGameplayConfig: {fileID: 11400000, guid: 2a49e4fd66805d747a49b8df8ec90b04, type: 2}
+  PhysicsConfig: {fileID: 11400000, guid: ac2e2ef48a42c7142816da2dec752245, type: 2}
+  CountryFlag: {fileID: 7718359417090783815, guid: b39d6d28020e7d14c99df0207be321df, type: 3}
+  DefaultAttacker: {fileID: 11400000, guid: dbe1190532ee1cd40bbcddac270b33f5, type: 2}
+  DefaultAttackerSlotIndex: 0
+  DefaultSide: {fileID: 11400000, guid: 3c07519a6681690469b4454b46ea3aea, type: 2}
+  CountrySlotsTemplate: {fileID: 4680025195157050891, guid: 1f78c308a454427419a7839be8d4ba70, type: 3}

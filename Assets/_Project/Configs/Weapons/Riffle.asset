@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   Name: Riffle
   Prefab: {fileID: 126546052518659635, guid: 875e4719a4f70cb4ab5a7a899dcc9f99, type: 3}
-  Damage: 100
-  DefaultDamage: 1
+  Damage: 85
+  DefaultDamage: 85
   TargetStrategyConfig: {fileID: 11400000, guid: 16a617cc9d57cf94ea5abe5e98564051, type: 2}
-  ImageUI: {fileID: -9083002490964022906, guid: a005a23eb9b65fb4db51fd96594a2299, type: 3}
+  ImageUI: {fileID: 3836953461801612454, guid: 0ccb0ab0b43449f48ae89ddd1b48f4ae, type: 3}
   _modules:
   - {fileID: 11400000, guid: faeea1bd178502845a68daa20409fadb, type: 2}
   _activeWeaponType: 3

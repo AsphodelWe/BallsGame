@@ -9,30 +9,29 @@ public class BallPresent : MonoBehaviour, IDamagable
 {
     [Inject] private BallRegistry _ballRegistry;
     [Inject] IMasterFactory _masterFactory;
-
-    [Header("Аттакер")]
-    [SerializeField] private AttackerConfig _attackerConfig;
-    [Header("Физика")]
-    [SerializeField] private BallPhysics _ballPhysics;
-
-    [Header("Вью")]
-    [SerializeField] private BallView _ballView;
-
-    [Header("Оружие")]
     [SerializeField] private Transform _weaponSlots;
-    [Header("Здоровье")]
-    [SerializeField] private BallHealth _ballHealth;
+    private BallPhysics _ballPhysics;
+    private BallView _ballView;
+    private BallHealth _ballHealth;
     private BallData _ballData;
     private Master _master;
     public event Action OnDestroyed;
+
+    private void Awake()
+    {
+        _ballPhysics = GetComponent<BallPhysics>();
+        _ballView = GetComponent<BallView>();
+        _ballHealth = GetComponent<BallHealth>();
+    }
+
     public void Initialize(BallData ballData)
     {
         _ballData = ballData;
-
         _ballPhysics.Initialize(_ballData.PhysicsConfig);
         _ballHealth.Initialize(_ballData.MaxHealth);
-        _ballHealth.OnDied += Die;
         _ballView.Initialize(ballData.Flag);
+
+        _ballHealth.OnDied += Die;
 
         var slot = _weaponSlots.Cast<Transform>().OrderBy(t => t.GetSiblingIndex()).ToArray()[ballData.SelectedSloIndex];
 

@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d73e20a50c3c44d8fff0b430a9368d, type: 3}
   m_Name: StatsIran
   m_EditorClassIdentifier: Assembly-CSharp::CountryGameplayConfig
-  BaseSpeed: 6
-  DefaultMaxHealth: 50
+  DefaultMaxHealth: 300

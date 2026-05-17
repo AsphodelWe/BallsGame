@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3718f38274dfcff4aa7a9a23cab1c418, type: 3}
+  m_Name: Egypt
+  m_EditorClassIdentifier: Assembly-CSharp::CountryConfig
+  CountryName: Egypt
+  BallPrefabPrew: {fileID: 8463237698111053587, guid: 6436892b15f066343b36fbbe48ba728d, type: 3}
+  BallPrefabBattle: {fileID: 8463237698111053587, guid: 0c9ce2eedf4e35f4dafce00219c81bb2, type: 3}
+  CountryGameplayConfig: {fileID: 11400000, guid: 0b094c243f0c25847b791e5f6fca4204, type: 2}
+  PhysicsConfig: {fileID: 11400000, guid: 5cbc6f0fde77f044a80a4391988d7c2d, type: 2}
+  CountryFlag: {fileID: 8173604533007496965, guid: b39d6d28020e7d14c99df0207be321df, type: 3}
+  DefaultAttacker: {fileID: 11400000, guid: b483254e489ea604b9ebb728df7ec76a, type: 2}
+  DefaultAttackerSlotIndex: 0
+  DefaultSide: {fileID: 11400000, guid: 63df01ba61477f548ab57ce751e4bbec, type: 2}
+  CountrySlotsTemplate: {fileID: 370612832417381616, guid: 9e48bcc22fdb449469fe06515ecd8219, type: 3}

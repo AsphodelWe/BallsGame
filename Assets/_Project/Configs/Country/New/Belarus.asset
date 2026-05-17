@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3718f38274dfcff4aa7a9a23cab1c418, type: 3}
+  m_Name: Belarus
+  m_EditorClassIdentifier: Assembly-CSharp::CountryConfig
+  CountryName: Belarus
+  BallPrefabPrew: {fileID: 8463237698111053587, guid: 8be6915c2cf638a428bec15696d89b03, type: 3}
+  BallPrefabBattle: {fileID: 8463237698111053587, guid: 323479774d016fa46904e232719a7580, type: 3}
+  CountryGameplayConfig: {fileID: 11400000, guid: e505e2453b4696a47aa5c9480a99047f, type: 2}
+  PhysicsConfig: {fileID: 11400000, guid: a2e6543986a5e8741a037af5a931dc3f, type: 2}
+  CountryFlag: {fileID: -501181526010964116, guid: b39d6d28020e7d14c99df0207be321df, type: 3}
+  DefaultAttacker: {fileID: 11400000, guid: 10cf2fd0668b924429e4e31ffe169a50, type: 2}
+  DefaultAttackerSlotIndex: 0
+  DefaultSide: {fileID: 11400000, guid: 07e7bd02e494d3441abc80b9d4733378, type: 2}
+  CountrySlotsTemplate: {fileID: -6021270362379660082, guid: b2c287c5344e14045b2d81d881e1179a, type: 3}
