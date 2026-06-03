@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: MyStrings_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 871ef289237f4094cb190f8cdb707812, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 116132622336
+    m_Localized: START
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6510718169088
+    m_Localized: GAME SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6625465937920
+    m_Localized: CONTROL SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6709616259072
+    m_Localized: EXIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7358835798016
+    m_Localized: PLACEMENT UNIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7518676529152
+    m_Localized: PLACE UNIT - CLICK COUNTRY - CLICK MAP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8051839676416
+    m_Localized: BATTLE STATE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8244375007232
+    m_Localized: R - RESET LEVEL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8429826158592
+    m_Localized: R+CTRL - EXIT MENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13824275722240
+    m_Localized: COUNTRY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13925127761920
+    m_Localized: WEAPON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13992282763264
+    m_Localized: COUNTRY SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14159434166272
+    m_Localized: COUNTRY NAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14243785814016
+    m_Localized: WEAPON NAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14348962181120
+    m_Localized: SLOT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14426829434880
+    m_Localized: SIDE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14525462687744
+    m_Localized: HEALTH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14596912656384
+    m_Localized: SAVE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14683155935232
+    m_Localized: WEAPON SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14806665605120
+    m_Localized: DAMAGE EVERY BULLET
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14895802953728
+    m_Localized: TARGET STRATEGY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15015239954432
+    m_Localized: SHOOT STRATEGY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15149373796352
+    m_Localized: SAVE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32944371216384
+    m_Localized: WEAPON NAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38948911656960
+    m_Localized: FIRERATE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39112858611712
+    m_Localized: RELOAD TIME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39236762546176
+    m_Localized: MAX AMMO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39410272514048
+    m_Localized: RECOIL FORCE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39522562420736
+    m_Localized: HIT FORCE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39617370468352
+    m_Localized: BURST DELAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39798501486592
+    m_Localized: BURST SIZE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39921746915328
+    m_Localized: SPREAD ANGLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45680278843392
+    m_Localized: RESTART
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45839641423872
+    m_Localized: EXIT TO MENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46311408349184
+    m_Localized: Clear Ghosts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46448805359616
+    m_Localized: Battle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46618217492480
+    m_Localized: Map Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46794206294016
+    m_Localized: MAP SCALE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46895838474240
+    m_Localized: MAP ROTATION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48381871992832
+    m_Localized: NEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58026875367424
+    m_Localized: RECTANGLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58109717065728
+    m_Localized: CIRCLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58138817146880
+    m_Localized: RHOMBUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58217082859520
+    m_Localized: LABYRINTH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58339678171136
+    m_Localized: DELTA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 77855640465408
+    m_Localized: "is SAVE\u2705"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

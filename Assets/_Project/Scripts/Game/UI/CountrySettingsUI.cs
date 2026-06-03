@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using R3;
 using Reflex.Attributes;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UIElements;
 
 public class CountrySettingsUI : MonoBehaviour
@@ -35,6 +36,8 @@ public class CountrySettingsUI : MonoBehaviour
     public Subject<Unit> OnClosed { get; } = new();
     private CompositeDisposable _disposables = new();
     private int _lastSelectedButtonIndex = 0;
+
+    [SerializeField] private LocalizedString _saveMessage;
 
 
     private void Awake()
@@ -177,9 +180,14 @@ public class CountrySettingsUI : MonoBehaviour
         _selectedCountry.CountryGameplayConfig.MaxHealth = (int)_healthField.value;
 
         CountrySaveSystem.SaveCountry(_selectedCountry);
-        ShowToast($"<color=#ffaf24>{_selectedCountry.CountryName}</color>\nis SAVE✅");
 
-        Observable.Timer(TimeSpan.FromSeconds(2)).Subscribe(_ => _saveButton.SetEnabled(true)).AddTo(_disposables);
+
+        //ShowToast($"<color=#ffaf24>{_selectedCountry.CountryName}</color>\nis SAVE✅");
+
+        string localizedMessage = _saveMessage.GetLocalizedString();
+        ShowToast($"<color=#ffaf24>{_selectedCountry.CountryName}</color>\n{localizedMessage}");
+
+        _saveButton.schedule.Execute(() => _saveButton.SetEnabled(true)).ExecuteLater(2000);
     }
 
 

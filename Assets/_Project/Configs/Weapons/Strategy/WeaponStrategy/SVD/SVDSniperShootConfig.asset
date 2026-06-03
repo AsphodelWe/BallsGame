@@ -18,6 +18,6 @@ MonoBehaviour:
   RecoilForce: 7.5
   HitForce: 6
   _isMarkTarget: 0
-  ShootSound: {fileID: 8300000, guid: 2df8c767fcd7dbc41b26cfc1267ecd1f, type: 3}
+  ShootSound: {fileID: 8300000, guid: 3370c7ab672598746b6310f95f73c3ad, type: 3}
   ShootVolume: 0.5
   WeaponType: 3

@@ -1,0 +1,33 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UXML/USS/MapSelection.uss?fileID=7433441132597879392&amp;guid=87010d8199fba35478d0df7ee1770e49&amp;type=3#MapSelection"/>
+    <ui:VisualElement name="ClosetButtonContainer" style="flex-grow: 1; background-color: rgb(0, 0, 0);">
+        <ui:Button text="" name="ClosetButton" class="buttonAnimation" style="align-self: flex-end; background-image: url(&quot;project://database/Assets/UI%20button%20pack%202/Red/close-red.png?fileID=2800000&amp;guid=897ac04d3fecfdb44b94aaf7b44d778a&amp;type=3#close-red&quot;); background-color: rgba(188, 188, 188, 0); flex-grow: 1; width: 8%; margin-top: 10px; margin-right: 10px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="ControlContainer" style="flex-grow: 18; background-color: rgb(0, 0, 0); align-self: auto; justify-content: center;">
+        <ui:Label text="map State" name="MapStateText" style="color: rgb(0, 0, 0); -unity-text-align: upper-center; font-size: 100px; -unity-font-definition: url(&quot;project://database/Assets/_Project/UXML/bangerscyrillic.otf?fileID=12800000&amp;guid=fdb19c849bbcc28408e08e8c823b0cf0&amp;type=3#bangerscyrillic&quot;); white-space: normal; background-color: rgb(255, 255, 255);">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="text" table="GUID:871ef289237f4094cb190f8cdb707812" entry="Id(7358835798016)"/>
+            </Bindings>
+        </ui:Label>
+        <ui:Label text="Place Unit - Clik Country - click Map" name="MapStateInfo" style="color: rgb(255, 171, 0); -unity-text-align: upper-center; font-size: 100px; -unity-font-definition: url(&quot;project://database/Assets/_Project/UXML/bangerscyrillic.otf?fileID=12800000&amp;guid=fdb19c849bbcc28408e08e8c823b0cf0&amp;type=3#bangerscyrillic&quot;); white-space: normal;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="text" table="GUID:871ef289237f4094cb190f8cdb707812" entry="Id(7518676529152)"/>
+            </Bindings>
+        </ui:Label>
+        <ui:Label text="Battle state" name="BattleStateText" style="color: rgb(0, 0, 0); -unity-text-align: upper-center; font-size: 100px; -unity-font-definition: url(&quot;project://database/Assets/_Project/UXML/bangerscyrillic.otf?fileID=12800000&amp;guid=fdb19c849bbcc28408e08e8c823b0cf0&amp;type=3#bangerscyrillic&quot;); white-space: normal; background-color: rgb(255, 255, 255); margin-top: 72px;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="text" table="GUID:871ef289237f4094cb190f8cdb707812" entry="Id(8051839676416)"/>
+            </Bindings>
+        </ui:Label>
+        <ui:Label text="R - Reset Level" name="ResetLevelInfo" style="color: rgb(255, 255, 255); -unity-text-align: upper-center; font-size: 100px; -unity-font-definition: url(&quot;project://database/Assets/_Project/UXML/bangerscyrillic.otf?fileID=12800000&amp;guid=fdb19c849bbcc28408e08e8c823b0cf0&amp;type=3#bangerscyrillic&quot;);">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="text" table="GUID:871ef289237f4094cb190f8cdb707812" entry="Id(8244375007232)"/>
+            </Bindings>
+        </ui:Label>
+        <ui:Label text="R+CTRL - Exit Menu" name="ExitMeniInfo" style="color: rgb(255, 255, 255); -unity-text-align: upper-center; font-size: 100px; -unity-font-definition: url(&quot;project://database/Assets/_Project/UXML/bangerscyrillic.otf?fileID=12800000&amp;guid=fdb19c849bbcc28408e08e8c823b0cf0&amp;type=3#bangerscyrillic&quot;);">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="text" table="GUID:871ef289237f4094cb190f8cdb707812" entry="Id(8429826158592)"/>
+            </Bindings>
+        </ui:Label>
+    </ui:VisualElement>
+</ui:UXML>

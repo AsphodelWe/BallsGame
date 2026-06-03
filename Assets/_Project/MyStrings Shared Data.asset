@@ -1,0 +1,212 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: MyStrings Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: MyStrings
+  m_TableCollectionNameGuidString: 871ef289237f4094cb190f8cdb707812
+  m_Entries:
+  - m_Id: 116132622336
+    m_Key: ID_START
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6510718169088
+    m_Key: ID_SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6625465937920
+    m_Key: ID_CONTROL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6709616259072
+    m_Key: ID_EXIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7358835798016
+    m_Key: ID_CONTROL_PLACEMENT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7518676529152
+    m_Key: ID_CONTROL_PLACEMENT_MANUAL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8051839676416
+    m_Key: ID_CONTROL_BATTLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8244375007232
+    m_Key: ID_CONTROL_BATTLE_MANUAL_RESET
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8429826158592
+    m_Key: ID_CONTROL_BATTLE_MANUAL_EXITMENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13824275722240
+    m_Key: ID_TAB_COUNTRY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13925127761920
+    m_Key: ID_TAB_WEAPON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13992282763264
+    m_Key: ID_COUNTRYTAB_COUNTRYSETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14159434166272
+    m_Key: ID_COUNTRYTAB_COUNTRYNAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14243785814016
+    m_Key: ID_COUNTRYTAB_WEAPONNAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14348962181120
+    m_Key: ID_COUNTRYTAB_SLOTNAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14426829434880
+    m_Key: ID_COUNTRYTAB_SIDENAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14525462687744
+    m_Key: ID_COUNTRYTAB_HEALTH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14596912656384
+    m_Key: ID_COUNTRYTAB_SAVE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14683155935232
+    m_Key: ID_WEAPONTAB_SETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14806665605120
+    m_Key: ID_WEAPONTAB_DAMAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14895802953728
+    m_Key: ID_WEAPONTAB_TARGETSTRATEGY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15015239954432
+    m_Key: ID_WEAPONTAB_SHOOTSTRATEGY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15149373796352
+    m_Key: ID_WEAPONTAB_SAVE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32944371216384
+    m_Key: ID_WEAPONTAB_WEAPONNAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38948911656960
+    m_Key: ID_STATSWEAPON_FIRERATE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39112858611712
+    m_Key: ID_STATSWEAPON_RELOADTIME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39236762546176
+    m_Key: ID_STATSWEAPON_MAXAMMO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39410272514048
+    m_Key: ID_STATSWEAPON_RECOILFORCE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39522562420736
+    m_Key: ID_STATSWEAPON_HITFORCE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39617370468352
+    m_Key: ID_STATSWEAPON_BURSTDELAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39798501486592
+    m_Key: ID_STATSWEAPON_BURSTSIZE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39921746915328
+    m_Key: ID_STATSWEAPON_SPREADANGLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45680278843392
+    m_Key: ID_MOBILE_BATTLESTATE_RESTART
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45839641423872
+    m_Key: ID_MOBILE_BATTLESTATE_EXITMENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46311408349184
+    m_Key: ID_UNITSTATE_CLEARGHOSTS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46448805359616
+    m_Key: ID_UNITSTATE_BATTLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46618217492480
+    m_Key: ID_UNITSTATE_MAPSETTINGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46794206294016
+    m_Key: ID_UNITSTATE_MAPSCALE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46895838474240
+    m_Key: ID_UNITSTATE_MAPROTATION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48381871992832
+    m_Key: ID_MAPSTATE_NEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58026875367424
+    m_Key: ID_MAP_RECTANGLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58109717065728
+    m_Key: ID_MAP_CIRCLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58138817146880
+    m_Key: ID_MAP_RHOMBUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58217082859520
+    m_Key: ID_MAP_LABYRINTH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58339678171136
+    m_Key: ID_MAP_DELTA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 77855640465408
+    m_Key: ID_SAVEMESSAGE
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 3785164512447692918
+  references:
+    version: 2
+    RefIds:
+    - rid: 3785164512447692918
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1780484319430

@@ -53,6 +53,7 @@ public class BallPresent : MonoBehaviour, IDamagable
         _ballPhysics.ApplyForce(hitDirection, hitForce);
         _ballView.PlayHitEffect();
         _ballView.ShowDamageNumber(damage);
+        AudioSource.PlayClipAtPoint(_ballData.HitSound, transform.position, _ballData.Volume);
     }
 
     public void Die()

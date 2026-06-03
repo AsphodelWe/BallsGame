@@ -22,6 +22,10 @@ public class CountryConfig : ScriptableObject
     [NonSerialized] public int SelectedSlotIndex = -1;
     [NonSerialized] public SideConfig Side;
 
+    [Header("Sounds")]
+    [Range(0f, 1f)]public float Volume = 0.5f;
+    public AudioClip HitSound;
+
     [Header("Default")]
     public AttackerConfig DefaultAttacker;
     public int DefaultAttackerSlotIndex = 0;

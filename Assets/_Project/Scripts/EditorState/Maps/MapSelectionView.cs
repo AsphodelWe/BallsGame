@@ -1,11 +1,12 @@
 using Reflex.Attributes;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 
 public class MapSelectionView : MonoBehaviour, IMapView
 {
     private GameObject _currentMap;
-    public Collider2D GetCollider => _currentMap != null? _currentMap.GetComponent<Collider2D>(): null;
+    public Collider2D GetCollider => _currentMap != null ? _currentMap.GetComponent<Collider2D>() : null;
     public GameObject ShowMap(MapConfig mapConfig)
     {
         if (mapConfig == null)
@@ -25,6 +26,11 @@ public class MapSelectionView : MonoBehaviour, IMapView
         if (_currentMap == null)
         {
             Debug.LogError($"Failed to spawn preview for {mapConfig.name}");
+        }
+
+        foreach (var localizedString in _currentMap.GetComponentsInChildren<LocalizeStringEvent>())
+        {
+            localizedString.RefreshString();
         }
 
         return _currentMap;

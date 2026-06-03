@@ -18,6 +18,8 @@ MonoBehaviour:
   CountryGameplayConfig: {fileID: 11400000, guid: 2a77bd2a559fba44fa4de405ac406388, type: 2}
   PhysicsConfig: {fileID: 11400000, guid: 35c3ecb394afa6d40ba5724b42c46145, type: 2}
   CountryFlag: {fileID: -7111016083415345331, guid: 1472f719b707108478272177536814ec, type: 3}
+  Volume: 0.7
+  HitSound: {fileID: 8300000, guid: 622bf96b7613172409680ddf2daa5b7c, type: 3}
   DefaultAttacker: {fileID: 11400000, guid: 33d59aeb5aa30e94585fec805476ebc7, type: 2}
   DefaultAttackerSlotIndex: 0
   DefaultSide: {fileID: 11400000, guid: c2b89a13a4d110641952e0c15248f08e, type: 2}

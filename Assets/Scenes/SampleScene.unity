@@ -154,8 +154,6 @@ MonoBehaviour:
   _chooseMapUI: {fileID: 1121913158}
   _mapView: {fileID: 1279561090}
   _mapRegistry: {fileID: 11400000, guid: 828ba798ed9b26b458bcb822e91df332, type: 2}
-  _countryDatabase: {fileID: 11400000, guid: fee474ec836377443b9ac36d8bda17a6, type: 2}
-  _targetStrategys: {fileID: 11400000, guid: fc698f4c27946df4a98b351a59be9d9b, type: 2}
   _mobileUnitPlaceView: {fileID: 1167558953}
 --- !u!114 &418740796
 MonoBehaviour:
@@ -195,6 +193,7 @@ GameObject:
   - component: {fileID: 457933911}
   - component: {fileID: 457933910}
   - component: {fileID: 457933912}
+  - component: {fileID: 457933913}
   m_Layer: 0
   m_Name: UIunit
   m_TagString: Untagged
@@ -256,6 +255,20 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &457933913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457933909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db37524b21eb63246af0cdd85a138838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSounds
+  _defaultClickSound: {fileID: 8300000, guid: 8546b60498c9c7d43ab74be9445f35ed, type: 3}
+  _volume: 1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +540,7 @@ GameObject:
   - component: {fileID: 1121913157}
   - component: {fileID: 1121913156}
   - component: {fileID: 1121913158}
+  - component: {fileID: 1121913159}
   m_Layer: 5
   m_Name: ChooseMapUI
   m_TagString: Untagged
@@ -584,6 +598,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46dd409042f4071429908be025f3aab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChooseMapUI
+--- !u!114 &1121913159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121913155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db37524b21eb63246af0cdd85a138838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSounds
+  _defaultClickSound: {fileID: 8300000, guid: 8546b60498c9c7d43ab74be9445f35ed, type: 3}
+  _volume: 1
 --- !u!1 &1167558951
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +673,7 @@ GameObject:
   - component: {fileID: 1232585258}
   - component: {fileID: 1232585260}
   - component: {fileID: 1232585261}
+  - component: {fileID: 1232585262}
   m_Layer: 0
   m_Name: CountrySettings
   m_TagString: Untagged
@@ -702,6 +731,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775aaf6a5bd302245a4cd5e4cda5e507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CountrySettingsUI
+  _saveMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:871ef289237f4094cb190f8cdb707812
+    m_TableEntryReference:
+      m_KeyId: 77855640465408
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &1232585261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,6 +755,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df121491dcddde4aa68112f577eceed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponSettingsUI
+--- !u!114 &1232585262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232585256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db37524b21eb63246af0cdd85a138838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIButtonSounds
+  _defaultClickSound: {fileID: 8300000, guid: 8546b60498c9c7d43ab74be9445f35ed, type: 3}
+  _volume: 1
 --- !u!1 &1279561088
 GameObject:
   m_ObjectHideFlags: 0

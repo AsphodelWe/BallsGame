@@ -91,6 +91,7 @@ public class UnitPlacementState : BaseState
     private async void OnScaleChanged(float value)
     {
         _mapScaler.ChangeScale(value);
+        Physics2D.SyncTransforms();
         await UniTask.WaitForFixedUpdate();
         UpdateGhosts();
     }

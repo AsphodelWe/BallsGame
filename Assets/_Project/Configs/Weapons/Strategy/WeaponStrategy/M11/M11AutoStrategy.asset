@@ -19,6 +19,6 @@ MonoBehaviour:
   _prefabShootEffect: {fileID: 4674043691350975746, guid: 9894454b1cf82e14f8c8580a6a4d8e35, type: 3}
   RecoilForce: 3
   HitForce: 1.5
-  ShootSound: {fileID: 8300000, guid: f2dd39c5101f5a94097a8b87908a19a2, type: 3}
+  ShootSound: {fileID: 8300000, guid: b091fd61fed60654594017240e550399, type: 3}
   ShootVolume: 0.5
   WeaponType: 1

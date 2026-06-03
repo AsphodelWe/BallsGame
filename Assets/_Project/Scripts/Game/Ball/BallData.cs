@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class BallData
@@ -9,6 +10,8 @@ public class BallData
     public SideConfig SelectedSide { get; }
     public int SelectedSloIndex { get; }
     public int MaxHealth { get; }
+    public AudioClip HitSound;
+    public float Volume;
 
     public BallData(CountryConfig config)
     {
@@ -16,9 +19,13 @@ public class BallData
         PhysicsConfig = config.PhysicsConfig;
         Flag = config.CountryFlag;
 
+        HitSound = config.HitSound;
+        Volume = config.Volume;
+
         SelectedAttacker = config.SelectedAttacker ?? config.DefaultAttacker;
         SelectedSloIndex = config.SelectedSlotIndex >= 0 ? config.SelectedSlotIndex : config.DefaultAttackerSlotIndex;
         MaxHealth = config.CountryGameplayConfig.MaxHealth > 0? config.CountryGameplayConfig.MaxHealth: config.CountryGameplayConfig.DefaultMaxHealth;
         SelectedSide = config.Side?? config.DefaultSide;
+
     }
 }

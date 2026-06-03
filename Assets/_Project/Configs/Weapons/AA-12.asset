@@ -19,7 +19,7 @@ MonoBehaviour:
   TargetStrategyConfig: {fileID: 11400000, guid: 3fe667365db772a4ca0c2153337d9e3c, type: 2}
   ImageUI: {fileID: -4406867827841415038, guid: da606e594f08e1b43a685143f026749e, type: 3}
   _modules:
-  - {fileID: 11400000, guid: 35c5fb5846e1c4a4f8fc30e5e96dae38, type: 2}
+  - {fileID: 11400000, guid: cd9892ec382064e4db131f5b9571947f, type: 2}
   - {fileID: 11400000, guid: ef334808d8177f749a54a001bf12b8bb, type: 2}
   _activeWeaponType: 4
   HasMarkerAbility: 0

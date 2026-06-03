@@ -30,5 +30,5 @@
     -unity-font-style: bold;
     color: rgb(0, 0, 0);
     font-size: 47px;
-    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Electronic%20Highway%20Sign.TTF?fileID=12800000&guid=8a2b9e2a607dd2143b58c44bc32410b4&type=3#Electronic Highway Sign");
+    -unity-font-definition: url("project://database/Assets/_Project/20051.ttf?fileID=12800000&guid=653b1c1e7e9a53c4c9357260a2ebfa1c&type=3#20051");
 }

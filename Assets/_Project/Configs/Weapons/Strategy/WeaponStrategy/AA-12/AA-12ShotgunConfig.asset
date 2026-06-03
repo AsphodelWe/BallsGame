@@ -19,6 +19,6 @@ MonoBehaviour:
   HitForce: 3
   BulletCount: 5
   SpreadAngle: 25
-  ShootSound: {fileID: 8300000, guid: bf11a7279b2f4844bb8cf696b5712d8c, type: 3}
+  ShootSound: {fileID: 8300000, guid: 6f11d2cc0cc39c840840a1fdb897e2e7, type: 3}
   ShootVolume: 0.5
   WeaponType: 4
