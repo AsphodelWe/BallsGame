@@ -26,3 +26,21 @@
 - **UniTask** (асинхронность)
 - **JSON/PlayerPrefs** (сохранения)
 - **Паттерны:** Strategy, Factory, ObjectPool, StateMachine, EventBus, MVP
+
+- Клонируй репозиторий
+
+Открой в Unity (версия 2022.3 LTS или выше)
+
+Установи зависимости через Package Manager:
+
+R3 — https://github.com/Cysharp/R3.git?path=src/R3.Unity/Assets/R3.Unity
+
+UniTask — https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask
+
+Reflex — https://github.com/gustavopsantos/reflex.git
+
+DOTween — Установи через Asset Store (бесплатно)
+
+Открой сцену SampleScene
+
+Жми Play
