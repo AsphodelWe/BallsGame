@@ -11,9 +11,8 @@ public class SceneInstaller : MonoBehaviour, IInstaller
     [SerializeField] private ChooseMapUI _chooseMapUI;
     [SerializeField] private MapSelectionView _mapView;
     [SerializeField] private MapRegistry _mapRegistry;
-    //[SerializeField] private CountryDatabase _countryDatabase;
-    //[SerializeField] private TargetRegistry _targetStrategys;
     [SerializeField] private MobileUnitPlacementView _mobileUnitPlaceView;
+    [SerializeField] private WebGLUnitPlacementView _webGLUnitPlaceView;
     public void InstallBindings(ContainerBuilder builder)
     {
         builder.RegisterType(typeof(BuildController), Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
@@ -32,14 +31,14 @@ public class SceneInstaller : MonoBehaviour, IInstaller
 
         builder.RegisterValue(_unitUI, new Type[] { typeof(IUnitPlacementUI) });
 
-        #if UNITY_ANDROID || UNITY_IOS
-            builder.RegisterValue(_mobileUnitPlaceView, new Type[] { typeof(IUnitPlacementView) });
-        #else
-            builder.RegisterValue(_unitPlaceView, new Type[] { typeof(IUnitPlacementView) });
-        #endif 
 
+#if UNITY_ANDROID || UNITY_IOS
+       builder.RegisterValue(_mobileUnitPlaceView, new Type[] { typeof(IUnitPlacementView) });
+#elif UNITY_WEBGL
+        builder.RegisterValue(_webGLUnitPlaceView, new Type[] { typeof(IUnitPlacementView) });
+#else
+    builder.RegisterValue(_unitPlaceView, new Type[] { typeof(IUnitPlacementView) });
+#endif
 
-        //builder.RegisterValue(_countryDatabase);
-        //builder.RegisterValue(_targetStrategys);
     }
 }

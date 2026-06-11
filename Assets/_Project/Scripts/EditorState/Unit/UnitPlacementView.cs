@@ -27,7 +27,6 @@ public class UnitPlacementView : MonoBehaviour, IUnitPlacementView
     
     private void InitializeStreams()
     {
-        // Позиция мыши (каждый кадр при движении)
         Observable.EveryUpdate()
             .Where(_ => IsMouseValid())
             .Select(_ => GetWorldPosition())
@@ -36,7 +35,6 @@ public class UnitPlacementView : MonoBehaviour, IUnitPlacementView
             .Subscribe(pos => _mousePositionSubject.OnNext(pos))
             .AddTo(_disposables);
         
-        // Левый клик
         Observable.EveryUpdate()
             .Where(_ => IsMouseValid())
             .Where(_ => Mouse.current.leftButton.wasPressedThisFrame)
@@ -45,7 +43,6 @@ public class UnitPlacementView : MonoBehaviour, IUnitPlacementView
             .Subscribe(pos => _mouseLeftClickSubject.OnNext(pos))
             .AddTo(_disposables);
         
-        // Правый клик
         Observable.EveryUpdate()
             .Where(_ => IsMouseValid())
             .Where(_ => Mouse.current.rightButton.wasPressedThisFrame)

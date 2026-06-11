@@ -19,7 +19,6 @@ public class CountrySettingsUI : MonoBehaviour
     private VisualElement _root;
     private ListView _countrySettingsList;
     private CountryConfig _selectedCountry;
-
     private DropdownField _dropDownWeapon;
     private DropdownField _dropDownSlot;
     private DropdownField _dropDownSide;
@@ -181,8 +180,6 @@ public class CountrySettingsUI : MonoBehaviour
 
         CountrySaveSystem.SaveCountry(_selectedCountry);
 
-
-        //ShowToast($"<color=#ffaf24>{_selectedCountry.CountryName}</color>\nis SAVE✅");
 
         string localizedMessage = _saveMessage.GetLocalizedString();
         ShowToast($"<color=#ffaf24>{_selectedCountry.CountryName}</color>\n{localizedMessage}");

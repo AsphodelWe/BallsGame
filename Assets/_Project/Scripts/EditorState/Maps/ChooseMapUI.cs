@@ -10,7 +10,6 @@ public class ChooseMapUI : MonoBehaviour, IMapUI
     public Subject<Unit> OnNextClicked { get; } = new();
     public Subject<Unit> OnPreviousClicked { get; } = new();
     public Subject<Unit> OnNextStage { get; } = new();
-
     private CompositeDisposable _disposables = new();
 
     private void Awake()

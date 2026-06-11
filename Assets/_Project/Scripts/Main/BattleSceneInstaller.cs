@@ -7,8 +7,8 @@ public class BattleSceneInstaller : MonoBehaviour, IInstaller
 {
         [SerializeField] private BattleUI _battleUI;
         [SerializeField] private UIStrategyController _uiController;
-
         [SerializeField] private MobileInputHandler _mobileInputHandler;
+        [SerializeField] private WebGLInputHandler _webGLInputHandler;
         public void InstallBindings(ContainerBuilder builder)
         {
 
@@ -21,11 +21,12 @@ public class BattleSceneInstaller : MonoBehaviour, IInstaller
 
 
 #if UNITY_ANDROID || UNITY_IOS
-                builder.RegisterValue(_mobileInputHandler, new Type[] { typeof(IInputHandler) });
+        builder.RegisterValue(_mobileInputHandler, new Type[] { typeof(IInputHandler) });
+#elif UNITY_WEBGL
+        builder.RegisterValue(_webGLInputHandler, new Type[] { typeof(IInputHandler) });
 #else
         builder.RegisterType(typeof(KeyboardInputHandler), new Type[] { typeof(IInputHandler) }, Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
 #endif
-
 
                 builder.RegisterType(typeof(TimeManager), new Type[] { typeof(ITimeManager) }, Lifetime.Singleton, Reflex.Enums.Resolution.Lazy);
 

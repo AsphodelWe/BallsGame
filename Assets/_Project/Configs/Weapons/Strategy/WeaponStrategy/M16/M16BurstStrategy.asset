@@ -17,8 +17,8 @@ MonoBehaviour:
   BurstSize: 3
   BurstDelay: 2.3
   _prefabShootEffect: {fileID: 4674043691350975746, guid: c9d2c85e3548f14469e8296e88b6d41e, type: 3}
-  RecoilForce: 7
-  HitForce: 3
+  RecoilForce: 1
+  HitForce: 2
   ShootSound: {fileID: 8300000, guid: cf93f79353077234881a6749b0a120f9, type: 3}
   ShootVolume: 0.5
   WeaponType: 2

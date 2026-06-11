@@ -12,7 +12,6 @@ public class BallPhysics : MonoBehaviour
     private Rigidbody2D rb;
     private const float MIN_SPEED_THRESHOLD = 0.01f;
     private float _currentSpeedMultiplier;
-    private float _lastCollisionTime;
 
     public void Initialize(BallPhysicsConfig physicsConfig)
     {

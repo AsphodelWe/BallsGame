@@ -1,9 +1,9 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/_Project/UXML/USS/TabView.uss?fileID=7433441132597879392&amp;guid=0fca8c07b2a106e47945c3f60f1792c5&amp;type=3#TabView"/>
-    <Style src="project://database/Assets/_Project/UXML/USS/MapSelection.uss?fileID=7433441132597879392&amp;guid=87010d8199fba35478d0df7ee1770e49&amp;type=3#MapSelection"/>
-    <Style src="project://database/Assets/_Project/UXML/USS/SettingsSlider.uss?fileID=7433441132597879392&amp;guid=9244ab523de37994193159ce15694b03&amp;type=3#SettingsSlider"/>
-    <Style src="project://database/Assets/_Project/UXML/USS/SettingsParamLabel.uss?fileID=7433441132597879392&amp;guid=78deae8ecd7f822408069af5e21d88f8&amp;type=3#SettingsParamLabel"/>
-    <Style src="project://database/Assets/_Project/UXML/USS/SaveMessage.uss?fileID=7433441132597879392&amp;guid=bdef94bd158b71f45a8a95844510bef2&amp;type=3#SaveMessage"/>
+    <Style src="project://database/Assets/_Project/UXML/USS/TabView.uss?fileID=7433441132597879392&amp;guid=0fca8c07b2a106e47945c3f60f1792c5&amp;type=3"/>
+    <Style src="project://database/Assets/_Project/UXML/USS/MapSelection.uss?fileID=7433441132597879392&amp;guid=87010d8199fba35478d0df7ee1770e49&amp;type=3"/>
+    <Style src="project://database/Assets/_Project/UXML/USS/SettingsSlider.uss?fileID=7433441132597879392&amp;guid=9244ab523de37994193159ce15694b03&amp;type=3"/>
+    <Style src="project://database/Assets/_Project/UXML/USS/SettingsParamLabel.uss?fileID=7433441132597879392&amp;guid=78deae8ecd7f822408069af5e21d88f8&amp;type=3"/>
+    <Style src="project://database/Assets/_Project/UXML/USS/SaveMessage.uss?fileID=7433441132597879392&amp;guid=bdef94bd158b71f45a8a95844510bef2&amp;type=3"/>
     <ui:VisualElement name="Background" style="flex-grow: 1; position: absolute; background-color: rgb(0, 0, 0); width: 100%; height: 100%; display: flex;"/>
     <ui:VisualElement name="ClosetButtonElement" style="flex-grow: 1; position: absolute; right: 2%; top: 1%; width: 10%; height: 5%; align-self: auto; flex-direction: column; justify-content: center;">
         <ui:Button text="" name="ClosetButton" parse-escape-sequences="false" class="buttonAnimation" style="background-image: url(&quot;project://database/Assets/UI%20button%20pack%202/Red/close-red.png?fileID=2800000&amp;guid=897ac04d3fecfdb44b94aaf7b44d778a&amp;type=3#close-red&quot;); background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-size: 100% 100%; width: 100%; height: 50%; align-self: auto; flex-direction: row; flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"/>

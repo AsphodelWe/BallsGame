@@ -15,6 +15,7 @@ public class UnitPlacementUI : MonoBehaviour, IUnitPlacementUI
     [SerializeField] private UIDocument _settingsUIDocument;
     [SerializeField] private CountrySettingsUI _countrySettingsUI;
     [SerializeField] private MobileUnitPlacementView _mobilePlacementView;
+    [SerializeField] private WebGLUnitPlacementView _webGLPlacementView;
     private UIDocument _document;
     private VisualElement _root;
     private Button _battleButton;
@@ -64,11 +65,12 @@ public class UnitPlacementUI : MonoBehaviour, IUnitPlacementUI
             var button = buttonElement.Q<Button>();
             button.style.backgroundImage = new StyleBackground(country.CountryFlag);
 
-#if UNITY_ANDROID || UNITY_IOS
-            button.clicked += () => _mobilePlacementView?.PrepareForNewGhost(country);
-#else
+/* #if UNITY_ANDROID || UNITY_IOS || UNITY_WEBGL */
+            //button.clicked += () => _mobilePlacementView?.PrepareForNewGhost(country);
+/* #else
             button.clicked += () => OnSelectCountry.OnNext(country);
-#endif
+#endif */
+            button.clicked += () => _webGLPlacementView?.PrepareForNewGhost(country);
 
             container.Add(buttonElement);
         }

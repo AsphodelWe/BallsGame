@@ -95,9 +95,10 @@ public class BuildController : IDisposable
         _currentGhost.Place();
         OnGhostPlaced.OnNext(_currentGhost);
 
-#if UNITY_ANDROID || UNITY_IOS
+
+//#if UNITY_ANDROID || UNITY_IOS || UNITY_WEBGL
         _currentGhost = null;
-#else
+/* #else
         var country = _currentGhost.Country;
         _currentGhost = _ghostFactory.Create(country);
 
@@ -107,7 +108,7 @@ public class BuildController : IDisposable
             _currentGhost.SetPosition(mousePos);
             _currentGhost.SetColor(IsWithinMap(mousePos) ? Color.green : Color.red);
         }
-#endif
+#endif */
     }
 
     private void SetupDeleteLogic()

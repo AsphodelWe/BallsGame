@@ -21,8 +21,6 @@ public class ProjectInstaller : MonoBehaviour, IInstaller
         containerBuilder.RegisterValue(_countryDatabase);
         containerBuilder.RegisterValue(_targetStrategys);
 
-        Debug.Log("ывфвыфв");
-
 
         if (_cameraPrefab != null)
         {

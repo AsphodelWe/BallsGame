@@ -24,6 +24,7 @@ public class MobileUnitPlacementView : MonoBehaviour, IUnitPlacementView
     public LayerMask GetBallLayer => _ballLayer;
 
     private CountryConfig _pendingCountry;
+    
 
     private void Awake()
     {

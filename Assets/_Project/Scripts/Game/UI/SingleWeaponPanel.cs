@@ -26,7 +26,6 @@ public class SingleWeaponPanel : IWeaponPanel
             _fireRateSlider.value = single.FireRate;
             _recoilSlider.value = single.RecoilForce;
             _hitForceSlider.value = single.HitForce;
-            Debug.Log("ааа");
         }
     }
 
