@@ -106,4 +106,17 @@
 
 <p>Готово! Любая страна сможет взять в руки твоё новое оружие!</p>
 
+<h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">⚙️ Добавление новой стратегии стрельбы</h2>
+
+<ol>
+  <li>Создай новый класс, реализующий <code>IShootConfig</code> (и <code>IMagazineWeapon</code>, если нужна перезарядка).</li>
+  <li>Создай ScriptableObject-конфиг для новой стратегии в <code>Assets/_Project/Configs/Weapons/Strategy</code>.</li>
+  <li>Создай UI-панель, реализующую <code>IWeaponPanel</code>. Настрой слайдеры под параметры стратегии.</li>
+  <li>Зарегистрируй панель в <code>WeaponSettingsUI.RegisterWeaponPanels()</code>.</li>
+  <li>Добавь новый тип в <code>AttackWeaponType</code> enum.</li>
+  <li>Добавь обработку нового типа в <code>WeaponConfig.IsModuleOfActiveType()</code> и <code>GetAllowedWeaponTypes()</code>.</li>
+  <li>Добавь новый <code>case</code> в фабрику <code>WeaponAttackHandlerFactory</code> для создания хендлера.</li>
+</ol>
+
+<p>Готово! Новая стратегия появится в выпадающем списке редактора оружия.</p>
   
