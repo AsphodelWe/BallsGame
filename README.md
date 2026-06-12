@@ -28,14 +28,21 @@
 - **Паттерны:** Strategy, Factory, ObjectPool, StateMachine, EventBus, MVP
 
 <h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">🚀 Как запустить</h2>
-1. Клонируй репозиторий
-2. Открой в Unity (версия 6.3 или выше)
-3. Установи зависимости:
-    R3 — [https://github.com/Cysharp/R3](https://github.com/Cysharp/R3)
-    UniTask — [https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask](https://github.com/cysharp/unitask)
-    Reflex — [https://github.com/gustavopsantos/reflex.git](https://github.com/gustavopsantos/reflex)
-    DOTween — Установи через Asset Store
-4. Открой сцену SampleScene
+
+<ol>
+  <li>Клонируй репозиторий</li>
+  <li>Открой в Unity (версия 6.3 или выше)</li>
+  <li>Установи зависимости:
+    <ul>
+      <li><b>R3</b> — <a href="https://github.com/Cysharp/R3">github.com/Cysharp/R3</a></li>
+      <li><b>UniTask</b> — <a href="https://github.com/Cysharp/UniTask">github.com/Cysharp/UniTask</a></li>
+      <li><b>Reflex</b> — <a href="https://github.com/gustavopsantos/reflex">github.com/gustavopsantos/reflex</a></li>
+      <li><b>DOTween</b> — Установи через Asset Store (бесплатно)</li>
+    </ul>
+  </li>
+  <li>Открой сцену <code>SampleScene</code></li>
+  <li>Жми Play</li>
+</ol>
 
 <h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">🔗 Ссылки</h2>
 
