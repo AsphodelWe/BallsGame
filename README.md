@@ -1,4 +1,4 @@
-# Countryballs Battle
+<h2 align="center" style="font-weight: bold; font-size: 22px; margin-bottom: 30px;">Countryballs Battle</h2>
 Конструктор сражений между странами-шарами. Выбери сторону, настрой оружие и запусти битву!
 <p align="center">
   <img src="https://img.shields.io/badge/Unity-6.3-black?logo=unity" />
