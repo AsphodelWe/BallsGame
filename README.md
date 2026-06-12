@@ -1,12 +1,11 @@
+# Countryballs Battle
+Конструктор сражений между странами-шарами. Выбери сторону, настрой оружие и запусти битву!
 <p align="center">
   <img src="https://img.shields.io/badge/Unity-6.3-black?logo=unity" />
   <img src="https://img.shields.io/badge/C%23-Advanced-blue?logo=csharp" />
   <img src="https://img.shields.io/badge/Яндекс%20Игры-Опубликовано-green" />
   <img src="https://img.shields.io/badge/license-MIT-brightgreen" />
 </p>
-# Countryballs Battle
-Конструктор сражений между странами-шарами. Выбери сторону, настрой оружие и запусти битву!
-
 <h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">🎮 Скриншоты</h2>
 <div style="display: flex; justify-content: space-around;">
     <img src="Screenshots/1.PNG" width="400" alt="Меню" />
