@@ -58,27 +58,27 @@
 
 <h3 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 20px;">🖼️ Спрайты</h3>
 <ol>
-  <li>Добавь спрайт флага в общий Tile-спрайт (Assets/_Project/Sprites/MultiplierSprites/CountryFlagList.png) или отдельным файлом ~600×400.</li>
-  <li>Добавь спрайт шара в общий Tile-спрайт (Assets/_Project/Sprites/MultiplierSprites/CountryBallsList.png) или отдельным файлом ~410×410.</li>
-  <li>(Опционально) Для UI добавь спрайт-пример со слотами для оружия под нужную страну. (Assets/_Project/Sprites/CountrySlotsTemplate) ~300×300.</li>
+  <li>Добавь спрайт флага в общий Tile-спрайт <code>CountryFlagList.png</code> или отдельным файлом ~600×400.</li>
+  <li>Добавь спрайт шара в общий Tile-спрайт <code>CountryBallsList.png</code> или отдельным файлом ~410×410.</li>
+  <li>(Опционально) Для UI добавь спрайт-пример со слотами для оружия под нужную страну ~300×300.</li>
 </ol>
 
 <h3 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 20px;">🧱 Префабы</h3>
 <ol start="4">
-  <li>Копируй префаб любой страны в (Assets/_Project/Prefabs/Country/Prew), замени спрайт, переименуй.</li>
-  <li>Копируй префаб любой страны в (Assets/_Project/Prefabs/Country/Battle), замени спрайт, переименуй.</li>
+  <li>Скопируй префаб любой страны в <code>Assets/_Project/Prefabs/Country/Prew</code>, замени спрайт, переименуй.</li>
+  <li>Скопируй префаб любой страны в <code>Assets/_Project/Prefabs/Country/Battle</code>, замени спрайт, переименуй.</li>
 </ol>
 
 <h3 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 20px;">🛠️ Конфиги</h3>
 <ol start="6">
-  <li>Скопируй конфиг ФИЗИКИ любой страны в (Assets/_Project/Configs/Country/Physics), настрой, переименуй.</li>
-  <li>Скопируй конфиг СТАТОВ любой страны в (Assets/_Project/Configs/Country/Stats), настрой, переименуй.</li>
-  <li>(Опционально) Скопируй конфиг СТОРОНЫ любой страны в (Assets/_Project/Configs/Side/CountrySide), настрой, переименуй.</li>
-  <li>Скопируй конфиг любой страны в (Assets/_Project/Configs/Country). Переименуй, заполни поля созданными выше спрайтами\конфигами. Заполни Default (Attacker, Slot, Side).</li>
-  <li>Добавь конфиг в CountryDatabase в (Assets/_Project/Configs/Main).</li>
+  <li>Скопируй конфиг <b>ФИЗИКИ</b> любой страны в <code>Assets/_Project/Configs/Country/Physics</code>, настрой, переименуй.</li>
+  <li>Скопируй конфиг <b>СТАТОВ</b> любой страны в <code>Assets/_Project/Configs/Country/Stats</code>, настрой, переименуй.</li>
+  <li>(Опционально) Скопируй конфиг <b>СТОРОНЫ</b> любой страны в <code>Assets/_Project/Configs/Side/CountrySide</code>, настрой, переименуй.</li>
+  <li>Скопируй конфиг любой страны в <code>Assets/_Project/Configs/Country</code>. Переименуй, заполни поля созданными выше спрайтами/конфигами. Заполни <b>Default</b> (Attacker, Slot, Side).</li>
+  <li>Добавь конфиг в <code>CountryDatabase</code> в <code>Assets/_Project/Configs/Main</code>.</li>
 </ol>
 
-<p>Готово! Новая страна появится в меню выбора и будет участвовать в битвах.</p>
+<p>✅ Готово! Новая страна появится в меню выбора и будет участвовать в битвах.</p>
 
 <h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">🔫 Добавление оружия</h2>
 
