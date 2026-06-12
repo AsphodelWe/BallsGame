@@ -44,21 +44,32 @@
 - [YouTube-канал с анимацией]([ссылка](https://www.youtube.com/@BallsBattle-g3u))
 
   -----------------------------------------------------------------------------------------
-  <h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">📖 Гайды по расширению</h2>
-  <h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">🌍 Добавление страны</h2>
-  <h2 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 30px;">🖼️ Спрайты</h2>
-  1. Добавь спрайт флага в общий Tile-спрайт (Assets/_Project/Sprites/MultiplierSprites/CountryFlagList.png) или отдельным файлом ~600×400.
-  2. Добавь спрайт шара в общий Tile-спрайт (Assets/_Project/Sprites/MultiplierSprites/CountryBallsList.png) или отдельным файлом ~410×410.
-  3. (Опционально) Для UI добавь спрайт-пример со слотами для оружия под нужную страну. (Assets/_Project/Sprites/CountrySlotsTemplate) ~300×300.
-    <h2 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 30px;">🧱 Префабы</h2>
-  4. Копируй префаб любой страны в (Assets/_Project/Prefabs/Country/Prew), замени спрайт, переименуй.
-  5. Копируй префаб любой страны в (Assets/_Project/Prefabs/Country/Battle), замени спрайт, переименуй.
-    <h2 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 30px;">🛠️ Конфиги</h2>
-  6. Скопируй конфиг ФИЗИКИ любой страны в (Assets/_Project/Configs/Country/Physics), настрой, переименуй.
-  7. Скопируй конфиг СТАТОВ любой страны в (Assets/_Project/Configs/Country/Stats), настрой, переименуй.
-  8. (Опционально) Скопируй конфиг СТОРОНЫ любой страны в (Assets/_Project/Configs/Side/CountrySide), настрой, переименуй.
-  9. Скопируй конфиг любой страны в (Assets/_Project/Configs/Country). Переименуй, заполни поля созданными выше спрайтами\конфигами. Заполни Default (Attacker, Slot, Side).
-  10. Добавь конфиг в CountryDatabase в (Assets/_Project/Configs/Main).
 
-  Готово! Новая страна появится в меню выбора и будет участвовать в битвах.
+  <h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">📖 Гайды по расширению</h2>
+
+<h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">🌍 Добавление страны</h2>
+
+<h3 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 20px;">🖼️ Спрайты</h3>
+<ol>
+  <li>Добавь спрайт флага в общий Tile-спрайт (Assets/_Project/Sprites/MultiplierSprites/CountryFlagList.png) или отдельным файлом ~600×400.</li>
+  <li>Добавь спрайт шара в общий Tile-спрайт (Assets/_Project/Sprites/MultiplierSprites/CountryBallsList.png) или отдельным файлом ~410×410.</li>
+  <li>(Опционально) Для UI добавь спрайт-пример со слотами для оружия под нужную страну. (Assets/_Project/Sprites/CountrySlotsTemplate) ~300×300.</li>
+</ol>
+
+<h3 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 20px;">🧱 Префабы</h3>
+<ol start="4">
+  <li>Копируй префаб любой страны в (Assets/_Project/Prefabs/Country/Prew), замени спрайт, переименуй.</li>
+  <li>Копируй префаб любой страны в (Assets/_Project/Prefabs/Country/Battle), замени спрайт, переименуй.</li>
+</ol>
+
+<h3 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 20px;">🛠️ Конфиги</h3>
+<ol start="6">
+  <li>Скопируй конфиг ФИЗИКИ любой страны в (Assets/_Project/Configs/Country/Physics), настрой, переименуй.</li>
+  <li>Скопируй конфиг СТАТОВ любой страны в (Assets/_Project/Configs/Country/Stats), настрой, переименуй.</li>
+  <li>(Опционально) Скопируй конфиг СТОРОНЫ любой страны в (Assets/_Project/Configs/Side/CountrySide), настрой, переименуй.</li>
+  <li>Скопируй конфиг любой страны в (Assets/_Project/Configs/Country). Переименуй, заполни поля созданными выше спрайтами\конфигами. Заполни Default (Attacker, Slot, Side).</li>
+  <li>Добавь конфиг в CountryDatabase в (Assets/_Project/Configs/Main).</li>
+</ol>
+
+<p>Готово! Новая страна появится в меню выбора и будет участвовать в битвах.</p>
   
