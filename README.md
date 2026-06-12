@@ -79,4 +79,31 @@
 </ol>
 
 <p>Готово! Новая страна появится в меню выбора и будет участвовать в битвах.</p>
+
+<h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">🔫 Добавление оружия</h2>
+
+<h3 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 20px;">🖼️ Спрайты</h3>
+<ol>
+  <li>Добавь спрайт оружия (дуло смотрит направо) в <code>Assets/_Project/Sprites/Weapons</code>. Рекомендуемый размер: ~1000×300.</li>
+  <li>Добавь спрайт UI-кнопки оружия в <code>Assets/_Project/Sprites/WeaponsIcon</code>. Рекомендуемый размер: ~400×250.</li>
+</ol>
+
+<h3 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 20px;">🧱 Префабы</h3>
+<ol start="3">
+  <li>Скопируй префаб любого оружия в <code>Assets/_Project/Prefabs/Weapons</code>. Замени спрайт, переименуй. Подгони Scale (по умолчанию ~0.15×0.15). Установи <code>FirePoint</code> на дуло.</li>
+</ol>
+
+<h3 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 20px;">🛠️ Конфиги и стратегии</h3>
+<ol start="4">
+  <li>Скопируй конфиг любого оружия в <code>Assets/_Project/Configs/Weapons</code>. Переименуй, заполни поля <code>Name</code>, <code>Prefab</code>, <code>ImageUI</code>.</li>
+  <li>Создай папку для стратегий нового оружия в <code>Assets/_Project/Configs/Weapons/Strategy/WeaponStrategy</code>.</li>
+  <li>Создай боевые стратегии, которые может реализовать оружие. <code>Create → ScriptableObject → Burst/Auto/Single/Shotgun/Sniper...Config</code>. Настрой параметры.</li>
+  <li>Вернись к конфигу оружия. Добавь созданные стратегии в поле <code>Modules</code>. Укажи <code>Active Weapon Type</code> — базовую стратегию.</li>
+  <li>Добавь конфиг нового оружия в <code>AttackerData</code> (<code>Assets/_Project/Configs/Main</code>).</li>
+</ol>
+
+<p>💡 <b>Вместо шагов 5–6</b> можешь просто скопировать любую стратегию из другого оружия и поменять параметры, если необходимо.</p>
+
+<p>Готово! Любая страна сможет взять в руки твоё новое оружие!</p>
+
   
