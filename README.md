@@ -27,20 +27,38 @@
 - **JSON/PlayerPrefs** (сохранения)
 - **Паттерны:** Strategy, Factory, ObjectPool, StateMachine, EventBus, MVP
 
-- Клонируй репозиторий
+<h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">🚀 Как запустить</h2>
+1. Клонируй репозиторий
+2. Открой в Unity (версия 6.3 или выше)
+3. Установи зависимости:
+    R3 — [https://github.com/Cysharp/R3](https://github.com/Cysharp/R3)
+    UniTask — [https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask](https://github.com/cysharp/unitask)
+    Reflex — [https://github.com/gustavopsantos/reflex.git](https://github.com/gustavopsantos/reflex)
+    DOTween — Установи через Asset Store
+4. Открой сцену SampleScene
 
-Открой в Unity (версия 2022.3 LTS или выше)
+<h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">🔗 Ссылки</h2>
 
-Установи зависимости через Package Manager:
+- [Яндекс Игры](позже)
+- [PC\Android] (https://github.com/AsphodelWe/BallsGame/releases)
+- [YouTube-канал с анимацией]([ссылка](https://www.youtube.com/@BallsBattle-g3u))
 
-R3 — https://github.com/Cysharp/R3.git?path=src/R3.Unity/Assets/R3.Unity
+  -----------------------------------------------------------------------------------------
+  <h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">📖 Гайды по расширению</h2>
+  <h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">🌍 Добавление страны</h2>
+  <h2 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 30px;">🖼️ Спрайты</h2>
+  1. Добавь спрайт флага в общий Tile-спрайт (Assets/_Project/Sprites/MultiplierSprites/CountryFlagList.png) или отдельным файлом ~600×400.
+  2. Добавь спрайт шара в общий Tile-спрайт (Assets/_Project/Sprites/MultiplierSprites/CountryBallsList.png) или отдельным файлом ~410×410.
+  3. (Опционально) Для UI добавь спрайт-пример со слотами для оружия под нужную страну. (Assets/_Project/Sprites/CountrySlotsTemplate) ~300×300.
+    <h2 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 30px;">🧱 Префабы</h2>
+  4. Копируй префаб любой страны в (Assets/_Project/Prefabs/Country/Prew), замени спрайт, переименуй.
+  5. Копируй префаб любой страны в (Assets/_Project/Prefabs/Country/Battle), замени спрайт, переименуй.
+    <h2 align="center" style="font-weight: bold; font-size: 14px; margin-bottom: 30px;">🛠️ Конфиги</h2>
+  6. Скопируй конфиг ФИЗИКИ любой страны в (Assets/_Project/Configs/Country/Physics), настрой, переименуй.
+  7. Скопируй конфиг СТАТОВ любой страны в (Assets/_Project/Configs/Country/Stats), настрой, переименуй.
+  8. (Опционально) Скопируй конфиг СТОРОНЫ любой страны в (Assets/_Project/Configs/Side/CountrySide), настрой, переименуй.
+  9. Скопируй конфиг любой страны в (Assets/_Project/Configs/Country). Переименуй, заполни поля созданными выше спрайтами\конфигами. Заполни Default (Attacker, Slot, Side).
+  10. Добавь конфиг в CountryDatabase в (Assets/_Project/Configs/Main).
 
-UniTask — https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask
-
-Reflex — https://github.com/gustavopsantos/reflex.git
-
-DOTween — Установи через Asset Store (бесплатно)
-
-Открой сцену SampleScene
-
-Жми Play
+  Готово! Новая страна появится в меню выбора и будет участвовать в битвах.
+  
