@@ -46,9 +46,11 @@
 
 <h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">🔗 Ссылки</h2>
 
-- [Яндекс Игры](позже)
-- [PC\Android] (https://github.com/AsphodelWe/BallsGame/releases)
-- [YouTube-канал с анимацией]([ссылка](https://www.youtube.com/@BallsBattle-g3u))
+<ul>
+  <li>Яндекс Игры (позже)</li>
+  <li><a href="https://github.com/AsphodelWe/BallsGame/releases">PC / Android</a></li>
+  <li><a href="https://www.youtube.com/@BallsBattle-g3u">YouTube-канал по игре</a></li>
+</ul>
 
   -----------------------------------------------------------------------------------------
 
