@@ -33,7 +33,6 @@
 - **Паттерны:** Strategy, Factory, ObjectPool, StateMachine, EventBus, MVP
 
 <h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">🚀 Как запустить</h2>
-<<<<<<< Updated upstream
 
 <ol>
   <li>Клонируй репозиторий</li>
@@ -49,16 +48,6 @@
   <li>Открой сцену <code>SampleScene</code></li>
   <li>Жми Play</li>
 </ol>
-=======
-1. Клонируй репозиторий
-2. Открой в Unity (версия 6.3 или выше)
-3. Установи зависимости:
-    R3 — [https://github.com/Cysharp/R3](https://github.com/Cysharp/R3)
-    UniTask — [https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask](https://github.com/cysharp/unitask)
-    Reflex — [https://github.com/gustavopsantos/reflex.git](https://github.com/gustavopsantos/reflex)
-    DOTween — Установи через Asset Store
-4. Открой сцену SampleScene
->>>>>>> Stashed changes
 
 <h2 align="center" style="font-weight: bold; font-size: 18px; margin-bottom: 30px;">🔗 Ссылки</h2>
 
@@ -137,4 +126,3 @@
 </ol>
 
 <p>Готово! Новая стратегия появится в выпадающем списке редактора оружия.</p>
-  
